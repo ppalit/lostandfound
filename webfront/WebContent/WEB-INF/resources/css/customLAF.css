@@ -1,0 +1,16 @@
+body {
+	padding-top: 0%;
+}
+
+h1 {
+	font-size: 36pt;
+}
+
+.main-content {
+	margin-top: 100px;
+	text-align: center;
+}
+
+.serif {
+	font-family: "Times New Roman", Times, serif;
+}
