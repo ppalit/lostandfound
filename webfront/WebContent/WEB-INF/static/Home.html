@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bootstrap 101 Template</title>
+<title>L&F</title>
 
 <!-- Bootstrap -->
 <link href="../resources/css/bootstrap.min.css" rel="stylesheet">
@@ -12,6 +12,8 @@
 <!-- Custom CSS -->
 <link href="../resources/css/full-slider.css" rel="stylesheet">
 <link href="../resources/css/customLAF.css" rel="stylesheet">
+<!-- Custom CSS FOR scrolling menu links -->
+<link href="../resources/css/scrolling-nav.css" rel="stylesheet">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -22,7 +24,7 @@
 
 
 </head>
-<body>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script
@@ -31,108 +33,182 @@
 	<script src="../resources/js/bootstrap.min.js"></script>
 	<script src="../resources/js/JQUERY-1.11.2.min.js"></script>
 
+	<!-- Scrolling Nav JavaScript -->
+	<script src="../resources/js/jquery.easing.min.js"></script>
+	<script src="../resources/js/scrolling-nav.js"></script>
+
 	<!-- Le styles -->
-	
-	<!-- 	<h1>Hello, world!</h1> -->
-
-	<!-- 	<div class="form-group"> -->
-	<!-- 		<input type="text" class="form-control" placeholder="Search"> -->
-	<!-- 	</div> -->
-	<!-- 	<button type="submit" class="btn btn-default">Submit</button> -->
-
 
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
+			<div class="navbar-header page-scroll">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#bs-example-navbar-collapse-1">
+					data-target="#landf-navbar">
 					<span class="sr-only">Toggle navigation</span> <span
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Hello </a>
+				<a class="navbar-brand page-scroll" href="#">Hello </a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
+			<div class="collapse navbar-collapse" id="landf-navbar">
 				<ul class="nav navbar-nav">
-					<li><a href="#">About</a></li>
-					<li><a href="#">Services</a></li>
-					<li><a href="#">Contact</a></li>
+					<li><a class="page-scroll" href="#">About</a></li>
+					<li><a class="page-scroll" href="#register">Found Item</a></li>
+					<li><a class="page-scroll" href="#">Services</a></li>
+					<li><a class="page-scroll" href="#contact">Contact</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
 		</div>
 		<!-- /.container -->
 	</nav>
- <!-- Full Page Image Background Carousel Header -->
-    <header id="myCarousel" class="carousel slide">
-       
+	<!-- Full Page Image Background Carousel Header -->
+	<header id="myCarousel" class="carousel">
 
-        <!-- Wrapper for Slides -->
-      
-                <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('../resources/img/bg-image.jpg');">
-		<div class="container-fluid" style="padding-top: 5%;">
-			<div class='main-content white'>
-				<div class="row">
-					<div class="col-lg-2 col-md-2"></div>
-					<div class="col-lg-8 col-md-8">
-					<h1>	Hundreds of Thousands of Items Lost Every Day </h1>
+
+		<!-- Wrapper for Slides -->
+
+		<!-- Set the first background image using inline CSS below. -->
+		<div class="fill"
+			style="background-image: url('../resources/img/bg-image.jpg');">
+			<div class="container-fluid" style="padding-top: 5%;">
+				<div class='main-content white'>
+					<div class="row">
+						<div class="col-lg-2 col-md-2"></div>
+						<div class="col-lg-8 col-md-8">
+							<h1>Hundreds of Thousands of Items Lost Every Day</h1>
+						</div>
+						<div class="col-lg-2 col-md-2"></div>
 					</div>
-					<div class="col-lg-2 col-md-2"></div>		
-				</div>
-				<div class="row">
-					<div class="col-lg-3 col-md-3"></div>
-					<div class="col-lg-6 col-md-6">
-			
-							<h2 class="serif" >Have you <b><span class="blue">Lost </span> </b>or <b><span class="blue">Found </span> </b> something!</h2>
-						<div class="input-group">
-							<input type="text" class="form-control"
-								placeholder="Search for...">
-							<div class="input-group-btn">
-								<button type="submit" class="btn btn-success">Search</button>
-								<!-- 								<button type="submit" class="btn btn-success">Found</button> -->
+					<div class="row">
+						<div class="col-lg-3 col-md-3"></div>
+						<div class="col-lg-6 col-md-6">
+
+							<h2 class="serif">
+								Have you <b><span class="blue">Lost </span> </b>or <b><span
+									class="blue">Found </span> </b> something!
+							</h2>
+							<div class="input-group">
+								<input type="text" class="form-control"
+									placeholder="Search for...">
+								<div class="input-group-btn">
+									<button type="submit" class="btn btn-success">Search</button>
+									<!-- 								<button type="submit" class="btn btn-success">Found</button> -->
+								</div>
 							</div>
 						</div>
+						<div class="col-lg-3 col-md-3"></div>
 					</div>
-					<div class="col-lg-3 col-md-3"></div>
+					<div class="row">
+						<div class="col-lg-10 col-md-10"></div>
+						<div class="col-lg-2 col-md-2">
+						<ul class="nav pull-right scroll-top">
+  <li><a class="page-scroll"  href="#register" title="Scroll to top"><b>Found </b> <i class="glyphicon glyphicon-chevron-down"></i></a></li>
+</ul>
+							
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-	
-      			</div>
+	</header>
+	<!-- Page Content -->
+	<section id="register" class="register">
+		<div class="container">
+			<div class="row">
+				<form role="form">
+					<div class="col-lg-6">
+						<h2 class="serif">
+							<b>List Found Item</b>
+						</h2>
+						<div class="well well-sm">
+							<strong><span class="glyphicon glyphicon-asterisk"></span>Required
+								Field</strong>
+						</div>
+						<div class="form-group">
+							<label for="InputName">Enter Name</label>
+							<div class="input-group">
+								<input type="text" class="form-control" name="InputName"
+									id="InputName" placeholder="Enter Name" required> <span
+									class="input-group-addon"><span
+									class="glyphicon glyphicon-asterisk"></span></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="InputEmail">Enter Email</label>
+							<div class="input-group">
+								<input type="email" class="form-control" id="InputEmailFirst"
+									name="InputEmail" placeholder="Enter Email" required> <span
+									class="input-group-addon"><span
+									class="glyphicon glyphicon-asterisk"></span></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="InputEmail">Contact Details</label>
+							<div class="input-group">
+								<input type="email" class="form-control" id="InputEmailSecond"
+									name="InputEmail" placeholder="Confirm Email" >
+								<span class="input-group-addon"></span>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="InputMessage">Item Desciption</label>
+							<div class="input-group">
+								<textarea name="InputMessage" id="InputMessage"
+									class="form-control" rows="5" required></textarea>
+								<span class="input-group-addon"><span
+									class="glyphicon glyphicon-asterisk"></span></span>
+							</div>
+						</div>
+						<input type="submit" name="submit" id="submit" value="Submit"
+							class="btn btn-info pull-right">
+					</div>
+				</form>
+				<div class="col-lg-5 col-md-push-1">
+					<div class="col-md-12">
+						<!-- 						<div class="alert alert-success"> -->
+						<!-- 							<strong><span class="glyphicon glyphicon-ok"></span> -->
+						<!-- 								Success! Message sent.</strong> -->
+						<!-- 						</div> -->
+						<!-- 						<div class="alert alert-danger"> -->
+						<!-- 							<span class="glyphicon glyphicon-remove"></span><strong> -->
+						<!-- 								Error! Please check all page inputs.</strong> -->
+						<!-- 						</div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-    
-    </header>
+	<!-- Contact Section -->
+	<section id="contact" class="contact-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<h1>Contact Section</h1>
+				</div>
+			</div>
+		</div>
+	</section>
+	<hr>
 
-	 <!-- Page Content -->
-    <div class="container">
+	<!-- Footer -->
+	<footer>
+		<div class="row">
+			<div class="col-lg-12">
+				<p>Copyright &copy; LF 2015</p>
+			</div>
+		</div>
+		<!-- /.row -->
+	</footer>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <h1>Test data</h1>
-                <p>Test data Test dataTest dataTest dataTest dataTest dataTest dataTest data</p>
-            </div>
-        </div>
 
-        <hr>
+	<!-- /.container -->
 
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; LF 2015</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
 
-    </div>
-    <!-- /.container -->
-	
-	
 
 
 
