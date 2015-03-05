@@ -29,5 +29,5 @@ $(window).resize(sizeContent);
 //Dynamically assign height
 function sizeContent() {
   var newHeight = $("html").height()  + "px";
-  $("#myCarousel").css("height", newHeight);
+  $(".myCarousel").css("height", newHeight);
 }

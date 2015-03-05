@@ -6,8 +6,8 @@ html {
 }
 
 
-#myCarousel{
-	margin:0;
+.myCarousel{
+	width:100%
 }
 
 body {

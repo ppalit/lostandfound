@@ -9,12 +9,19 @@
 	<ui:composition template="../template/common/commonLayout.xhtml">
 
 		<ui:define name="content">
+			<h:panelGroup layout="block" id="resultsId"
+		class="myCarousel">
+			<h:panelGroup layout="block" class='main-content'>
+					<div class="row">
+						<div class="col-lg-2 col-md-2"></div>
+						<div class="col-lg-8 col-md-8">
+							<h1>result = "#{searchController.search}"</h1>
+						</div>
+						<div class="col-lg-2 col-md-2"></div>
+					</div>
 			
-			
-			result = "#{searchController.search}"
-			
-			
-		siddddddddddddddddddddd
+		</h:panelGroup>
+		</h:panelGroup>
 		</ui:define>
 
 	</ui:composition>
