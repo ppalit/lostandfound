@@ -8,8 +8,7 @@ import org.springframework.stereotype.Controller;
 
 
 
-@Controller
-@Scope("request")
+
 public class BaseController {
 
 	public String getSuccess(){
