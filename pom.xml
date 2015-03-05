@@ -11,6 +11,6 @@
 
   <modules>
         <module>webfront</module>
-        <module>WebLostFound</module>
+        <module>webLostFound</module>
   </modules>
 </project>
