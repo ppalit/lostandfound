@@ -6,7 +6,12 @@ body {
 h1 {
 	font-size: 36pt;
 }
-
+.background{
+	background-image: url("../img/bg-image.jpg");
+}
+.background-d{
+background-image:url("#{resource['img:bg-image.jpg']}");
+}
 .main-content {
 	margin-top: 100px;
 	text-align: center;
