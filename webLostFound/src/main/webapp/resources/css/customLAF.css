@@ -1,6 +1,5 @@
 body {
-	  padding-top: 50px;
-  
+padding-top: 50px;
 }
 
 h1 {
@@ -10,7 +9,7 @@ h1 {
 	background-image: url("../img/bg-image.jpg");
 }
 .background-d{
-background-image:url("#{resource['resources/img/bg-image.jpg']}");
+background-image:url("#{resource['img:bg-image.jpg']}");
 }
 .main-content {
 	margin-top: 100px;
