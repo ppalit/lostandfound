@@ -52,4 +52,20 @@ public class SearchController extends BaseController {
 		this.search = search;
 	}
 
+
+	/**
+	 * @return the searchResultBean
+	 */
+	public List<SearchRelsultBean> getSearchResultBean() {
+		return searchResultBean;
+	}
+
+
+	/**
+	 * @param searchResultBean the searchResultBean to set
+	 */
+	public void setSearchResultBean(List<SearchRelsultBean> searchResultBean) {
+		this.searchResultBean = searchResultBean;
+	}
+
 }
