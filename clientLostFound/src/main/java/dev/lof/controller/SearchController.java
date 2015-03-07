@@ -13,7 +13,7 @@ import javax.faces.bean.SessionScoped;
 import dev.lof.controller.bean.SearchRelsultBean;
 
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class SearchController extends BaseController {
 	
 	
