@@ -12,5 +12,6 @@
   <modules>
         <module>webfront</module>
         <module>webLostFound</module>
+         <module>clientLostFound</module>
   </modules>
 </project>
