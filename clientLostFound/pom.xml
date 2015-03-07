@@ -33,7 +33,7 @@
 		<richfaces.version>4.3.7.Final</richfaces.version>
 
 	</properties>
-
+	
 	<dependencies>
 
 		<!-- Spring framework -->
@@ -86,31 +86,6 @@
 			<version>2.2</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.richfaces.ui</groupId>
-			<artifactId>richfaces-components-api</artifactId>
-			<version>${richfaces.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.richfaces.ui</groupId>
-			<artifactId>richfaces-components-ui</artifactId>
-			<version>${richfaces.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.richfaces.core</groupId>
-			<artifactId>richfaces-core-impl</artifactId>
-			<version>${richfaces.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>javax.enterprise</groupId>
-			<artifactId>cdi-api</artifactId>
-			<version>1.2</version>
-		</dependency>
-
-		
 		<!-- Tomcat 6 need this -->
 		<dependency>
 			<groupId>com.sun.el</groupId>
@@ -118,13 +93,20 @@
 			<version>1.0</version>
 		</dependency>
 
-		<!-- JSR-330 -->
+		<!-- JSR-330 --> 
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
+			
 
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<version>1.2</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>

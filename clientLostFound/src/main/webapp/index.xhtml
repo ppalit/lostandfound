@@ -7,9 +7,19 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
       >
  
- <head></head>
-		
+ <h:head></h:head>
+		<h:body>
+		<h:form id='t1'>
 <!--     	   	<ui:include src="pages/home.xhtml" /> -->
-    	   	
-    	 
+    	   	<h:inputText id='search' value="#{searchSessionBean.searchQuery}"
+									styleClass="form-control"></h:inputText>
+								<h:panelGroup layout="block" styleClass="input-group-btn">
+									<h:commandButton styleClass="btn btn-success"
+										action="#{searchSessionBean.navigate}" name="Search" value="Search">
+									
+									</h:commandButton>
+									
+								</h:panelGroup>
+								</h:form>
+    	 </h:body>
 </html>
