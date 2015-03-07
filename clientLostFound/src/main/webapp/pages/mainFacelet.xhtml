@@ -30,17 +30,20 @@
 
 							<h2 class="serif">Second Test HEader Hwllo World</h2>
 							<div class="input-group">
-
-
-								<h:inputText id='search' value="#{searchController.search}"
+							
+							
+							<h:inputText id='search' value="#{searchSessionBean.searchQuery}"
 									styleClass="form-control"></h:inputText>
 								<h:panelGroup layout="block" styleClass="input-group-btn">
 									<h:commandButton styleClass="btn btn-success"
-										action="#{searchController.callSearchService}" name="Search" value="Search">
-										
+										action="#{searchSessionBean.navigate}" name="Search" value="Search">
+									
 									</h:commandButton>
 									
 								</h:panelGroup>
+								
+
+
 
 
 								<!-- 								<input type="text" class="form-control" -->

@@ -11,14 +11,23 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 
 import dev.lof.controller.bean.SearchRelsultBean;
+import dev.lof.controller.bean.SearchSessionBean;
 
 @ManagedBean
 @RequestScoped
 public class SearchController extends BaseController {
 	
-	
 	private String search;
 	private List<SearchRelsultBean> searchResultBean;
+	
+	@ManagedProperty("#{searchSessionBean}")
+	private SearchSessionBean searchSessionBean;
+	
+	@PostConstruct
+	public void onload(){
+		search=searchSessionBean.getSearchQuery();
+		callSearchService();
+	}
 	
 	public String callSearchService(){
 		if(search==null){
@@ -68,6 +77,22 @@ public class SearchController extends BaseController {
 	 */
 	public void setSearchResultBean(List<SearchRelsultBean> searchResultBean) {
 		this.searchResultBean = searchResultBean;
+	}
+
+
+
+	/**
+	 * @return the searchSessionBean
+	 */
+	public SearchSessionBean getSearchSessionBean() {
+		return searchSessionBean;
+	}
+
+	/**
+	 * @param searchSessionBean the searchSessionBean to set
+	 */
+	public void setSearchSessionBean(SearchSessionBean searchSessionBean) {
+		this.searchSessionBean = searchSessionBean;
 	}
 
 }
