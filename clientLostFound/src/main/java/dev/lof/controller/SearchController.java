@@ -20,8 +20,7 @@ public class SearchController extends BaseController {
 	private String search;
 	private List<SearchRelsultBean> searchResultBean;
 	
-	@PostConstruct
-	public void onLoad(){
+	public String callSearchService(){
 		if(search==null){
 			search="default_string";
 		}
@@ -35,6 +34,7 @@ public class SearchController extends BaseController {
 			searchResultBean.add(srb);
 			System.out.println("value="+ srb.getType());
 		}
+		return "searchResult";
 		
 	}
 
