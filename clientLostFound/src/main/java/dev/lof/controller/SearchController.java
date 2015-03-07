@@ -8,15 +8,15 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 import dev.lof.controller.bean.SearchRelsultBean;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class SearchController extends BaseController {
 	
 	
-	@ManagedProperty(value="#{param.search}")
 	private String search;
 	private List<SearchRelsultBean> searchResultBean;
 	
