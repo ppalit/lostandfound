@@ -33,3 +33,12 @@ function sizeContent() {
   var newHeight = $("html").height()  + "px";
   $(".myCarousel").css("height", newHeight);
 }
+
+$(document).ready(function () {
+    
+    $('.datePicker').datepicker({
+        format: "dd/mm/yyyy",
+        	autoclose:"true"
+    });  
+
+});

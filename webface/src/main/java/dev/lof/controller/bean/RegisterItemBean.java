@@ -132,5 +132,10 @@ public class RegisterItemBean implements Serializable{
 				+ ", emailID=" + emailID + "]";
 	}
 	
+	
+	public String getBeanString(){
+		return this.toString();
+	}
+	
 
 }
