@@ -10,6 +10,6 @@
 	</prerequisites>
 
   <modules>
-         <module>clientLostFound</module>
+         <module>webFace</module>
   </modules>
 </project>
