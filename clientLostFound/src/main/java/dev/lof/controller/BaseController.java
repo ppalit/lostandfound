@@ -2,21 +2,16 @@ package dev.lof.controller;
 
 import java.io.Serializable;
 
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
-
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Controller;
 
 
 
+public class BaseController  implements Serializable{
 
-public class BaseController  implements Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 8826649190735371245L;
 
 	public String getMessage(){
 	     return "success";

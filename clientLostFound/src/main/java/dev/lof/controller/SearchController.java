@@ -1,5 +1,6 @@
 package dev.lof.controller;
 
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -8,15 +9,24 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import dev.lof.controller.bean.SearchRelsultBean;
 import dev.lof.controller.bean.SearchSessionBean;
 
 @ManagedBean
-@RequestScoped
+@ViewScoped
 public class SearchController extends BaseController {
-	
+	 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4729233144605977151L;
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(SearchController.class);
 	private String search;
 	private List<SearchRelsultBean> searchResultBean;
 	
@@ -25,6 +35,7 @@ public class SearchController extends BaseController {
 	
 	@PostConstruct
 	public void onload(){
+		LOGGER.info("Called Post Construct of SearchController");
 		search=searchSessionBean.getSearchQuery();
 		callSearchService();
 	}

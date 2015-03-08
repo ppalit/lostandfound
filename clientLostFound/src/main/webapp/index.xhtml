@@ -11,15 +11,14 @@
 		<h:body>
 		<h:form id='t1'>
 <!--     	   	<ui:include src="pages/home.xhtml" /> -->
-    	   	<h:inputText id='search' value="#{searchSessionBean.searchQuery}"
-									styleClass="form-control"></h:inputText>
-								<h:panelGroup layout="block" styleClass="input-group-btn">
-									<h:commandButton styleClass="btn btn-success"
-										action="#{searchSessionBean.navigate}" name="Search" value="Search">
-									
-									</h:commandButton>
-									
-								</h:panelGroup>
+
+	<h:outputLabel for="name" value="User" />
+				<h:inputText id='name' value="#{registerController.regItemBean.userName}" />
+				<h:panelGroup layout="block" styleClass="input-group-btn">
+					<h:commandButton styleClass="btn btn-success"
+						action="#{registerController.register}" name="Search"
+						value="Register" />
+				</h:panelGroup>
 								</h:form>
     	 </h:body>
 </html>
