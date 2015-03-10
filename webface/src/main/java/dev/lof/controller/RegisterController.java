@@ -27,6 +27,8 @@ public class RegisterController implements Serializable {
 	
 	private String userName;
 	
+	private String uiLocation;
+	
 	
 	@PostConstruct
 	public void init(){
@@ -68,5 +70,19 @@ public class RegisterController implements Serializable {
 	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	/**
+	 * @return the uiLocation
+	 */
+	public String getUiLocation() {
+		return uiLocation;
+	}
+
+	/**
+	 * @param uiLocation the uiLocation to set
+	 */
+	public void setUiLocation(String uiLocation) {
+		this.uiLocation = uiLocation;
 	}
 }
