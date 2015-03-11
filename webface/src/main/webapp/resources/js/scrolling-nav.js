@@ -87,7 +87,9 @@ function locateMyLocation() {
 				animation : google.maps.Animation.DROP,
 				position : pos
 			});
+			updateLocationData();
 			google.maps.event.addListener(marker, 'click', toggleBounce);
+			google.maps.event.addListener(marker, 'dragend', updateLocationData);
 
 		}, function() {
 			handleNoGeolocation(true);
@@ -127,6 +129,7 @@ function toggleBounce() {
 	}
 }
 
+
 // clear all pointer on map
 function clearlistner() {
 	google.maps.event.clearInstanceListeners(marker)
@@ -154,10 +157,42 @@ function locateAddressonMap() {
 				animation : google.maps.Animation.DROP,
 				position : results[0].geometry.location
 			});
+			
+			updateLocationData();
+			updateLocationDetails(results[0]);
 			google.maps.event.addListener(marker, 'click', toggleBounce);
+			google.maps.event.addListener(marker, 'dragend', updateLocationData);
+			
 		} else {
 			alert('Geocode was not successful for the following reason: '
 					+ status);
 		}
 	});
+}
+
+function updateLocationDetails(result){
+	document.getElementById('riForm:hidlat').value= marker.getPosition().lat();
+	document.getElementById('riForm:hidlng').value= marker.getPosition().lng();
+	document.getElementById('riForm:hidlct').value= result.geometry.location_type;
+	
+	var compoLength = result.address_components.length;
+	for (var i = 0; i < compoLength; i++) {
+	   var arrayLength = result.address_components[i].types.length;
+		for (var j = 0; j < arrayLength; j++) {
+		    var loc_type="locality";
+		    var ct_type="country";
+		    if(loc_type.localeCompare(result.address_components[i].types[j])==0){
+		    	document.getElementById('riForm:hidcty').value= result.address_components[i].long_name;
+		    }
+		    if(ct_type.localeCompare(result.address_components[i].types[j])==0){
+		    	document.getElementById('riForm:hidcnt').value= result.address_components[i].long_name;
+		    }
+		}
+	}
+}
+
+function updateLocationData(){
+	
+	document.getElementById('riForm:hidlat').value= marker.getPosition().lat();
+	document.getElementById('riForm:hidlng').value= marker.getPosition().lng();
 }
