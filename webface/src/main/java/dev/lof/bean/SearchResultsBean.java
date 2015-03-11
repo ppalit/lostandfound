@@ -1,9 +1,9 @@
-package dev.lof.controller.bean;
+package dev.lof.bean;
 
 import java.io.Serializable;
 import java.util.Date;
 
-public class SearchRelsultBean   implements Serializable {
+public class SearchResultsBean   implements Serializable {
 
 	/**
 	 * 

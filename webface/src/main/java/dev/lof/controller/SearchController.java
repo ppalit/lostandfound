@@ -13,7 +13,7 @@ import javax.faces.bean.ViewScoped;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import dev.lof.bean.SearchRelsultBean;
+import dev.lof.bean.SearchResultsBean;
 import dev.lof.bean.SearchSessionBean;
 
 @ManagedBean
@@ -27,7 +27,7 @@ public class SearchController extends BaseController {
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(SearchController.class);
 	private String search;
-	private List<SearchRelsultBean> searchResultBean;
+	private List<SearchResultsBean> searchResultBean;
 	
 	@ManagedProperty("#{searchSessionBean}")
 	private SearchSessionBean searchSessionBean;
@@ -43,9 +43,9 @@ public class SearchController extends BaseController {
 		if(search==null){
 			search="default_string";
 		}
-		searchResultBean = new ArrayList<SearchRelsultBean>();
+		searchResultBean = new ArrayList<SearchResultsBean>();
 		for(int i=0; i<5 ;i++){
-			SearchRelsultBean srb = new SearchRelsultBean();
+			SearchResultsBean srb = new SearchResultsBean();
 			srb.setId(Long.valueOf(""+i));
 			srb.setType(search+"Type "+i);
 			srb.setLostorFoundDate(new Date());
@@ -77,7 +77,7 @@ public class SearchController extends BaseController {
 	/**
 	 * @return the searchResultBean
 	 */
-	public List<SearchRelsultBean> getSearchResultBean() {
+	public List<SearchResultsBean> getSearchResultBean() {
 		return searchResultBean;
 	}
 
@@ -85,7 +85,7 @@ public class SearchController extends BaseController {
 	/**
 	 * @param searchResultBean the searchResultBean to set
 	 */
-	public void setSearchResultBean(List<SearchRelsultBean> searchResultBean) {
+	public void setSearchResultBean(List<SearchResultsBean> searchResultBean) {
 		this.searchResultBean = searchResultBean;
 	}
 

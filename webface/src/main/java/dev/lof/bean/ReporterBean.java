@@ -1,4 +1,4 @@
-package dev.lof.controller.bean;
+package dev.lof.bean;
 
 import java.io.Serializable;
 
