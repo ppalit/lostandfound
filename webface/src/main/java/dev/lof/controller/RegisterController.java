@@ -5,12 +5,11 @@ import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import dev.lof.controller.bean.RegisterItemBean;
+import dev.lof.bean.RegisterItemBean;
 
 
 @ManagedBean(name="registerController")

@@ -8,14 +8,13 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import dev.lof.controller.bean.SearchRelsultBean;
-import dev.lof.controller.bean.SearchSessionBean;
+import dev.lof.bean.SearchRelsultBean;
+import dev.lof.bean.SearchSessionBean;
 
 @ManagedBean
 @ViewScoped
