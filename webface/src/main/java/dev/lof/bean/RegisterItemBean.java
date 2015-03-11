@@ -178,7 +178,7 @@ public class RegisterItemBean implements Serializable {
 				+ (image != null ? "image=" + Arrays.toString(image) + ", "
 						: "")
 				+ (location != null ? "location=" + location + ", " : "")
-				+ (reporter != null ? "reporter=" + reporter : "") + "]";
+				+ (reporter != null ? "reporter=" + reporter.toString() : "") + "]";
 	}
 	
 	
