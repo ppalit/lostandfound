@@ -11,7 +11,6 @@ public class RegisterItemBean implements Serializable {
 	private static final long serialVersionUID = 163350592495047077L;
 
 	private Long id;
-	private String userName;
 	private String itemType;
 	private String itemColor;
 	private String publicDescription;
@@ -19,11 +18,12 @@ public class RegisterItemBean implements Serializable {
 	private String foundDate;
 	private byte[] image;
 	private LocationBean location;
-	private String emailID;
+	private ReporterBean reporter;
 
 	public RegisterItemBean() {
 		super();
 		location = new LocationBean();
+		setReporter(new ReporterBean());
 	}
 
 	public String getBeanString() {
@@ -45,21 +45,7 @@ public class RegisterItemBean implements Serializable {
 		this.id = id;
 	}
 
-	/**
-	 * @return the userName
-	 */
-	public String getUserName() {
-		return userName;
-	}
-
-	/**
-	 * @param userName
-	 *            the userName to set
-	 */
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
+	
 	/**
 	 * @return the itemType
 	 */
@@ -135,21 +121,7 @@ public class RegisterItemBean implements Serializable {
 		this.image = image;
 	}
 
-	/**
-	 * @return the emailID
-	 */
-	public String getEmailID() {
-		return emailID;
-	}
-
-	/**
-	 * @param emailID
-	 *            the emailID to set
-	 */
-	public void setEmailID(String emailID) {
-		this.emailID = emailID;
-	}
-
+	
 	/**
 	 * @return the location
 	 */
@@ -180,19 +152,35 @@ public class RegisterItemBean implements Serializable {
 		this.publicDescription = publicDescription;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	
+	public ReporterBean getReporter() {
+		return reporter;
+	}
+
+	public void setReporter(ReporterBean reporter) {
+		this.reporter = reporter;
+	}
+
+	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "RegisterItemBean [id=" + id + ", userName=" + userName
-				+ ", itemType=" + itemType + ", itemColor=" + itemColor
-				+ ", publicDescription=" + publicDescription
-				+ ", secretDescription=" + secretDescription + ", foundDate="
-				+ foundDate + ", image=" + Arrays.toString(image)
-				+ ", location=" + location.toString() + ", emailID=" + emailID + "]";
+		return "RegisterItemBean ["
+				+ (id != null ? "id=" + id + ", " : "")
+				+ (itemType != null ? "itemType=" + itemType + ", " : "")
+				+ (itemColor != null ? "itemColor=" + itemColor + ", " : "")
+				+ (publicDescription != null ? "publicDescription="
+						+ publicDescription + ", " : "")
+				+ (secretDescription != null ? "secretDescription="
+						+ secretDescription + ", " : "")
+				+ (foundDate != null ? "foundDate=" + foundDate + ", " : "")
+				+ (image != null ? "image=" + Arrays.toString(image) + ", "
+						: "")
+				+ (location != null ? "location=" + location + ", " : "")
+				+ (reporter != null ? "reporter=" + reporter : "") + "]";
 	}
+	
+	
 
 }
