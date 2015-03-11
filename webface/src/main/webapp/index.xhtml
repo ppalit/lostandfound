@@ -6,20 +6,15 @@
         xmlns:h="http://xmlns.jcp.org/jsf/html"
         xmlns:pt="http://xmlns.jcp.org/jsf/"
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-        xmlns:jsf="http://xmlns.jcp.org/jsf">
+        xmlns:jsf="http://xmlns.jcp.org/jsf"
+        xmlns:lf="http://lostkeeper.com/taglib">
  
  <h:head></h:head>
 		<h:body>
 		<h:form id='t1'>
-<!--     	   	<ui:include src="pages/home.xhtml" /> -->
-
-	<h:outputLabel for="name" value="User" />
-				<h:inputText id='name' value="#{registerController.regItemBean.userName}" />
-				<h:panelGroup layout="block" styleClass="input-group-btn">
-					<h:commandButton styleClass="btn btn-success"
-						action="#{registerController.register}" name="Search"
-						value="Register" />
-				</h:panelGroup>
-								</h:form>
+			<lf:registerMap  buttonSubmitLabel="Yes" buttonResetLabel="No"/>
+		
+		
+	</h:form>
     	 </h:body>
 </html>
