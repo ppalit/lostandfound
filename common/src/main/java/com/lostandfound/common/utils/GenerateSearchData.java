@@ -1,4 +1,4 @@
-package com.lostandfound.common.utils
+package com.lostandfound.common.utils;
 
 class GenerateSearchData{
 	
