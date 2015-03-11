@@ -10,6 +10,7 @@
 	</prerequisites>
 
   <modules>
-         <module>webFace</module>
+  	<module>common</module>
+        <module>webFace</module>
   </modules>
 </project>
