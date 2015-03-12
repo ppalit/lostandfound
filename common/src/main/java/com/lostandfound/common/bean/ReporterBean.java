@@ -1,4 +1,4 @@
-package dev.lof.bean;
+package com.lostandfound.common.bean;
 
 import java.io.Serializable;
 
