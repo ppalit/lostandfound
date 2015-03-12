@@ -1,4 +1,4 @@
-package dev.lof.controller;
+package com.lostandfound.webface.controller;
 
 
 public class LandingPageController extends BaseController {

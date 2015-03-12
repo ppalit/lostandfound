@@ -1,4 +1,4 @@
-package dev.lof.bean;
+package com.lostandfound.webface.bean;
 
 import java.io.Serializable;
 

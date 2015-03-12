@@ -1,4 +1,4 @@
-package dev.lof.controller;
+package com.lostandfound.webface.controller;
 
 import java.io.Serializable;
 
@@ -9,7 +9,7 @@ import javax.faces.bean.SessionScoped;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import dev.lof.bean.RegisterItemBean;
+import com.lostandfound.common.bean.RegisterItemBean;
 
 
 @ManagedBean(name="registerController")

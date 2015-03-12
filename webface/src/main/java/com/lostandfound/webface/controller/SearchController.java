@@ -1,4 +1,4 @@
-package dev.lof.controller;
+package com.lostandfound.webface.controller;
 
 
 import java.util.ArrayList;
@@ -13,8 +13,8 @@ import javax.faces.bean.ViewScoped;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import dev.lof.bean.SearchResultsBean;
-import dev.lof.bean.SearchSessionBean;
+import com.lostandfound.common.bean.SearchResultsBean;
+import com.lostandfound.webface.bean.SearchSessionBean;
 
 @ManagedBean
 @ViewScoped
