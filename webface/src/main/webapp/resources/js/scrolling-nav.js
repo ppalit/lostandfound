@@ -7,6 +7,7 @@ $(window).scroll(function() {
 	}
 });
 
+
 // jQuery for page scrolling feature - requires jQuery Easing plugin
 $(function() {
 
