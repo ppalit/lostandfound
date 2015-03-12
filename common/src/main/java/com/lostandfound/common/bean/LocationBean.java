@@ -16,6 +16,7 @@ public class LocationBean implements Serializable {
 	private String locType;
 	private String city;
 	private String country;
+	private String state;
 	
 	public LocationBean() {
 		super();
@@ -105,16 +106,24 @@ public class LocationBean implements Serializable {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	
+	public String getState() {
+		return state;
+	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+	public void setState(String state) {
+		this.state = state;
+	}
+	
+
 	@Override
 	public String toString() {
 		return "LocationBean [id=" + id + ", manualAddress=" + manualAddress
 				+ ", lat=" + lat + ", lng=" + lng + ", locType=" + locType
-				+ ", city=" + city + ", country=" + country + "]";
+				+ ", city=" + city + ", country=" + country + ", state="
+				+ state + "]";
 	}
+
 	
 	
 }
