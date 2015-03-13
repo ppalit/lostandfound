@@ -7,6 +7,13 @@ $(window).scroll(function() {
 	}
 });
 
+//for side panel in result screen
+$(document).ready(function() {
+	  $('[data-toggle=offcanvas]').click(function() {
+	    $('.row-offcanvas').toggleClass('active');
+	  });
+	});
+
 
 // jQuery for page scrolling feature - requires jQuery Easing plugin
 $(function() {

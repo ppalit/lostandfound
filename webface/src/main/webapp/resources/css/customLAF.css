@@ -13,6 +13,19 @@ html {
           border-radius: 0 !important;
 }
 
+/* Custom CSS for BOOTSTRAP START*/
+
+.navbar-inverse .navbar-brand {
+  color: #FFFFFF;
+}
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+  color: #FFD24B;
+  background-color: transparent;
+}
+
+/* Custom CSS for BOOTSTRAP  END*/
+
 .google-map{
 	width:100%;
 	height:100%
