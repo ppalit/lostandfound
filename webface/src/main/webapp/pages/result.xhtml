@@ -96,7 +96,7 @@ footer {
 								</p>
 								<div class="col-sm-9 col-md-9">
 									<h1 class="page-header">
-										<p class="lead">Result</p>
+										<p class="lead">Result matching "#{searchController.search}"</p>
 									</h1>
 									<div class="row placeholders">
 										<div class="col-xs-12 col-sm-12 placeholder">
@@ -106,6 +106,7 @@ footer {
 											 Tutorials, references, and examples are constantly reviewed to avoid errors,
 											  but we cannot warrant full correctness of all content. 
 											While using this site, you agree to have read and accepted our terms of use, cookie </span>
+										<hr/>
 										</div>
 										<div class="col-xs-12 col-sm-12 placeholder">
 											<h4>A dog  Found </h4>
@@ -114,6 +115,7 @@ footer {
 											 Tutorials, references, and examples are constantly reviewed to avoid errors,
 											  but we cannot warrant full correctness of all content. 
 											While using this site, you agree to have read and accepted our terms of use, cookie </span>
+										<hr/>
 										</div>
 										
 									</div>
@@ -125,22 +127,6 @@ footer {
 							</div>
 						</div>
 					</div>
-
-
-					<h:panelGroup layout="block" id="resultsId" class="myCarousel">
-						<h:panelGroup layout="block" class='main-content'>
-							<div class="row">
-								<div class="col-lg-2 col-md-2"></div>
-								<div class="col-lg-8 col-md-8">
-									<h1>result = "#{searchController.search}"</h1>
-
-
-								</div>
-								<div class="col-lg-2 col-md-2"></div>
-							</div>
-
-						</h:panelGroup>
-					</h:panelGroup>
 				</h:form>
 			</ui:define>
 		</ui:composition>

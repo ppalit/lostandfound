@@ -40,8 +40,8 @@ public class SearchController extends BaseController {
 	}
 	
 	public String callSearchService(){
-		if(search==null){
-			search="default_string";
+		if(search!=null){
+			searchSessionBean.setSearchQuery(null);
 		}
 		searchResultBean = new ArrayList<SearchResultsBean>();
 		for(int i=0; i<5 ;i++){
