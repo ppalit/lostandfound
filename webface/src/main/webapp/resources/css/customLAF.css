@@ -5,6 +5,8 @@ html {
      min-height:100%;
 }
 
+
+/* Custom CSS for BOOTSTRAP START*/
 button,
 input,
 optgroup,
@@ -18,18 +20,6 @@ textarea {
           border-radius: 0 !important;
 }
 
-
-
-/* Custom CSS for BOOTSTRAP START*/
-
-.navbar-inverse .navbar-brand {
-  color: #FFFFFF;
-}
-.navbar-inverse .navbar-brand:hover,
-.navbar-inverse .navbar-brand:focus {
-  color: #FFD24B;
-  background-color: transparent;
-}
 
 /* Custom CSS for BOOTSTRAP  END*/
 
@@ -103,6 +93,8 @@ color: #00CCFF;
 .serif {
 	font-family: "Times New Roman", Times, serif;
 }
+
+
 
 
 
