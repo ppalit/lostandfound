@@ -5,13 +5,20 @@ html {
      min-height:100%;
 }
 
-
-
-* {
-  -webkit-border-radius: 0 !important;
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+   -webkit-border-radius: 0 !important;
      -moz-border-radius: 0 !important;
           border-radius: 0 !important;
 }
+
+
 
 /* Custom CSS for BOOTSTRAP START*/
 
@@ -78,7 +85,7 @@ background-image:url("#{resource['img:bg-image.jpg']}");
     background-position:50% 50%9 !important;
 }
 .main-content {
-	margin-top: 100px;
+	margin-top: 7%;
 	text-align: center;
 }
 
@@ -165,12 +172,14 @@ color: #00CCFF;
 }
 
 footer {
-    padding: 25px 0;
+	padding-top:20px;
+	padding-bottom:20px;
     text-align: center;
     background-color:rgb(34, 34, 34);
 }
 
 footer span.copyright {
+	color:#FFD24B;
     text-transform: uppercase;
     text-transform: none;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
