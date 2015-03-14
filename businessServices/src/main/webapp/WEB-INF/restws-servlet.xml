@@ -6,16 +6,16 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-	<context:component-scan base-package="com.lostandfound.services.controller" />
+	<context:component-scan base-package="com.lostandfound.services" />
 	<context:annotation-config />
-	
+
 	<!-- To enable @RequestMapping process on type level and method level -->
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
-		
-		<bean
+
+	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-		 <property name="order" value="1" />
+		<property name="order" value="1" />
 		<property name="messageConverters">
 			<list>
 				<ref bean="jsonConverter" />
@@ -26,7 +26,7 @@
 		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
 		<property name="supportedMediaTypes" value="application/json;charset=UTF-8" />
 	</bean>
-	
+
 	<bean
 		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="defaultContentType" value="application/json" />
@@ -46,6 +46,13 @@
 		</property>
 	</bean>
 
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.sqlite.JDBC" />
+		<property name="url"
+			value="jdbc:sqlite:/Users/priyabrata/Documents/aws/lostandfound" />
+	</bean>
 
-	
+
+
+
 </beans>
