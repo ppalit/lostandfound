@@ -44,13 +44,12 @@
 							<h:form id="navFrm" class="navbar-form" role="search">
 								<div class="input-group">
 									<input jsf:id="hsid" type="text"  value="#{searchSessionBean.searchQuery}" class="form-control" placeholder="Search"
-										name="q" style="width:220px" />
+										name="q" />
 									<div class="input-group-btn">
-										<h:commandButton styleClass="btn btn-default"
-											action="#{searchSessionBean.navigate}" name="Search"
-											value="Search">
+										<button type="submit" jsf:id="hsb" jsf:action="#{searchSessionBean.navigate}"  class="btn btn-default"
+											 value="Search">
 											<i class="glyphicon glyphicon-search"></i>
-										</h:commandButton>
+										</button>
 									</div>
 								</div>
 							</h:form>
