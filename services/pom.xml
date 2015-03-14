@@ -54,6 +54,13 @@
 			<version>1.7.5</version>
 		</dependency>
 		
+		<!-- project dependencies -->
+		<dependency>
+			<groupId>lostandfound</groupId>
+    		<artifactId>common</artifactId>
+    		<version>1.0</version>
+    	</dependency>
+		
 	</dependencies>
 	<build>
 		<finalName>services</finalName>
