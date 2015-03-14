@@ -9,17 +9,18 @@
 
 
 		<style>
-		
-		/*
+
+/*
  * Style tweaks
  * --------------------------------------------------
  */
 body {
-  padding-top: 70px;
+	padding-top: 70px;
 }
+
 footer {
-  padding-left: 15px;
-  padding-right: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 /*
@@ -27,124 +28,105 @@ footer {
  * --------------------------------------------------
  */
 @media screen and (max-width: 768px) {
-  .row-offcanvas {
-    position: relative;
-    -webkit-transition: all 0.25s ease-out;
-    -moz-transition: all 0.25s ease-out;
-    transition: all 0.25s ease-out;
-  }
-
-  .row-offcanvas-left
+	.row-offcanvas {
+		position: relative;
+		-webkit-transition: all 0.25s ease-out;
+		-moz-transition: all 0.25s ease-out;
+		transition: all 0.25s ease-out;
+	}
+	.row-offcanvas-left
   .sidebar-offcanvas {
-    left: -50%;
-  }
-
-  .row-offcanvas-left.active {
-    left: 50%;
-  }
-
-  .sidebar-offcanvas {
-    position: absolute;
-    top: 0;
-    width: 50%;
-    margin-left: 12px;
-  }
-
-.label {
-	font-weight: bold;
-}
-
-.pbody {
-	width: 200px;
+		left: -50%;
+	}
+	.row-offcanvas-left.active {
+		left: 50%;
+	}
+	.sidebar-offcanvas {
+		position: absolute;
+		top: 0;
+		width: 50%;
+		margin-left: 12px;
+	}
+	.label {
+		font-weight: bold;
+	}
+	.pbody {
+		width: 200px;
+	}
 }
 </style>
 		<ui:composition template="../template/common/commonLayout.xhtml">
-		
+
 			<ui:define name="content">
 				<h:form id="result">
-				<div class="container-fluid">
+					<div class="container-fluid">
+						<div class="row row-offcanvas row-offcanvas-left">
+							<div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar"
+								role="navigation">
 
-					<div class="row row-offcanvas row-offcanvas-left">
+								<ul class="nav nav-sidebar">
+									<li><a href="#">Overview</a></li>
+									<li><a href="#">Reports</a></li>
+									<li><a href="#">Analytics</a></li>
+									<li><a href="#">Export</a></li>
+								</ul>
+								<ul class="nav nav-sidebar">
+									<li><a href="">Nav item</a></li>
+									<li><a href="">Nav item again</a></li>
+									<li><a href="">One more nav</a></li>
+									<li><a href="">Another nav item</a></li>
+									<li><a href="">More navigation</a></li>
+								</ul>
+								<ul class="nav nav-sidebar">
+									<li><a href="">Nav item again</a></li>
+									<li><a href="">One more nav</a></li>
+									<li><a href="">Another nav item</a></li>
+								</ul>
 
-						<div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar"
-							role="navigation">
+							</div>
+							<!--/span-->
 
-							<ul class="nav nav-sidebar">
-								<li class="active"><a href="#">Overview</a></li>
-								<li><a href="#">Reports</a></li>
-								<li><a href="#">Analytics</a></li>
-								<li><a href="#">Export</a></li>
-							</ul>
-							<ul class="nav nav-sidebar">
-								<li><a href="">Nav item</a></li>
-								<li><a href="">Nav item again</a></li>
-								<li><a href="">One more nav</a></li>
-								<li><a href="">Another nav item</a></li>
-								<li><a href="">More navigation</a></li>
-							</ul>
-							<ul class="nav nav-sidebar">
-								<li><a href="">Nav item again</a></li>
-								<li><a href="">One more nav</a></li>
-								<li><a href="">Another nav item</a></li>
-							</ul>
-
-						</div>
-						<!--/span-->
-
-						<div class="col-sm-9 col-md-10 main">
-
-							<!--toggle sidebar button-->
-							<p class="visible-xs">
-								<button type="button" class="btn btn-primary btn-xs"
-									data-toggle="offcanvas">
-									<i class="glyphicon glyphicon-chevron-left"></i>
-								</button>
-							</p>
-
-							<h1 class="page-header">
-								<h:inputText id='search' value="#{searchSessionBean.searchQuery}"
-									styleClass="form-control"></h:inputText>
-								<h:panelGroup layout="block" styleClass="input-group-btn">
-									<h:commandButton styleClass="btn btn-success"
-										action="#{searchSessionBean.navigate}" name="Search" value="Search">
-									
-									</h:commandButton>
-								</h:panelGroup>
-								<p class="lead">
-									Result
+							<div class="col-sm-9 col-md-10 main">
+								<!--toggle sidebar button-->
+								<p class="visible-xs">
+									<button type="button" class="btn btn-primary btn-xs"
+										data-toggle="offcanvas">
+										<i class="glyphicon glyphicon-chevron-left"></i>
+									</button>
 								</p>
-							</h1>
-
-							<div class="row placeholders">
-								<div class="col-xs-6 col-sm-3 placeholder text-center">
-									<h4>Label</h4>
-									<span class="text-muted">Something else</span>
+								<div class="col-sm-9 col-md-9">
+									<h1 class="page-header">
+										<p class="lead">Result</p>
+									</h1>
+									<div class="row placeholders">
+										<div class="col-xs-12 col-sm-12 placeholder">
+											<h4>A dog  Found </h4>
+											<span class="text-muted">W3Schools is optimized for learning, testing, and training.
+											 Examples might be simplified to improve reading and basic understanding. 
+											 Tutorials, references, and examples are constantly reviewed to avoid errors,
+											  but we cannot warrant full correctness of all content. 
+											While using this site, you agree to have read and accepted our terms of use, cookie </span>
+										</div>
+										<div class="col-xs-12 col-sm-12 placeholder">
+											<h4>A dog  Found </h4>
+											<span class="text-muted">W3Schools is optimized for learning, testing, and training.
+											 Examples might be simplified to improve reading and basic understanding. 
+											 Tutorials, references, and examples are constantly reviewed to avoid errors,
+											  but we cannot warrant full correctness of all content. 
+											While using this site, you agree to have read and accepted our terms of use, cookie </span>
+										</div>
+										
+									</div>
 								</div>
-								<div class="col-xs-6 col-sm-3 placeholder text-center">
-									<h4>Label</h4>
-									<span class="text-muted">Something else</span>
-								</div>
-								<div class="col-xs-6 col-sm-3 placeholder text-center">
-									<h4>Label</h4>
-									<span class="text-muted">Something else</span>
-								</div>
-								<div class="col-xs-6 col-sm-3 placeholder text-center">
-									<h4>Label</h4>
-									<span class="text-muted">Something else</span>
+								<div class="col-sm-9 col-md-3">
+								 Advertisements
+									<hr> </hr>
 								</div>
 							</div>
-
-							<hr></hr>
-							<h2 class="sub-header">Section title</h2>
-							<div class="table-responsive">test esc</div>
-
-	
 						</div>
-						<!--/row-->
 					</div>
-				</div>
 
-				
+
 					<h:panelGroup layout="block" id="resultsId" class="myCarousel">
 						<h:panelGroup layout="block" class='main-content'>
 							<div class="row">
