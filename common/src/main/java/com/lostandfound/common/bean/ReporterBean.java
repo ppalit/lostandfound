@@ -75,7 +75,7 @@ public class ReporterBean implements Serializable{
 	/**
 	 * @return the firstName
 	 */
-	private String getFirstName() {
+	public String getFirstName() {
 		return firstName;
 	}
 
@@ -83,7 +83,7 @@ public class ReporterBean implements Serializable{
 	/**
 	 * @param firstName the firstName to set
 	 */
-	private void setFirstName(String firstName) {
+	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
