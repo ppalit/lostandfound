@@ -31,7 +31,8 @@ class GenerateSearchData{
 		
 		ReporterBean reporter = new ReporterBean();
 			reporter.setEmailId(faker.internet().emailAddress());
-			reporter.setFullName(faker.name().fullName());
+			reporter.setFirstName(faker.name().firstName());
+			reporter.setLastName(faker.name().lastName());
 			reporter.setPhoneNo(faker.phoneNumber().phoneNumber());
 			reporter.setUserId(""+System.currentTimeMillis());
 		item.setReporter(reporter);
