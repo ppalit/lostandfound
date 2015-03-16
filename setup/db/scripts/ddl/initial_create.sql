@@ -5,6 +5,6 @@ alter table item_primary add colour varchar(100);
 alter table item_primary add reporter_id varchar(20);
 
 
-alter table item_primary add item_reported_date datetime default current_timesatmp;
+alter table item_primary add item_reported_date datetime default current_timestamp;
 
 
