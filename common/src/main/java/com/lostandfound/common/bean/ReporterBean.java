@@ -70,6 +70,23 @@ public class ReporterBean implements Serializable{
 		lastName = lastName;
 	}
 
+	
+
+	/**
+	 * @return the firstName
+	 */
+	private String getFirstName() {
+		return firstName;
+	}
+
+
+	/**
+	 * @param firstName the firstName to set
+	 */
+	private void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
