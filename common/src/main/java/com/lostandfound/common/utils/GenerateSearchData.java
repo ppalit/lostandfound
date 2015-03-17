@@ -96,7 +96,7 @@ class GenerateSearchData{
 		items.add("Visual Art Related");
 		items.add(df.getRandomText(8));
 		
-		item.setItemType(df.getItem(items));
+		item.setCategory(df.getItem(items));
 		item.setPublicDescription(faker.lorem().paragraph(df.getNumberBetween(1, 6)));
 		item.setSecretDescription(faker.lorem().sentence());
 		
