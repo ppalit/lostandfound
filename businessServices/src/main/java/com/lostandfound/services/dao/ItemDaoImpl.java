@@ -14,49 +14,86 @@ import org.springframework.stereotype.Repository;
 import com.lostandfound.common.bean.RegisterItemBean;
 import com.lostandfound.common.bean.ReporterBean;
 
-
 @Repository(value = "itemDaoImpl")
-public class ItemDaoImpl implements ItemDao{
-	
+public class ItemDaoImpl implements ItemDao {
+
 	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-    @Autowired
-    public void setDataSource(DataSource dataSource) {
-        this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
-    }
-    
-    public int countRecords(String reporterId) {
+	@Autowired
+	public void setDataSource(DataSource dataSource) {
+		this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(
+				dataSource);
+	}
 
-        String sql = "select count(*) from item_primary where reporter_id = :reporterId";
+	public int countRecords(String reporterId) {
 
-        SqlParameterSource namedParameters = new MapSqlParameterSource("reporterId", reporterId);
+		String sql = "select count(*) from item_primary where reporter_id = :reporterId";
 
-        return this.namedParameterJdbcTemplate.queryForObject(sql, namedParameters, Integer.class);
-    }
+		SqlParameterSource namedParameters = new MapSqlParameterSource(
+				"reporterId", reporterId);
 
-	public boolean insertFoundItem(RegisterItemBean registerItemBean) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.namedParameterJdbcTemplate.queryForObject(sql,
+				namedParameters, Integer.class);
+	}
+
+	public int insertFoundItem(RegisterItemBean registerItemBean) {
+		String query = "INSERT INTO item_primary(category ,sub_category ,public_description,secret_description , item_found_date ,"
+				+ "street_address, lat , lng , loc_type , city , country , state ,reporter_id , colour)"
+				+ "VALUES (:category,:sub_category,:public_description,:secret_description,:item_found_date)"
+				+ ":street_address, :lat , :lng , :loc_type , :city , :country , :state , :reporter_id , :colour)";
+		Map<String, String> namedParameters = new HashMap<String, String>();
+		namedParameters.put("category", registerItemBean.getCategory());
+		namedParameters.put("sub_category", registerItemBean.getSubCategory());
+		namedParameters.put("public_description",registerItemBean.getPublicDescription());
+		namedParameters.put("secret_description", registerItemBean.getSecretDescription());
+		namedParameters.put("item_found_date", registerItemBean.getFoundDate());
+		namedParameters.put("street_address", registerItemBean.getStreetAddress());
+		namedParameters.put("colour", registerItemBean.getItemColor());
+		
+		
+		namedParameters.put("lat", registerItemBean.getLocation().getLat());
+		namedParameters.put("lat", registerItemBean.getLocation().getLng());
+		namedParameters.put("loc_type", registerItemBean.getLocation().getLocType());
+		namedParameters.put("city", registerItemBean.getLocation().getCity());
+		namedParameters.put("country", registerItemBean.getLocation().getCountry());
+		namedParameters.put("state", registerItemBean.getLocation().getState());
+		
+		namedParameters.put("reporter_id", registerItemBean.getReporter().getEmailId());
+		
+		namedParameterJdbcTemplate.update(query, namedParameters);
+		
+		return getItemId();
 	}
 
 	public boolean insertReporter(ReporterBean reporterBean) {
-		
-			String query = "INSERT INTO reporter (first_name, last_name, email_id,phone_no) VALUES (:firstName,:lastName,:emailId,:phoneNo)";
-			Map<String, String>namedParameters = new HashMap();
-			namedParameters.put("firstName", reporterBean.getFirstName());
-			namedParameters.put("lastName", reporterBean.getLastName());
-			namedParameters.put("emailId", reporterBean.getEmailId());
-			namedParameters.put("phoneNo", reporterBean.getPhoneNo());
-			namedParameterJdbcTemplate.update(query, namedParameters);
-			return true;
-		
+
+		String query = "INSERT INTO reporter (first_name, last_name, email_id,phone_no) VALUES (:firstName,:lastName,:emailId,:phoneNo)";
+		Map<String, String> namedParameters = new HashMap<String, String>();
+		namedParameters.put("firstName", reporterBean.getFirstName());
+		namedParameters.put("lastName", reporterBean.getLastName());
+		namedParameters.put("emailId", reporterBean.getEmailId());
+		namedParameters.put("phoneNo", reporterBean.getPhoneNo());
+		namedParameterJdbcTemplate.update(query, namedParameters);
+		return true;
+
 	}
 
-	public int getItemId() {
-		 String tableName= "item_primary";
-		 String sql = "SELECT seq FROM sqlite_sequence WHERE name= :tableName";
-		 SqlParameterSource namedParameters = new MapSqlParameterSource("tableName", tableName); 
-		return this.namedParameterJdbcTemplate.queryForObject(sql, namedParameters, Integer.class);
+	private int getItemId() {
+		String tableName = "item_primary";
+		String sql = "SELECT seq FROM sqlite_sequence WHERE name= :tableName";
+		SqlParameterSource namedParameters = new MapSqlParameterSource(
+				"tableName", tableName);
+		return this.namedParameterJdbcTemplate.queryForObject(sql,
+				namedParameters, Integer.class);
+	}
+
+	public ReporterBean getReporter(String emailId) {
+		String sql = "SELECT first_name,last_name,phone_no FROM reporter WHERE email_id= :emailId";
+		SqlParameterSource namedParameters = new MapSqlParameterSource(
+				"emailId", emailId);
+		ReporterBean reporterBean = (ReporterBean) namedParameterJdbcTemplate
+				.query(sql, namedParameters, new ItemMapper());
+		return reporterBean;
 	}
 
 }

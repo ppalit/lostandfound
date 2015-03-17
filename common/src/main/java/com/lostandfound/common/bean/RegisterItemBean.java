@@ -11,7 +11,6 @@ public class RegisterItemBean implements Serializable {
 	private static final long serialVersionUID = 163350592495047077L;
 
 	private Long id;
-	private String itemType;
 	private String itemColor;
 	private String publicDescription;
 	private String secretDescription;
@@ -19,6 +18,10 @@ public class RegisterItemBean implements Serializable {
 	private byte[] image;
 	private LocationBean location;
 	private ReporterBean reporter;
+	private String category;
+	private String subCategory;
+	private String streetAddress;
+	
 
 	public RegisterItemBean() {
 		super();
@@ -46,21 +49,7 @@ public class RegisterItemBean implements Serializable {
 	}
 
 	
-	/**
-	 * @return the itemType
-	 */
-	public String getItemType() {
-		return itemType;
-	}
-
-	/**
-	 * @param itemType
-	 *            the itemType to set
-	 */
-	public void setItemType(String itemType) {
-		this.itemType = itemType;
-	}
-
+	
 	/**
 	 * @return the itemColor
 	 */
@@ -161,6 +150,48 @@ public class RegisterItemBean implements Serializable {
 		this.reporter = reporter;
 	}
 
+	/**
+	 * @return the category
+	 */
+	public String getCategory() {
+		return category;
+	}
+
+	/**
+	 * @param category the category to set
+	 */
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	/**
+	 * @return the subCategory
+	 */
+	public String getSubCategory() {
+		return subCategory;
+	}
+
+	/**
+	 * @param subCategory the subCategory to set
+	 */
+	public void setSubCategory(String subCategory) {
+		this.subCategory = subCategory;
+	}
+
+	/**
+	 * @return the streetAddress
+	 */
+	public String getStreetAddress() {
+		return streetAddress;
+	}
+
+	/**
+	 * @param streetAddress the streetAddress to set
+	 */
+	public void setStreetAddress(String streetAddress) {
+		this.streetAddress = streetAddress;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -168,7 +199,6 @@ public class RegisterItemBean implements Serializable {
 	public String toString() {
 		return "RegisterItemBean ["
 				+ (id != null ? "id=" + id + ", " : "")
-				+ (itemType != null ? "itemType=" + itemType + ", " : "")
 				+ (itemColor != null ? "itemColor=" + itemColor + ", " : "")
 				+ (publicDescription != null ? "publicDescription="
 						+ publicDescription + ", " : "")
@@ -178,8 +208,17 @@ public class RegisterItemBean implements Serializable {
 				+ (image != null ? "image=" + Arrays.toString(image) + ", "
 						: "")
 				+ (location != null ? "location=" + location + ", " : "")
-				+ (reporter != null ? "reporter=" + reporter.toString() : "") + "]";
+				+ (reporter != null ? "reporter=" + reporter + ", " : "")
+				+ (category != null ? "category=" + category + ", " : "")
+				+ (subCategory != null ? "subCategory=" + subCategory + ", "
+						: "")
+				+ (streetAddress != null ? "streetAddress=" + streetAddress
+						: "") + "]";
 	}
+
+	
+
+	
 	
 	
 
