@@ -5,18 +5,16 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.lostandfound.common.bean.ReporterBean;
+import com.lostandfound.common.bean.RegisterItemBean;
 
-public class ItemMapper implements RowMapper<ReporterBean> {
+public class ItemMapper implements RowMapper<RegisterItemBean> {
 
-	public ReporterBean mapRow(ResultSet rs, int arg1) throws SQLException {
-		ReporterBean reporter = new ReporterBean();
-		reporter.setFirstName(rs.getString("first_name"));
-		reporter.setLastName(rs.getString("last_name"));
-		reporter.setPhoneNo(rs.getString("phone_no"));
-		reporter.setEmailId(rs.getString("email_id"));
-
-		return reporter;
+	public RegisterItemBean mapRow(ResultSet rs, int arg1)
+			throws SQLException {
+		RegisterItemBean item = new RegisterItemBean();
+		item.setCategory(rs.getString("first_name"));
+		item.setItemColor(rs.getString("colour"));
+		return item;
 	}
 
 }

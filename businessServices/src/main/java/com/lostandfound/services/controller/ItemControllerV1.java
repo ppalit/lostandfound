@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lostandfound.common.bean.RegisterItemBean;
-import com.lostandfound.common.bean.SearchResultsBean;
 import com.lostandfound.services.exception.CustomGenericException;
 import com.lostandfound.services.processor.ItemProcessor;
 
@@ -35,26 +35,24 @@ public class ItemControllerV1 implements Serializable {
 	@Qualifier("itemProcessorImpl")
 	ItemProcessor itemProcessor;
 	
-	@RequestMapping(value="/V1/items/",method = RequestMethod.GET,produces = "application/json")
-	public  @ResponseBody List<SearchResultsBean> getItems(
-			@RequestParam(value = "system", required = false, defaultValue = "DB") String name
+	@RequestMapping(value="/V1/items",method = RequestMethod.GET,produces = "application/json")
+	public  @ResponseBody List<RegisterItemBean> getItems(
+			@RequestParam(value = "target", required = false, defaultValue = "DB") String target
 			) {
 		//model.addAttribute("name", name);
 		System.out.println("in method");
-		SearchResultsBean srb = new SearchResultsBean();
-		List resultList = new ArrayList<SearchResultsBean>();
-		resultList.add(srb);
+		List<RegisterItemBean> resultList = new ArrayList<RegisterItemBean>();
+		resultList  = itemProcessor.fetchItems("blue");
 		return resultList;
 	}
 	
-	@RequestMapping(value="/V1/item/",method = RequestMethod.GET,produces = "application/json")
-	public  @ResponseBody SearchResultsBean getItem(
-			@RequestParam(value = "system", required = false, defaultValue = "DB") String name
-			) {
-		//model.addAttribute("name", name);
+	@RequestMapping(value="/V1/item/{itemId}",method = RequestMethod.GET,produces = "application/json")
+	public  @ResponseBody RegisterItemBean getItem(
+			@RequestParam(value = "target", required = false, defaultValue = "DB") String target,
+			@PathVariable int itemId) {
 		System.out.println("in method returns"+itemProcessor.getCount("priyabrata.palit@gmail.com"));
-		SearchResultsBean srb = new SearchResultsBean();
-		return srb;
+		RegisterItemBean item = itemProcessor.fetchItem(itemId);
+		return item;
 	}
 	
 	@RequestMapping(value="/V1/item",method = RequestMethod.PUT,produces = "application/json")

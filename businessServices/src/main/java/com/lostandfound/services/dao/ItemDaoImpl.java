@@ -1,6 +1,8 @@
 package com.lostandfound.services.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.sql.DataSource;
@@ -92,8 +94,28 @@ public class ItemDaoImpl implements ItemDao {
 		SqlParameterSource namedParameters = new MapSqlParameterSource(
 				"emailId", emailId);
 		ReporterBean reporterBean = (ReporterBean) namedParameterJdbcTemplate
-				.query(sql, namedParameters, new ItemMapper());
+				.query(sql, namedParameters, new ReporterMapper());
 		return reporterBean;
+	}
+	
+	
+	public List<RegisterItemBean> getItems(String searchString) {
+		String sql = "SELECT first_name,colour FROM item_primary WHERE colour= :colour";
+		SqlParameterSource namedParameters = new MapSqlParameterSource(
+				"colour", searchString);
+		List<RegisterItemBean> items  = new ArrayList<RegisterItemBean>();
+		items = (List<RegisterItemBean>) namedParameterJdbcTemplate
+				.query(sql, namedParameters, new ItemMapper());
+		return items;
+	}
+
+	public RegisterItemBean getItem(int itemId) {
+		String sql = "SELECT item_id,first_name,colour FROM item_primary WHERE item_id= :itemId";
+		SqlParameterSource namedParameters = new MapSqlParameterSource(
+				"itemId", itemId);
+		RegisterItemBean item = (RegisterItemBean) namedParameterJdbcTemplate
+				.query(sql, namedParameters, new ItemMapper());
+		return item;
 	}
 
 }

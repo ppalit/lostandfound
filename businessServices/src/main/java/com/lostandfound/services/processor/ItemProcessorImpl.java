@@ -1,5 +1,7 @@
 package com.lostandfound.services.processor;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -37,4 +39,14 @@ public class ItemProcessorImpl implements ItemProcessor{
 		return itemDao.getReporter(emailId);
 	}
 
+	public RegisterItemBean fetchItem(int itemId) {
+		// TODO Auto-generated method stub
+		return itemDao.getItem(1);
+	}
+
+	public List<RegisterItemBean> fetchItems(String searchString) {
+		return itemDao.getItems("blue");
+	}
+
+	
 }
