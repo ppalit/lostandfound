@@ -2,21 +2,25 @@ package com.lostandfound.services.controller;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.github.javafaker.Address;
 import com.lostandfound.common.bean.RegisterItemBean;
 import com.lostandfound.common.bean.SearchResultsBean;
+import com.lostandfound.services.exception.CustomGenericException;
 import com.lostandfound.services.processor.ItemProcessor;
 
 @Controller
@@ -55,10 +59,26 @@ public class ItemControllerV1 implements Serializable {
 	
 	@RequestMapping(value="/V1/item",method = RequestMethod.PUT,produces = "application/json")
 	public  @ResponseBody String insertItem(
-			@RequestParam(value = "system", required = false, defaultValue = "DB") String name,
-			@RequestBody RegisterItemBean names) {
-		System.out.println("in POST method"+names);
+			@RequestParam(value = "target", required = true, defaultValue = "DB") String target,
+			@RequestBody RegisterItemBean registerItemBean,HttpServletResponse response) {
+		System.out.println("in POST method"+registerItemBean);
+		try{
+			if(target.equalsIgnoreCase("DB")){
+				itemProcessor.saveItem(registerItemBean);
+			}
+		}catch(Exception exp){
+			System.out.println("Exception  = "+exp);
+		}
 		return "returned from POST";
 	}	
 	
+	@ExceptionHandler(CustomGenericException.class)
+	public Map<String,String> handleCustomException(CustomGenericException ex, HttpServletResponse response) {
+ 
+		 Map<String,String> errorMap = new HashMap<String, String>();
+     	 errorMap.put("errCode", ex.getErrCode());
+	     errorMap.put("errMsg",ex.getErrMsg());
+		return errorMap;
+ 
+	}
 }
