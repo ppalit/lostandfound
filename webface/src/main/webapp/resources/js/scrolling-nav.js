@@ -200,3 +200,29 @@ function updateLocationData() {
 	document.getElementById('riForm:hidlat').value = marker.getPosition().lat();
 	document.getElementById('riForm:hidlng').value = marker.getPosition().lng();
 }
+
+
+
+/**
+ * Response callback for when the API client receives a response.
+ *
+ * @param resp The API response object with the user email and profile information.
+ */
+function handleEmailResponse(resp) {
+  var primaryEmail;
+  console.log(resp);
+  console.log(resp.emails.length);
+  
+  for(var i = 0 ; i < resp.emails.length; i++){
+  	if(resp.emails[i].type == "account"){
+  		document.getElementById('riForm:emlId').value = resp.emails[i].value;
+  	}
+  }
+  
+  if(resp.displayName!=null){
+  	document.getElementById('riForm:unId').value = resp.displayName;
+  }
+  
+
+
+}
