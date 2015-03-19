@@ -74,7 +74,7 @@
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
       document.getElementById('riForm:descId').value =
-        'Thanks for logging in, ' + response.name + '!';
+         response.name;
     });
   }
   

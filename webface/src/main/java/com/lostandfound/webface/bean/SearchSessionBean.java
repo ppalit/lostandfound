@@ -17,7 +17,9 @@ public class SearchSessionBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private String searchQuery;
-
+	
+	private String emailId;
+	
 	/**
 	 * @return the searchQuery
 	 */
@@ -34,6 +36,20 @@ public class SearchSessionBean implements Serializable{
 	
 	public String navigate(){
 		return "searchResult";
+	}
+
+	/**
+	 * @return the emailId
+	 */
+	public String getEmailId() {
+		return emailId;
+	}
+
+	/**
+	 * @param emailId the emailId to set
+	 */
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
 
 }

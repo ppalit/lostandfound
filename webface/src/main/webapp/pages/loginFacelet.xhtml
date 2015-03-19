@@ -6,7 +6,7 @@
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
 
 	<h:head></h:head>
-	<h:body styleClass="bodyTop">
+	<h:body styleClass="bodyTop ">
 		<script type="text/javascript">
 			/**
 			 * Handler for the signin callback triggered after the user selects an account.
@@ -24,7 +24,7 @@
 				}).execute(handleEmailResponse);
 			}
 		</script>
-		<h:panelGroup layout="block" id="login">
+		<h:panelGroup layout="block" id="login" styleClass="myCarousel">
 
 			<div class="container">
 				<div class="row">
@@ -33,7 +33,7 @@
 						<span id="signinButton"> <span class="g-signin"
 							data-callback="onSignInCallback"
 							data-clientid="248135305177-grbg4j1abhvedq0pbvkjbro5rf4agao9.apps.googleusercontent.com"
-							data-cookiepolicy="single_host_origin" data-scope="email">
+							data-cookiepolicy="single_host_origin" data-scope="email" >
 						</span>
 						</span>
 						<div class="fb-login-button" data-max-rows="1" 
