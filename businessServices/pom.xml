@@ -7,6 +7,7 @@
 	<version>1.0</version>
 	<url>http://maven.apache.org</url>
 	<properties>
+		<maven-war-version>2.1.1</maven-war-version>
 		<spring.version>4.0.1.RELEASE</spring.version>
 	</properties>
 	<dependencies>
@@ -65,6 +66,12 @@
 			<artifactId>sqlite-jdbc</artifactId>
 			<version>3.8.7</version>
 		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
 
 		<!-- project dependencies -->
 		<dependency>
@@ -75,6 +82,41 @@
 
 	</dependencies>
 	<build>
+		<plugins>
+		<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${maven-war-version}</version>
+				<configuration>
+					<webResources>
+						<resource>
+							<filtering>true</filtering>
+							<directory>src/main/webapp</directory>
+							<includes>
+								<include>**/restws-servlet.xml</include>
+							</includes>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
+			</plugins>
 		<finalName>business-services</finalName>
 	</build>
+	<profiles>
+		<profile>
+			<id>ppwork</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<db.path>C:/software/lostandfound_master</db.path>
+			</properties>
+		</profile>
+		<profile>
+			<id>pphome</id>
+			<properties>
+				<db.path>/Users/priyabrata/Documents/aws/lostandfound</db.path>
+			</properties>
+		</profile>
+	</profiles>
 </project>
