@@ -110,12 +110,12 @@ public class ItemDaoImpl implements ItemDao {
 	}
 
 	public RegisterItemBean getItem(int itemId) {
-		String sql = "SELECT item_id,first_name,colour FROM item_primary WHERE item_id= :itemId";
+		String sql = "SELECT item_id,public_description,colour FROM item_primary WHERE item_id= :itemId";
 		SqlParameterSource namedParameters = new MapSqlParameterSource(
 				"itemId", itemId);
-		RegisterItemBean item = (RegisterItemBean) namedParameterJdbcTemplate
+		List<RegisterItemBean> items = (List<RegisterItemBean>) namedParameterJdbcTemplate
 				.query(sql, namedParameters, new ItemMapper());
-		return item;
+		return items.get(0);
 	}
 
 }

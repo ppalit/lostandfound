@@ -49,9 +49,9 @@ public class ItemControllerV1 implements Serializable {
 	@RequestMapping(value="/V1/item/{itemId}",method = RequestMethod.GET,produces = "application/json")
 	public  @ResponseBody RegisterItemBean getItem(
 			@RequestParam(value = "target", required = false, defaultValue = "DB") String target,
-			@PathVariable int itemId) {
+			@PathVariable String itemId) {
 		System.out.println("in method returns"+itemProcessor.getCount("priyabrata.palit@gmail.com"));
-		RegisterItemBean item = itemProcessor.fetchItem(itemId);
+		RegisterItemBean item = itemProcessor.fetchItem(Integer.parseInt(itemId));
 		return item;
 	}
 	
