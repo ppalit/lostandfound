@@ -8,22 +8,21 @@
 	<h:head></h:head>
 	<h:body styleClass="bodyTop">
 		<script type="text/javascript">
-		/**
-		   * Handler for the signin callback triggered after the user selects an account.
-		   */
-		  function signinCallback(resp) {
-		    gapi.client.load('plus', 'v1', apiClientLoaded);
-		  }
+			/**
+			 * Handler for the signin callback triggered after the user selects an account.
+			 */
+			function signinCallback(resp) {
+				gapi.client.load('plus', 'v1', apiClientLoaded);
+			}
 
-		  /**
-		   * Sets up an API call after the Google API client loads.
-		   */
-		  function apiClientLoaded() {
-		    gapi.client.plus.people.get({userId: 'me'}).execute(handleEmailResponse);
-		  }
-
-		
-
+			/**
+			 * Sets up an API call after the Google API client loads.
+			 */
+			function apiClientLoaded() {
+				gapi.client.plus.people.get({
+					userId : 'me'
+				}).execute(handleEmailResponse);
+			}
 		</script>
 		<h:panelGroup layout="block" id="login">
 
@@ -34,10 +33,12 @@
 						<span id="signinButton"> <span class="g-signin"
 							data-callback="onSignInCallback"
 							data-clientid="248135305177-grbg4j1abhvedq0pbvkjbro5rf4agao9.apps.googleusercontent.com"
-							data-cookiepolicy="single_host_origin"
-							data-scope="email">
+							data-cookiepolicy="single_host_origin" data-scope="email">
 						</span>
 						</span>
+						<div class="fb-login-button" data-max-rows="1" 
+						data-size="large" data-show-faces="false" data-auto-logout-link="false" scope="public_profile,email"
+							onlogin="checkLoginState();"></div>
 					</div>
 					<div class="col-lg-3 col-md-3 col-sm-12"></div>
 				</div>
