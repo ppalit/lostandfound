@@ -39,6 +39,10 @@ height:100%;
  min-height:100%;
 }
 
+.bodyTop {
+	padding-top: 70px;
+}
+
 h1 {
 	font-size: 36pt;
 }

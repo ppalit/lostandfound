@@ -1,0 +1,62 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+	<h:head></h:head>
+	<h:body>
+		<script type="text/javascript">
+		/**
+		   * Handler for the signin callback triggered after the user selects an account.
+		   */
+		  function signinCallback(resp) {
+		    gapi.client.load('plus', 'v1', apiClientLoaded);
+		  }
+
+		  /**
+		   * Sets up an API call after the Google API client loads.
+		   */
+		  function apiClientLoaded() {
+		    gapi.client.plus.people.get({userId: 'me'}).execute(handleEmailResponse);
+		  }
+
+		  /**
+		   * Response callback for when the API client receives a response.
+		   *
+		   * @param resp The API response object with the user email and profile information.
+		   */
+		  function handleEmailResponse(resp) {
+		    var primaryEmail;
+		    console.log(resp);
+		    console.log(resp.displayName);
+		    
+		    if(resp.displayName!=null){
+		    	
+		    	document.getElementById('riForm:unId').value = resp.displayName;
+		    }
+		  }
+
+		</script>
+		<h:panelGroup layout="block" id="login">
+
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-md-3 col-sm-12"></div>
+					<div class="col-lg-6 col-md-6 col-sm-12">
+						<span id="signinButton"> <span class="g-signin"
+							data-callback="onSignInCallback"
+							data-clientid="248135305177-grbg4j1abhvedq0pbvkjbro5rf4agao9.apps.googleusercontent.com"
+							data-cookiepolicy="single_host_origin"
+							data-scope="email">
+						</span>
+						</span>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-12"></div>
+				</div>
+			</div>
+		</h:panelGroup>
+
+	</h:body>
+</f:view>
