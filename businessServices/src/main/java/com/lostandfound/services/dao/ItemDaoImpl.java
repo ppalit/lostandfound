@@ -41,7 +41,7 @@ public class ItemDaoImpl implements ItemDao {
 	public int insertFoundItem(RegisterItemBean registerItemBean) {
 		String query = "INSERT INTO item_primary(category ,sub_category ,public_description,secret_description , item_found_date ,"
 				+ "street_address, lat , lng , loc_type , city , country , state ,reporter_id , colour)"
-				+ "VALUES (:category,:sub_category,:public_description,:secret_description,:item_found_date)"
+				+ "VALUES (:category,:sub_category,:public_description,:secret_description,:item_found_date,"
 				+ ":street_address, :lat , :lng , :loc_type , :city , :country , :state , :reporter_id , :colour)";
 		Map<String, String> namedParameters = new HashMap<String, String>();
 		namedParameters.put("category", registerItemBean.getCategory());
@@ -49,13 +49,13 @@ public class ItemDaoImpl implements ItemDao {
 		namedParameters.put("public_description",registerItemBean.getPublicDescription());
 		namedParameters.put("secret_description", registerItemBean.getSecretDescription());
 		namedParameters.put("item_found_date", registerItemBean.getFoundDate());
-		namedParameters.put("street_address", registerItemBean.getStreetAddress());
 		namedParameters.put("colour", registerItemBean.getItemColor());
 		
 		
 		namedParameters.put("lat", registerItemBean.getLocation().getLat());
-		namedParameters.put("lat", registerItemBean.getLocation().getLng());
+		namedParameters.put("lng", registerItemBean.getLocation().getLng());
 		namedParameters.put("loc_type", registerItemBean.getLocation().getLocType());
+		namedParameters.put("street_address", registerItemBean.getLocation().getStreetAddress());
 		namedParameters.put("city", registerItemBean.getLocation().getCity());
 		namedParameters.put("country", registerItemBean.getLocation().getCountry());
 		namedParameters.put("state", registerItemBean.getLocation().getState());
@@ -110,7 +110,8 @@ public class ItemDaoImpl implements ItemDao {
 	}
 
 	public RegisterItemBean getItem(int itemId) {
-		String sql = "SELECT item_id,public_description,colour FROM item_primary WHERE item_id= :itemId";
+		String sql = "SELECT category ,sub_category ,public_description,secret_description , item_found_date ,"
+				+ "street_address, lat , lng , loc_type , city , country , state ,reporter_id , colour FROM item_primary WHERE item_id= :itemId";
 		SqlParameterSource namedParameters = new MapSqlParameterSource(
 				"itemId", itemId);
 		List<RegisterItemBean> items = (List<RegisterItemBean>) namedParameterJdbcTemplate

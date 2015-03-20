@@ -44,7 +44,7 @@ class GenerateSearchData{
 			location.setLng(faker.address().longitude());
 			String[] locType= {"APPROXIMATE","ROOF_TOP"};
 			location.setLocType(faker.options().option(locType));
-			location.setManualAddress(faker.address().streetAddress(false));
+			location.setStreetAddress(faker.address().streetAddress(false));
 			location.setState(faker.address().stateAbbr());
 		item.setLocation(location);
 		
