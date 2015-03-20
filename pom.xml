@@ -12,6 +12,5 @@
   <modules>
   	<module>common</module>
     <module>webFace</module>
-    <module>services</module>
   </modules>
 </project>
