@@ -55,9 +55,9 @@ public class ItemControllerV1 implements Serializable {
 		return item;
 	}
 	
-	@RequestMapping(value="/V1/item",method = RequestMethod.PUT,produces = "application/json")
+	@RequestMapping(value="/V1/item",method = RequestMethod.POST,consumes = "application/json")
 	public  @ResponseBody String insertItem(
-			@RequestParam(value = "target", required = true, defaultValue = "DB") String target,
+			@RequestParam(value = "target", required = false, defaultValue = "DB") String target,
 			@RequestBody RegisterItemBean registerItemBean,HttpServletResponse response) {
 		System.out.println("in POST method"+registerItemBean);
 		try{
