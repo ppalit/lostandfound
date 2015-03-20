@@ -20,7 +20,7 @@ public class RegisterItemBean implements Serializable {
 	private ReporterBean reporter;
 	private String category;
 	private String subCategory;
-	private String streetAddress;
+
 	
 
 	public RegisterItemBean() {
@@ -178,20 +178,6 @@ public class RegisterItemBean implements Serializable {
 		this.subCategory = subCategory;
 	}
 
-	/**
-	 * @return the streetAddress
-	 */
-	public String getStreetAddress() {
-		return streetAddress;
-	}
-
-	/**
-	 * @param streetAddress the streetAddress to set
-	 */
-	public void setStreetAddress(String streetAddress) {
-		this.streetAddress = streetAddress;
-	}
-
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -210,14 +196,11 @@ public class RegisterItemBean implements Serializable {
 				+ (location != null ? "location=" + location + ", " : "")
 				+ (reporter != null ? "reporter=" + reporter + ", " : "")
 				+ (category != null ? "category=" + category + ", " : "")
-				+ (subCategory != null ? "subCategory=" + subCategory + ", "
-						: "")
-				+ (streetAddress != null ? "streetAddress=" + streetAddress
-						: "") + "]";
+				+ (subCategory != null ? "subCategory=" + subCategory : "")
+				+ "]";
 	}
 
 	
-
 	
 	
 	

@@ -10,7 +10,7 @@ public class LocationBean implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Long id;
-	private String manualAddress;
+	private String streetAddress;
 	private String lat;
 	private String lng;
 	private String locType;
@@ -34,18 +34,7 @@ public class LocationBean implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	/**
-	 * @return the manualAddress
-	 */
-	public String getManualAddress() {
-		return manualAddress;
-	}
-	/**
-	 * @param manualAddress the manualAddress to set
-	 */
-	public void setManualAddress(String manualAddress) {
-		this.manualAddress = manualAddress;
-	}
+	
 	/**
 	 * @return the lat
 	 */
@@ -115,15 +104,31 @@ public class LocationBean implements Serializable {
 		this.state = state;
 	}
 	
-
-	@Override
-	public String toString() {
-		return "LocationBean [id=" + id + ", manualAddress=" + manualAddress
-				+ ", lat=" + lat + ", lng=" + lng + ", locType=" + locType
-				+ ", city=" + city + ", country=" + country + ", state="
-				+ state + "]";
+	public String getStreetAddress() {
+		return streetAddress;
 	}
 
+	public void setStreetAddress(String streetAddress) {
+		this.streetAddress = streetAddress;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "LocationBean ["
+				+ (id != null ? "id=" + id + ", " : "")
+				+ (streetAddress != null ? "streetAddress=" + streetAddress
+						+ ", " : "") + (lat != null ? "lat=" + lat + ", " : "")
+				+ (lng != null ? "lng=" + lng + ", " : "")
+				+ (locType != null ? "locType=" + locType + ", " : "")
+				+ (city != null ? "city=" + city + ", " : "")
+				+ (country != null ? "country=" + country + ", " : "")
+				+ (state != null ? "state=" + state : "") + "]";
+	}
+
+	
 	
 	
 }
