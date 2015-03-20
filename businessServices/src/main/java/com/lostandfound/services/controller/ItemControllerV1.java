@@ -60,16 +60,16 @@ public class ItemControllerV1 implements Serializable {
 			@RequestParam(value = "target", required = false, defaultValue = "DB") String target,
 			@RequestBody RegisterItemBean registerItemBean,HttpServletResponse response) {
 		System.out.println("in POST method"+registerItemBean);
-		String returnStatus="Record Created!!";
+		String itemId="";
 		try{
 			if(target.equalsIgnoreCase("DB")){
-				itemProcessor.saveItem(registerItemBean);
+				itemId = "Item Saved with Item Id = "+ itemProcessor.saveItem(registerItemBean);
 			}
 		}catch(Exception exp){
 			System.out.println("Exception  = "+exp);
-			returnStatus= exp.getMessage();
+			itemId= exp.getMessage();
 		}
-		return returnStatus;
+		return itemId;
 	}	
 	
 	@ExceptionHandler(CustomGenericException.class)

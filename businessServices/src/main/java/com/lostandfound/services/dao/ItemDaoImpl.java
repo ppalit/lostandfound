@@ -100,12 +100,12 @@ public class ItemDaoImpl implements ItemDao {
 	
 	
 	public List<RegisterItemBean> getItems(String searchString) {
-		String sql = "SELECT public_description,colour FROM item_primary WHERE colour= :colour";
-		SqlParameterSource namedParameters = new MapSqlParameterSource(
-				"colour", searchString);
+		String sql = "SELECT category ,sub_category ,public_description,secret_description , item_found_date ,"
+				+ "street_address, lat , lng , loc_type , city , country , state ,reporter_id , colour FROM item_primary";
+		//SqlParameterSource namedParameters = new MapSqlParameterSource("colour", searchString);
 		List<RegisterItemBean> items  = new ArrayList<RegisterItemBean>();
 		items = (List<RegisterItemBean>) namedParameterJdbcTemplate
-				.query(sql, namedParameters, new ItemMapper());
+				.query(sql,new ItemMapper());
 		return items;
 	}
 

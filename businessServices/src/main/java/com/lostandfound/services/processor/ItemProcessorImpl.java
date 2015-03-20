@@ -41,7 +41,7 @@ public class ItemProcessorImpl implements ItemProcessor{
 
 	public RegisterItemBean fetchItem(int itemId) {
 		// TODO Auto-generated method stub
-		return itemDao.getItem(1);
+		return itemDao.getItem(itemId);
 	}
 
 	public List<RegisterItemBean> fetchItems(String searchString) {
