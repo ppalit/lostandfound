@@ -3,7 +3,7 @@ rm -rf master.zip sample-laf-master
 curl -LkSs https://github.com/ppalit/sample-laf/archive/master.zip -o master.zip
 unzip master.zip
 cd sample-laf-master
-mvn clean install -P $1
+mvn clean install
 cd ..
 #ssh -i aws-keypair2.pem ec2-user@54.165.125.72
 #cd /opt/apps/
