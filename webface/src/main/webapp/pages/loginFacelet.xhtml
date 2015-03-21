@@ -5,7 +5,17 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
 
-	<h:head></h:head>
+	<h:head>
+
+
+		<style>
+@media ( min-width : 768px) {
+	.margin {
+		margin-left: 30%;
+	}
+}
+</style>
+	</h:head>
 	<h:body styleClass="bodyTop ">
 		<script type="text/javascript">
 			/**
@@ -23,27 +33,101 @@
 					userId : 'me'
 				}).execute(handleEmailResponse);
 			}
+			
+
+			// Initial load of page
+			$(document).ready(render);
+			
+			function render() {
+				// Additional params including the callback, the rest of the params will
+				// come from the page-level configuration.
+				var additionalParams = {
+					'callback': 'signinCallback',	
+					'theme' : 'dark',
+					'clientid' : '248135305177-grbg4j1abhvedq0pbvkjbro5rf4agao9.apps.googleusercontent.com',
+					'cookiepolicy' : 'single_host_origin',
+					'scope' : 'email'
+				};
+
+				gapi.signin.render('signingButton', additionalParams);
+
+			}
 		</script>
 		<h:panelGroup layout="block" id="login" styleClass="myCarousel">
 
-			<div class="container">
+			<div class="container margin">
+
+
+				<div>
+
+					<div class="row">
+						<div class="col-xs-12 col-sm-6">
+
+
+							<div class="col-xs-12 col-sm-9">
+								<h3>
+									Login or <a href="#">Sign up</a>
+								</h3>
+								<button class="btn btn-lg btn-block btn-facebook"
+									data-max-rows="1" data-show-faces="false"
+									data-auto-logout-link="false" scope="public_profile,email"
+									onlogin="checkLoginState();">
+									<i class="fa fa-facebook"></i> | Connect with Facebook
+								</button>
+								<br />
+							</div>
+							<div class="col-xs-12 col-sm-9">
+								<button id="signingButton"
+									class="btn btn-lg btn-block btn-google-plus">
+									<i class="fa fa-google-plus-square"></i> | Connect with Google
+									Plus
+								</button>
+							</div>
+
+							<div class="col-xs-12 col-sm-9">
+								<hr class="omb_hrOr" />
+								<center>Or use your email address</center>
+							</div>
+
+							<div class="col-xs-12 col-sm-9">
+								<form action="" autocomplete="off" method="POST">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-user"></i></span>
+										<input type="text" class="form-control" name="username"
+											placeholder="email address" />
+									</div>
+									<span class="help-block"></span>
+
+									<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+								</form>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="fb-login-button" data-max-rows="1" data-size="large"
+				data-show-faces="false" data-auto-logout-link="false"
+				scope="public_profile,email" onlogin="checkLoginState();"></div>
+			<!-- <div class="container">
 				<div class="row">
 					<div class="col-lg-3 col-md-3 col-sm-12"></div>
 					<div class="col-lg-6 col-md-6 col-sm-12">
 						<span id="signinButton"> <span class="g-signin"
 							data-callback="onSignInCallback"
 							data-clientid="248135305177-grbg4j1abhvedq0pbvkjbro5rf4agao9.apps.googleusercontent.com"
-							data-cookiepolicy="single_host_origin" data-scope="email" >
+							data-cookiepolicy="single_host_origin" data-scope="email">
 						</span>
 						</span>
-						<div class="fb-login-button" data-max-rows="1" 
-						data-size="large" data-show-faces="false" data-auto-logout-link="false" scope="public_profile,email"
-							onlogin="checkLoginState();"></div>
-							
+						<div class="fb-login-button" data-max-rows="1" data-size="large"
+							data-show-faces="false" data-auto-logout-link="false"
+							scope="public_profile,email" onlogin="checkLoginState();"></div>
+
 					</div>
 					<div class="col-lg-3 col-md-3 col-sm-12"></div>
 				</div>
-			</div>
+			</div> -->
 		</h:panelGroup>
 
 	</h:body>
