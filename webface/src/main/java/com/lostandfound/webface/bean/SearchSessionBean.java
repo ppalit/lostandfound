@@ -37,6 +37,20 @@ public class SearchSessionBean implements Serializable{
 	public String navigate(){
 		return "searchResult";
 	}
+	
+	
+	public String registerItem(){
+		if(emailId!=null){
+		return	"registerLandingPage";
+		}else{
+		return	"loginLandingPage";
+		}
+	}
+	
+
+	public String getRegisterItem(){
+		return registerItem();
+	}
 
 	/**
 	 * @return the emailId

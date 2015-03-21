@@ -29,10 +29,16 @@
 			<to-view-id>/pages/home.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
-			<from-outcome>register</from-outcome>
+			<from-outcome>registerLandingPage</from-outcome>
 			<to-view-id>/pages/registerLandingPage.xhtml</to-view-id>
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>loginLandingPage</from-outcome>
+			<to-view-id>/pages/loginLandingPage.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>
+	
+	
 
 	<navigation-rule>
 		<from-view-id>/index.xhtml</from-view-id>

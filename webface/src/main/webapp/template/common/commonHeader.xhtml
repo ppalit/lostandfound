@@ -6,11 +6,9 @@
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
 
 	<h:body>
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-		 <script src = "https://plus.google.com/js/client:plusone.js?onload=render" async="async" defer="defer"></script>
-		 <h:outputScript name="fblog.js" library="js" />
+		
 		<h:outputScript name="bootstrap.min.js" library="js" />
 		<h:outputScript name="jquery-1.11.2.min.js" library="js" />
 		<h:outputScript name="jquery.easing.min.js" library="js" />
@@ -39,7 +37,7 @@
 					<div class="collapse navbar-collapse" id="landf-navbar">
 						<ul class="nav navbar-nav">
 							<li><a class="page-scroll" href="#">About</a></li>
-							<li><h:link styleClass="page-scroll" value="Found Item" outcome="register" /></li>
+							<li><h:link styleClass="page-scroll" value="Found Item" outcome="#{searchSessionBean.registerItem}" /></li>
 							<li><a class="page-scroll" href="#">Services</a></li>
 							<li><a class="page-scroll" href="#contact">Contact</a></li>
 						</ul>

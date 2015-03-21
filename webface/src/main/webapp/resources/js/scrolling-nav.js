@@ -52,9 +52,7 @@ function sizeContent() {
  */
 function handleEmailResponse(resp) {
   var primaryEmail;
-  console.log(resp);
-  console.log(resp.emails.length);
-  
+
   for(var i = 0 ; i < resp.emails.length; i++){
   	if(resp.emails[i].type == "account"){
   		if(document.getElementById('riForm:emlId')!= null){
@@ -72,5 +70,24 @@ function handleEmailResponse(resp) {
 
 
 }
+
+
+/**
+ * Handler for the signin callback triggered after the user selects an account.
+ */
+function signinCallback(resp) {
+	 
+	gapi.client.load('plus', 'v1', apiClientLoaded);
+}
+
+/**
+ * Sets up an API call after the Google API client loads.
+ */
+function apiClientLoaded() {
+	gapi.client.plus.people.get({
+		userId : 'me'
+	}).execute(handleEmailResponse);
+}
+
 
 

@@ -4,12 +4,14 @@ import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.lostandfound.common.bean.RegisterItemBean;
+import com.lostandfound.webface.bean.SearchSessionBean;
 
 
 @ManagedBean(name="registerController")
@@ -28,10 +30,16 @@ public class RegisterController implements Serializable {
 	
 	private String uiLocation;
 	
+	@ManagedProperty("#{searchSessionBean}")
+	private SearchSessionBean searchSessionBean;
+	
 	
 	@PostConstruct
 	public void init(){
 		regItemBean = new RegisterItemBean();
+		if(searchSessionBean!=null && searchSessionBean.getEmailId()!=null){
+			regItemBean.getReporter().setEmailId(searchSessionBean.getEmailId());
+		}
 		LOGGER.info("Called Post Construct of RegisterController");
 	}
 	
@@ -83,5 +91,19 @@ public class RegisterController implements Serializable {
 	 */
 	public void setUiLocation(String uiLocation) {
 		this.uiLocation = uiLocation;
+	}
+
+	/**
+	 * @return the searchSessionBean
+	 */
+	public SearchSessionBean getSearchSessionBean() {
+		return searchSessionBean;
+	}
+
+	/**
+	 * @param searchSessionBean the searchSessionBean to set
+	 */
+	public void setSearchSessionBean(SearchSessionBean searchSessionBean) {
+		this.searchSessionBean = searchSessionBean;
 	}
 }

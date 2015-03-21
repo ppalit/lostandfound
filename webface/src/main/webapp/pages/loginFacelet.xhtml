@@ -6,7 +6,7 @@
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
 
 	<h:head>
-
+	
 
 		<style>
 @media ( min-width : 768px) {
@@ -16,23 +16,11 @@
 }
 </style>
 	</h:head>
-	<h:body styleClass="bodyTop ">
+	<h:body styleClass="bodyTop " >
+	 <script src = "https://plus.google.com/js/client:plusone.js?onload=render" async="async" defer="defer"></script>
+	 <h:outputScript name="fblog.js" library="js" />
 		<script type="text/javascript">
-			/**
-			 * Handler for the signin callback triggered after the user selects an account.
-			 */
-			function signinCallback(resp) {
-				gapi.client.load('plus', 'v1', apiClientLoaded);
-			}
-
-			/**
-			 * Sets up an API call after the Google API client loads.
-			 */
-			function apiClientLoaded() {
-				gapi.client.plus.people.get({
-					userId : 'me'
-				}).execute(handleEmailResponse);
-			}
+			
 			
 
 			// Initial load of page
@@ -85,15 +73,18 @@
 							</div>
 
 							<div class="col-xs-12 col-sm-9">
-								<form action="" autocomplete="off" method="POST">
+								<form  jsf:id="logfm" autocomplete="off" >
 									<div class="input-group">
 										<span class="input-group-addon"><i class="fa fa-user"></i></span>
-										<input type="text" class="form-control" name="username"
-											placeholder="email address" />
+										<input jsf:id="emaiId" type="text" class="form-control" name="username"
+											placeholder="email address"  value="#{searchSessionBean.emailId}" />
 									</div>
 									<span class="help-block"></span>
 
-									<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+									<button class="btn btn-lg btn-primary btn-block" type="submit" jsf:id="lobt" value="registerFound" 
+									jsf:action="#{searchSessionBean.registerItem}">Login
+									
+									</button>
 								</form>
 							</div>
 

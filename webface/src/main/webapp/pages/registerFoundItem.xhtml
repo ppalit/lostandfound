@@ -7,11 +7,11 @@
 	xmlns:lk="http://lostkeeper.com/taglib">
 
 	<h:head></h:head>
-	<h:body>	
+	<h:body id="regbdId" >	
 	
 
 		<!-- Page Content -->
-		<h:panelGroup layout="block" id="register" styleClass="register" >
+		<h:panelGroup layout="block" id="register" styleClass="register"  rendered="#{searchSessionBean.emailId != null}">
 
 			<div class="container">
 				<div class="row">
