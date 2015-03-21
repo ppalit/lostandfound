@@ -2,9 +2,7 @@
  * 
  */
 
-
 // Code for google maps integration
-
 var map;
 var geocoder;
 var marker;
@@ -119,7 +117,6 @@ function locateAddressonMap() {
 				position : results[0].geometry.location
 			});
 
-			updateLocationData();
 			updateLocationDetails(results[0]);
 			google.maps.event.addListener(marker, 'click', toggleBounce);
 			google.maps.event
@@ -152,11 +149,32 @@ function updateLocationDetails(result) {
 		}
 	}
 }
-
+// Get location details from marker lat and long info
 function updateLocationData() {
 
 	document.getElementById('riForm:hidlat').value = marker.getPosition().lat();
 	document.getElementById('riForm:hidlng').value = marker.getPosition().lng();
+	var latlng = marker.getPosition();
+	geocoder.geocode({
+		'latLng' : latlng
+	}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+			if (results[0]) {
+
+				// map.setZoom(11);
+				// marker = new google.maps.Marker({
+				// position: latlng,
+				// map: map
+				// });
+				updateLocationDetails(results[0]);
+				// infowindow.setContent(results[1].formatted_address);
+				// infowindow.open(map, marker);
+			} else {
+				alert('No results found');
+			}
+		} else {
+			alert('Geocoder failed due to: ' + status);
+		}
+	});
+
 }
-
-

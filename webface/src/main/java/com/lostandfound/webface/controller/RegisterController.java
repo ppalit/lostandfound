@@ -9,6 +9,7 @@ import javax.faces.bean.SessionScoped;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.client.RestTemplate;
 
 import com.lostandfound.common.bean.RegisterItemBean;
 import com.lostandfound.webface.bean.SearchSessionBean;
@@ -44,6 +45,9 @@ public class RegisterController implements Serializable {
 	}
 	
 	public String register(){
+		
+		RestTemplate restTemplate = new RestTemplate();
+		//restTemplate.postForLocation(url, request, urlVariables)
 		System.out.println(regItemBean.toString());
 		
 	return null;
