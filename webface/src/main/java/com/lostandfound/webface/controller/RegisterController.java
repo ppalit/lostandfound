@@ -47,8 +47,8 @@ public class RegisterController implements Serializable {
 	public String register(){
 		
 		RestTemplate restTemplate = new RestTemplate();
-		//restTemplate.postForLocation(url, request, urlVariables)
-		System.out.println(regItemBean.toString());
+		RegisterItemBean response = restTemplate.postForObject(" http://webfront-373876434.us-east-1.elb.amazonaws.com/business-services/V1/item", regItemBean, RegisterItemBean.class);
+		System.out.println(response.toString());
 		
 	return null;
 	}

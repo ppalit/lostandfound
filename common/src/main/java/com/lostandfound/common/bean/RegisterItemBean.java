@@ -2,7 +2,9 @@ package com.lostandfound.common.bean;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class RegisterItemBean implements Serializable {
 
 	/**
