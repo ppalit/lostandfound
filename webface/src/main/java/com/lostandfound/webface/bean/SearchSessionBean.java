@@ -20,6 +20,8 @@ public class SearchSessionBean implements Serializable{
 	
 	private String emailId;
 	
+	private String location;
+	
 	/**
 	 * @return the searchQuery
 	 */
@@ -64,6 +66,20 @@ public class SearchSessionBean implements Serializable{
 	 */
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
+	}
+
+	/**
+	 * @return the location
+	 */
+	public String getLocation() {
+		return location;
+	}
+
+	/**
+	 * @param location the location to set
+	 */
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 }

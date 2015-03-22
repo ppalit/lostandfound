@@ -25,31 +25,27 @@
 						<div class="col-lg-2 col-md-2"></div>
 					</div>
 					<div class="row">
-						<div class="col-lg-3 col-md-3"></div>
-						<div class="col-lg-6 col-md-6">
+						<div class="col-lg-2 col-md-2"></div>
+						<div class="col-lg-8 col-md-8">
 
 							<h2 class="serif">Second Test HEader Hwllo World</h2>
 							<div class="input-group form-group-lg">
-							
-							
-							<h:inputText id='search' value="#{searchSessionBean.searchQuery}"
-									styleClass="form-control"></h:inputText>
-								<h:panelGroup layout="block" styleClass="input-group-btn">
-									<h:commandButton styleClass="btn btn-success  btn-lg"
-										action="#{searchSessionBean.navigate}" name="Search" value="Search">
-									
-									</h:commandButton>
-									
-								</h:panelGroup>
-								
-
-
-								<!-- 								<input type="text" class="form-control" -->
-								<!-- 									placeholder="Text Looking for..." /> -->
-
-								<!-- 								<div class="input-group-btn"> -->
-								<!-- 									<button type="submit" class="btn btn-success">Button</button> -->
-								<!-- 								</div> -->
+								<div class="col-lg-4 col-md-4">
+									<h:inputText id='slID' value="#{searchSessionBean.location}"
+										styleClass="form-control" onfocus="geolocate()" />
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<h:inputText id='search'
+										value="#{searchSessionBean.searchQuery}"
+										styleClass="form-control" />
+								</div>
+								<div class="col-lg-2 col-md-2">
+									<h:panelGroup layout="block" styleClass="input-group-btn">
+										<h:commandButton styleClass="btn btn-success  btn-lg"
+											action="#{searchSessionBean.navigate}" name="Search"
+											value="Search" />
+									</h:panelGroup>
+								</div>
 							</div>
 						</div>
 						<div class="col-lg-3 col-md-3"></div>
