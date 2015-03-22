@@ -4,7 +4,23 @@
         xmlns:pt="http://xmlns.jcp.org/jsf/"
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
         xmlns:jsf="http://xmlns.jcp.org/jsf">
-
+<head>
+<style>
+@media ( min-width : 768px) {
+	.padding-left-zero {
+		padding-left: 0%;
+	}
+	.padding-right-zero {
+		padding-right: 0%;
+	}
+	
+	.align-left{
+	text-align:left
+	}
+	
+}
+</style>
+</head>
 
 	<h:panelGroup layout="block" id="myCarouselId"
 		class="myCarousel fullscreen background-d">
@@ -30,17 +46,17 @@
 
 							<h2 class="serif">Second Test HEader Hwllo World</h2>
 							<div class="input-group form-group-lg">
-								<div class="col-lg-4 col-md-4">
+								<div class="col-lg-4 col-md-4 padding-right-zero">
 									<h:inputText id='slID' value="#{searchSessionBean.location}"
 										styleClass="form-control" onfocus="geolocate()" />
 								</div>
-								<div class="col-lg-6 col-md-6">
+								<div class="col-lg-6 col-md-6 padding-right-zero padding-left-zero ">
 									<h:inputText id='search'
 										value="#{searchSessionBean.searchQuery}"
 										styleClass="form-control" />
 								</div>
-								<div class="col-lg-2 col-md-2">
-									<h:panelGroup layout="block" styleClass="input-group-btn">
+								<div class="col-lg-2 col-md-2 padding-left-zero align-left">
+								<h:panelGroup layout="block" styleClass="input-group-btn">
 										<h:commandButton styleClass="btn btn-success  btn-lg"
 											action="#{searchSessionBean.navigate}" name="Search"
 											value="Search" />
