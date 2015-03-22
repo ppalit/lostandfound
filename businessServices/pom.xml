@@ -111,9 +111,6 @@
 	<profiles>
 		<profile>
 			<id>ppwork</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 			<properties>
 				<db.path>C:/software/lostandfound_master</db.path>
 			</properties>
@@ -122,6 +119,15 @@
 			<id>pphome</id>
 			<properties>
 				<db.path>/Users/priyabrata/Documents/aws/lostandfound</db.path>
+			</properties>
+		</profile>
+		<profile>
+			<id>aws</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<db.path>/opt/apps/db/lostandfound_master</db.path>
 			</properties>
 		</profile>
 	</profiles>
