@@ -47,6 +47,7 @@ public class ItemProcessorImpl implements ItemProcessor{
 	public List<RegisterItemBean> fetchItems(String searchString) {
 		return itemDao.getItems("blue");
 	}
+	
 
 	
 }

@@ -64,6 +64,7 @@ public class ItemControllerV1 implements Serializable {
 		try{
 			if(target.equalsIgnoreCase("DB")){
 				itemId = "Item Saved with Item Id = "+ itemProcessor.saveItem(registerItemBean);
+				System.out.println(itemId);
 			}
 		}catch(Exception exp){
 			System.out.println("Exception  = "+exp);
