@@ -1,12 +1,18 @@
 package com.lostandfound.services.exception;
 
-public class CustomGenericException extends RuntimeException {
+public class CustomGenericException extends Exception {
 	 
 	private static final long serialVersionUID = 1L;
  
 	private String errCode;
 	private String errMsg;
+
  
+	public CustomGenericException(String errCode, String errMsg) {
+		this.errCode = errCode;
+		this.errMsg = errMsg;
+	}
+
 	public String getErrCode() {
 		return errCode;
 	}
@@ -23,9 +29,6 @@ public class CustomGenericException extends RuntimeException {
 		this.errMsg = errMsg;
 	}
  
-	public CustomGenericException(String errCode, String errMsg) {
-		this.errCode = errCode;
-		this.errMsg = errMsg;
-	}
- 
+	
+	
 }

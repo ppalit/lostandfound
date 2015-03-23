@@ -43,6 +43,7 @@ public class ItemDaoImpl implements ItemDao {
 				+ "street_address, lat , lng , loc_type , city , country , state ,reporter_id , colour)"
 				+ "VALUES (:category,:sub_category,:public_description,:secret_description,:item_found_date,"
 				+ ":street_address, :lat , :lng , :loc_type , :city , :country , :state , :reporter_id , :colour)";
+		
 		Map<String, String> namedParameters = new HashMap<String, String>();
 		namedParameters.put("category", registerItemBean.getCategory());
 		namedParameters.put("sub_category", registerItemBean.getSubCategory());
@@ -68,7 +69,6 @@ public class ItemDaoImpl implements ItemDao {
 	}
 
 	public boolean insertReporter(ReporterBean reporterBean) {
-
 		String query = "INSERT INTO reporter (first_name, last_name, email_id,phone_no) VALUES (:firstName,:lastName,:emailId,:phoneNo)";
 		Map<String, String> namedParameters = new HashMap<String, String>();
 		namedParameters.put("firstName", reporterBean.getFirstName());
@@ -100,7 +100,7 @@ public class ItemDaoImpl implements ItemDao {
 	
 	
 	public List<RegisterItemBean> getItems(String searchString) {
-		String sql = "SELECT category ,sub_category ,public_description,secret_description , item_found_date ,"
+		String sql = "SELECT item_id ,category ,sub_category ,public_description,secret_description , item_found_date ,"
 				+ "street_address, lat , lng , loc_type , city , country , state ,reporter_id , colour FROM item_primary";
 		//SqlParameterSource namedParameters = new MapSqlParameterSource("colour", searchString);
 		List<RegisterItemBean> items  = new ArrayList<RegisterItemBean>();
