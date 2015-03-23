@@ -39,11 +39,18 @@ public class ItemControllerV1 implements Serializable {
 
 	@RequestMapping(value = "/V1/items", method = RequestMethod.GET, produces = "application/json")
 	public @ResponseBody List<RegisterItemBean> getItems(
-			@RequestParam(value = "target", required = false, defaultValue = "DB") String target) {
-		// model.addAttribute("name", name);
-		System.out.println("in method");
+			@RequestParam(value = "target", required = false, defaultValue = "DB") String target) throws CustomGenericException{
 		List<RegisterItemBean> resultList = new ArrayList<RegisterItemBean>();
-		resultList = itemProcessor.fetchItems("blue");
+		try{
+			resultList = itemProcessor.fetchItems("blue");
+		}catch (Exception exp) {
+			if (exp.getCause() instanceof CustomGenericException){
+				System.out.println("Exception  = " + exp);
+				throw (CustomGenericException)exp.getCause();
+			}
+			System.out.println("Exception  = " + exp);
+			throw new CustomGenericException("BUSINESS-SERVICES-ERR3", "Error in Controller interaction.. check logs for more details");
+		}
 		return resultList;
 	}
 
@@ -69,7 +76,7 @@ public class ItemControllerV1 implements Serializable {
 	public @ResponseBody String insertItem(
 			@RequestParam(value = "target", required = false, defaultValue = "DB") String target,
 			@RequestBody RegisterItemBean registerItemBean,
-			HttpServletResponse response) {
+			HttpServletResponse response) throws CustomGenericException {
 		System.out.println("in POST method" + registerItemBean);
 		String itemId = "";
 		try {
@@ -80,8 +87,12 @@ public class ItemControllerV1 implements Serializable {
 			}
 		}
 		catch (Exception exp) {
+			if (exp.getCause() instanceof CustomGenericException){
+				System.out.println("Exception  = " + exp);
+				throw (CustomGenericException)exp.getCause();
+			}
 			System.out.println("Exception  = " + exp);
-			itemId = exp.getMessage();
+			throw new CustomGenericException("BUSINESS-SERVICES-ERR3", "Error in Controller interaction.. check logs for more details");
 		}
 		return itemId;
 	}
