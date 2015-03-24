@@ -21,7 +21,7 @@
 		</entity>
 		<entity name="loc"
 			query="select lat||' ,'||lng as location from item_primary where item_id='${item.id}'">
-			<field name="lat" column="location" />
+			<field name="loc" column="location" />
 		</entity>
 	</document>
 </dataConfig>
