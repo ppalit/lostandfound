@@ -104,7 +104,7 @@ public class ItemControllerV1 implements Serializable {
 		Map<String, String> errorMap = new HashMap<String, String>();
 		errorMap.put("errCode", ex.getErrCode());
 		errorMap.put("errMsg", ex.getErrMsg());
-		response.setStatus(HttpStatus.BANDWIDTH_LIMIT_EXCEEDED.value());
+		response.setStatus(HttpStatus.SERVICE_UNAVAILABLE.value());
 		return errorMap;
 
 	}

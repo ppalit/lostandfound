@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataConfig>
+	<dataSource driver="org.sqlite.JDBC"
+		url="jdbc:sqlite:/opt/apps/db/lostandfound_master" />
+	<document>
+		<entity name="item"
+			query="select item_id ,category ,sub_category ,public_description,secret_description , item_found_date ,street_address, loc_type , city , country , state ,reporter_id , colour from item_primary">
+			<field column="item_id" name="id" />
+			<field column="category" name="item_category" />
+			<field column="sub_category" name="item_sub_category" />
+			<field column="public_description" name="public_description" />
+			<field column="secret_description" name="secret_description" />
+			<field column="item_found_date" name="item_found_date" />
+			<field column="street_address" name="street_address" />
+			<field column="loc_type" name="loc_type" />
+			<field column="city" name="city" />
+			<field column="country" name="country" />
+			<field column="state" name="state" />
+			<field column="reporter_id" name="reporter_id" />
+			<field column="colour" name="colour" />
+		</entity>
+		<entity name="loc"
+			query="select lat||' ,'||lng as location from item_primary where item_id='${item.id}'">
+			<field name="lat" column="location" />
+		</entity>
+	</document>
+</dataConfig>
