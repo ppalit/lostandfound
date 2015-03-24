@@ -110,7 +110,7 @@ public class ItemDaoImpl implements ItemDao {
 	}
 
 	public RegisterItemBean getItem(int itemId) {
-		String sql = "SELECT category ,sub_category ,public_description,secret_description , item_found_date ,"
+		String sql = "SELECT item_id, category ,sub_category ,public_description,secret_description , item_found_date ,"
 				+ "street_address, lat , lng , loc_type , city , country , state ,reporter_id , colour FROM item_primary WHERE item_id= :itemId";
 		SqlParameterSource namedParameters = new MapSqlParameterSource(
 				"itemId", itemId);
