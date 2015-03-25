@@ -11,11 +11,9 @@ public interface ItemDao {
 	 
 	 public int insertFoundItem(RegisterItemBean registerItemBean);
 	 
-	 public boolean insertReporter(ReporterBean reporterBean);
-	 
 	 public ReporterBean getReporter(String emailId);
 	 
-	 public List<RegisterItemBean> getItems(String searchString);
+	 public List<RegisterItemBean> getItems();
 	 
 	 public RegisterItemBean getItem(int itemId);
 	 

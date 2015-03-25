@@ -10,12 +10,10 @@ public interface ItemProcessor {
 	
 	public int saveItem(RegisterItemBean registerItemBean);
 	
-	public boolean saveReporter(ReporterBean reporterBean);
-	
 	public ReporterBean fetchReporter(String emailId);
 	
 	public RegisterItemBean fetchItem(int itemId);
 	
-	public List<RegisterItemBean> fetchItems(String searchString);
+	public List<RegisterItemBean> fetchItems();
 
 }

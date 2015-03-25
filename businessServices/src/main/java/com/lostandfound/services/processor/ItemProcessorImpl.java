@@ -28,13 +28,6 @@ public class ItemProcessorImpl implements ItemProcessor{
 		return itemId;
 	}
 
-	public boolean saveReporter(ReporterBean reporterBean) {
-		boolean  status= false;
-		if (reporterBean != null)
-			status = itemDao.insertReporter(reporterBean);
-		return status;
-	}
-
 	public ReporterBean fetchReporter(String emailId) {
 		return itemDao.getReporter(emailId);
 	}
@@ -44,8 +37,8 @@ public class ItemProcessorImpl implements ItemProcessor{
 		return itemDao.getItem(itemId);
 	}
 
-	public List<RegisterItemBean> fetchItems(String searchString) {
-		return itemDao.getItems("blue");
+	public List<RegisterItemBean> fetchItems() {
+		return itemDao.getItems();
 	}
 	
 
