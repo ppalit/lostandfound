@@ -1,6 +1,8 @@
 package com.lostandfound.webface.controller;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -30,6 +32,8 @@ public class RegisterController implements Serializable {
 	private String userName;
 	
 	private String uiLocation;
+	
+	private List<String> categories;
 	
 	@ManagedProperty("#{searchSessionBean}")
 	private SearchSessionBean searchSessionBean;
@@ -109,5 +113,33 @@ public class RegisterController implements Serializable {
 	 */
 	public void setSearchSessionBean(SearchSessionBean searchSessionBean) {
 		this.searchSessionBean = searchSessionBean;
+	}
+
+	/**
+	 * @return the categories
+	 */
+	public List<String> getCategories() {
+		if(categories==null || categories.size()==0){
+			categories= new ArrayList<String>();
+			categories.add("Animals & Pet Supplies");categories.add("Apparel & Accessories");
+			categories.add("Arts & Entertainment");categories.add("Business & Industrial");
+			categories.add("Cameras & Optics");categories.add("Electronics");
+			categories.add("");categories.add("");
+			categories.add("");categories.add("");
+			categories.add("");categories.add("");
+			categories.add("");categories.add("");
+			categories.add("");categories.add("");
+			categories.add("");categories.add("");
+			categories.add("");categories.add("");
+			
+		}
+		return categories;
+	}
+
+	/**
+	 * @param categories the categories to set
+	 */
+	public void setCategories(List<String> categories) {
+		this.categories = categories;
 	}
 }
