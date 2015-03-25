@@ -17,102 +17,80 @@
 				<div class="row">
 
 					<div class="col-lg-6 col-md-6 col-sm-12">
-						<form jsf:id="riForm" class="form-horizontal ">
-							<div class="form-group form-group-small">
-								<label for="unId" class="col-sm-3 control-label"> Name</label>
-								<div class="col-sm-9">
-										<input jsf:id="unId" type="text" class="form-control form-control-custom"
+						<form jsf:id="riForm" >
+							<div class="form-group ">
+								<label for="unId" class="control-label"> Name</label>
+										<input jsf:id="unId" type="text" class="form-control"
 											jsf:value="#{registerController.regItemBean.reporter.firstName}"
 											placeholder="Enter Your Name" /> 
-								</div>
 							</div>
-							<div class="form-group form-group-small">
-								<label for="itId" class="col-sm-3  control-label">
+							<div class="form-group ">
+								<label for="itId" class=" control-label">
 									Category</label>
-								<div class="col-sm-9">
-										<input jsf:id="itId" type="text" class="form-control form-control-custom"
+										<input jsf:id="itId" type="text" class="form-control"
 											jsf:value="#{registerController.regItemBean.category}"
 											placeholder="Type of Item? Electronics, Pets, Keys" /> 
-								</div>
 							</div>
-							<div class="form-group form-group-small">
-								<label for="itId" class="col-sm-3  control-label">
+							<div class="form-group ">
+								<label for="itId" class=" control-label">
 									Sub Category</label>
-								<div class="col-sm-9">
-										<input jsf:id="scId" type="text" class="form-control form-control-custom"
+										<input jsf:id="scId" type="text" class="form-control"
 											jsf:value="#{registerController.regItemBean.category}"
 											placeholder="Type of Item? Electronics, Pets, Keys" />
-								</div>
 							</div>
-							<div class="form-group form-group-small">
-								<label for="icId" class="col-sm-3 control-label"> Color</label>
-								<div class="col-sm-9">
-										<input jsf:id="icId" type="text" class="form-control form-control-custom"
+							<div class="form-group ">
+								<label for="icId" class="control-label"> Color</label>
+										<input jsf:id="icId" type="text" class="form-control"
 											jsf:value="#{registerController.regItemBean.itemColor}"
 											placeholder="Color of the found item" />
-								</div>
 							</div>
-							<div class="form-group form-group-small">
-								<label for="fidId" class="col-sm-3 control-label">Date</label>
-								<div class="col-sm-9">
-										<lk:calendar id="fidId" styleClass="form-control form-control-custom datePicker"
+							<div class="form-group ">
+								<label for="fidId" class="control-label">Date</label>
+										<lk:calendar id="fidId" styleClass="form-control datePicker"
 											dateValue="#{registerController.regItemBean.foundDate}"
 											placeholder="click to show datepicker" />
-								</div>
 							</div>
-							<div class="form-group form-group-small">
-								<label for="descId" class="col-sm-3 control-label">Description</label>
-								<div class="col-sm-9">
-										<textarea jsf:id="descId" class="form-control form-control-custom"
+							<div class="form-group ">
+								<label for="descId" class="control-label">Description</label>
+										<textarea jsf:id="descId" class="form-control"
 											jsf:value="#{registerController.regItemBean.publicDescription}"
 											placeholder="Please describe the found item" />
-								</div>
 							</div>
-							<div class="form-group form-group-small">
-								<label for="sesu" class="col-sm-3 control-label">Secret
+							<div class="form-group ">
+								<label for="sesu" class="control-label">Secret
 									Summary</label>
-								<div class="col-sm-9">
-										<textarea jsf:id="sesu" class="form-control form-control-custom"
+										<textarea jsf:id="sesu" class="form-control"
 											jsf:value="#{registerController.regItemBean.secretDescription}"
 											placeholder="Please describe the found item" />
-								</div>
 							</div>
-							<div class="form-group form-group-small">
-								<label for="flid" class="col-sm-3 control-label">Found
+							<div class="form-group ">
+								<label for="flid" class="control-label">Found
 									Landmark</label>
-								<div class="col-sm-9">
-										<input jsf:id="flid" type="text" class="form-control form-control-custom"
+										<input jsf:id="flid" type="text" class="form-control"
 											jsf:value="#{registerController.regItemBean.location.streetAddress}"
-											placeholder="Please select location" /> 
-								</div>
+											placeholder="Please select location" />
 							</div>
-							<div class="form-group form-group-small">
-								<label for="locId" class="col-sm-3 control-label">Location</label>
-								<div class="col-sm-9">
-										<input jsf:id="locId" type="text" class="form-control form-control-custom"
+							<div class="form-group ">
+								<label for="locId" class="control-label">Location</label>
+										<input jsf:id="locId" type="text" class="form-control"
 											jsf:value="#{registerController.uiLocation}"
 											placeholder="Please select location" /> 
-								</div>
 							</div>
-							<div class="form-group form-group-small">
-								<label for="emlId" class="col-sm-3 control-label">Email</label>
-								<div class="col-sm-9">
-										<input jsf:id="emlId" type="email" class="form-control form-control-custom"
+							<div class="form-group ">
+								<label for="emlId" class="control-label">Email</label>
+										<input jsf:id="emlId" type="email" class="form-control"
 											jsf:value="#{registerController.regItemBean.reporter.emailId}"
 											placeholder="Enter your email id" /> 
-								</div>
 							</div>
-							<div class="form-group form-group-small">
+							<div class="form-group ">
 
-								<label for="phnId" class="col-sm-3 control-label">Contact
+								<label for="phnId" class="control-label">Contact
 									Number</label>
-								<div class="col-sm-9">
-										<input jsf:id="phnId" type="text" class="form-control form-control-custom"
+										<input jsf:id="phnId" type="text" class="form-control"
 											jsf:value="#{registerController.regItemBean.reporter.phoneNo}"
 											placeholder="Enter your email id" /> 
-								</div>
 							</div>
-							<div class="form-group form-group-small">
+							<div class="form-group ">
 								<div class="col-sm-offset-3 col-sm-9">
 									<h:commandButton styleClass="btn btn-success" type="button"
 										name="fiA" value="Find Location"
@@ -141,7 +119,7 @@
 								jsf:value="#{registerController.regItemBean.location.country}" />
 						</form>
 					</div>
-					<div class="col-lg-12 col-md-12 col-sm-12">
+					<div class="col-lg-6 col-md-6 col-sm-12">
 
 						<h:panelGroup layout="block" id="map-canvas"
 							styleClass="google-map"></h:panelGroup>
