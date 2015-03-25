@@ -143,9 +143,6 @@
 	<profiles>
 		<profile>
 			<id>ppwork</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 			<properties>
 				<db.path>C:/software/lostandfound_master</db.path>
 				<solr.ip>54.165.125.72</solr.ip>
@@ -162,6 +159,9 @@
 		</profile>
 		<profile>
 			<id>aws</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 			<properties>
 				<db.path>/opt/apps/db/lostandfound_master</db.path>
 				<solr.ip>54.165.125.72</solr.ip>
