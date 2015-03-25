@@ -97,6 +97,12 @@
 			<version>1.6.11</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.solr</groupId>
+			<artifactId>solr-solrj</artifactId>
+			<version>5.0.0</version>
+		</dependency>
+
 		<!-- project dependencies -->
 		<dependency>
 			<groupId>lostandfound</groupId>
@@ -120,6 +126,14 @@
 								<include>**/restws-servlet.xml</include>
 							</includes>
 						</resource>
+						<resource>
+							<directory>src/main/resources</directory>
+							<filtering>true</filtering>
+							<targetPath>WEB-INF/classes</targetPath>
+							<includes>
+								<include>**/*.properties</include>
+							</includes>
+						</resource>
 					</webResources>
 				</configuration>
 			</plugin>
@@ -134,18 +148,24 @@
 			</activation>
 			<properties>
 				<db.path>C:/software/lostandfound_master</db.path>
+				<solr.ip>54.165.125.72</solr.ip>
+				<solr.port>8983</solr.port>
 			</properties>
 		</profile>
 		<profile>
 			<id>pphome</id>
 			<properties>
 				<db.path>/Users/priyabrata/Documents/aws/lostandfound</db.path>
+				<solr.ip>54.165.125.72</solr.ip>
+				<solr.port>8983</solr.port>
 			</properties>
 		</profile>
 		<profile>
 			<id>aws</id>
 			<properties>
 				<db.path>/opt/apps/db/lostandfound_master</db.path>
+				<solr.ip>54.165.125.72</solr.ip>
+				<solr.port>8983</solr.port>
 			</properties>
 		</profile>
 	</profiles>

@@ -1,10 +1,13 @@
 package com.lostandfound.services.processor;
 
+import java.io.IOException;
 import java.util.List;
 
+import org.apache.solr.client.solrj.SolrServerException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lostandfound.common.bean.RegisterItemBean;
 import com.lostandfound.common.bean.ReporterBean;
@@ -20,12 +23,15 @@ public class ItemProcessorImpl implements ItemProcessor{
 	public int getCount(String reporterId){
 		return itemDao.countRecords(reporterId);
 	}
-
-	public int saveItem(RegisterItemBean registerItemBean) {
-		int itemId= 0;
+	
+	@Transactional(rollbackFor = Exception.class)
+	public long saveItem(RegisterItemBean registerItemBean) throws SolrServerException, IOException {
+		long itemId= 0;
 		if (registerItemBean != null && registerItemBean.getLocation() != null)
 			itemId = itemDao.insertFoundItem(registerItemBean);
-		return itemId;
+		registerItemBean.setId(itemId);
+		itemDao.saveToSolr(registerItemBean);
+		return registerItemBean.getId();
 	}
 
 	public ReporterBean fetchReporter(String emailId) {

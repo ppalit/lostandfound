@@ -1,5 +1,6 @@
 package com.lostandfound.services.dao;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,7 +8,12 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
+import org.apache.solr.client.solrj.SolrClient;
+import org.apache.solr.client.solrj.SolrServerException;
+import org.apache.solr.client.solrj.response.UpdateResponse;
+import org.apache.solr.common.SolrInputDocument;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -15,11 +21,16 @@ import org.springframework.stereotype.Repository;
 
 import com.lostandfound.common.bean.RegisterItemBean;
 import com.lostandfound.common.bean.ReporterBean;
+import com.lostandfound.services.utils.SolrUtils;
 
 @Repository(value = "itemDaoImpl")
 public class ItemDaoImpl implements ItemDao {
 
 	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+	
+	@Autowired
+	@Qualifier("solrUtils")
+	SolrUtils solrUtils;
 
 	@Autowired
 	public void setDataSource(DataSource dataSource) {
@@ -118,6 +129,27 @@ public class ItemDaoImpl implements ItemDao {
 		List<RegisterItemBean> items = (List<RegisterItemBean>) namedParameterJdbcTemplate
 				.query(sql, namedParameters, new ItemMapper());
 		return items.get(0);
+	}
+
+	public int saveToSolr(RegisterItemBean registerItemBean) throws SolrServerException, IOException {
+		SolrInputDocument document = new SolrInputDocument();
+		document.addField("id", registerItemBean.getId());
+		document.addField("item_category", registerItemBean.getCategory());
+		document.addField("item_sub_category", registerItemBean.getSubCategory());
+		document.addField("public_description", registerItemBean.getPublicDescription());
+		document.addField("secret_description", registerItemBean.getSecretDescription());
+		document.addField("item_found_date", registerItemBean.getFoundDate());
+		document.addField("street_address", registerItemBean.getLocation().getStreetAddress());
+		document.addField("loc_type", registerItemBean.getLocation().getLocType());
+		document.addField("city", registerItemBean.getLocation().getCity());
+		document.addField("country", registerItemBean.getLocation().getCountry());
+		document.addField("reporter_id", registerItemBean.getReporter().getEmailId());
+		document.addField("loc1", registerItemBean.getLocation().getLat()+","+registerItemBean.getLocation().getLng());
+		SolrClient client =  solrUtils.getServer();
+		UpdateResponse response = client.add(document);
+		client.commit();
+		return response.getStatus();
+		
 	}
 
 }
