@@ -8,16 +8,22 @@
 <style>
 @media ( min-width : 768px) {
 	.padding-left-zero {
-		padding-left: 0%;
+		padding-left: 0px;
 	}
 	.padding-right-zero {
-		padding-right: 0%;
+		padding-right: 0px;
 	}
 	
 	.align-left{
 	text-align:left
 	}
 	
+}
+
+@media (max-width: 768px) {
+    .padding-bottom {
+		padding-bottom: 15px;
+	}
 }
 </style>
 </head>
@@ -46,18 +52,18 @@
 
 							<h2 class="serif">Second Test HEader Hwllo World</h2>
 							<div class="input-group form-group-lg">
-								<div class="col-lg-4 col-md-4 padding-right-zero">
+								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-right-zero padding-bottom">
 									<h:inputText id='slID' value="#{searchSessionBean.location}"
 										styleClass="form-control" onfocus="geolocate()" />
 								</div>
-								<div class="col-lg-6 col-md-6 padding-right-zero padding-left-zero ">
+								<div class="col-lg-6 col-md-6  col-sm-5 col-xs-12 padding-right-zero padding-left-zero padding-bottom ">
 									<h:inputText id='search'
 										value="#{searchSessionBean.searchQuery}"
 										styleClass="form-control" />
 								</div>
-								<div class="col-lg-2 col-md-2 padding-left-zero align-left">
+								<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 padding-left-zero align-left padding-bottom">
 								<h:panelGroup layout="block" styleClass="input-group-btn">
-										<h:commandButton styleClass="btn btn-success  btn-lg"
+										<h:commandButton styleClass="btn btn-success  btn-lg col-xs-12"
 											action="#{searchSessionBean.navigate}" name="Search"
 											value="Search" />
 									</h:panelGroup>
