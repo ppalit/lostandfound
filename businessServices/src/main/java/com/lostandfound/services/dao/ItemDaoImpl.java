@@ -144,7 +144,7 @@ public class ItemDaoImpl implements ItemDao {
 		document.addField("city", registerItemBean.getLocation().getCity());
 		document.addField("country", registerItemBean.getLocation().getCountry());
 		document.addField("reporter_id", registerItemBean.getReporter().getEmailId());
-		document.addField("loc1", registerItemBean.getLocation().getLat()+","+registerItemBean.getLocation().getLng());
+		document.addField("loc", registerItemBean.getLocation().getLat()+","+registerItemBean.getLocation().getLng());
 		SolrClient client =  solrUtils.getServer();
 		UpdateResponse response = client.add(document);
 		client.commit();
