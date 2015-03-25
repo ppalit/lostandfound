@@ -814,11 +814,11 @@
        <str name="facet">true</str>
        <str name="rows">25</str>
        <str name="facet.mincount">1</str>
-       <str name="facet.query">foundDate:[NOW/DAY-2DAY TO NOW]</str>
-       <str name="facet.query">foundDate:[NOW/DAY-5DAY TO NOW]</str>
-       <str name="facet.field">foundPlace</str>
+       <str name="facet.query">item_found_date:[NOW/DAY-2DAY TO NOW]</str>
+       <str name="facet.query">item_found_date:[NOW/DAY-5DAY TO NOW]</str>
+       <str name="facet.field">city</str>
        <str name="facet.field">colour</str>
-       <str name="facet.field">itemType</str>
+       <str name="facet.field">item_category</str>
        <str name="facet.limit">5</str>
        <!--<str name="facet.range">foundDate_yyyy</str>
        <str name="f.foundDate_yyyy.facet.range.start">2015</str>

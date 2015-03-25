@@ -128,8 +128,7 @@
 <field name="secret_description" type="text_general" indexed="true" stored="true"/>
 <field name="item_found_date" type="date" indexed="true" stored="true" default="NOW"/>
 <field name="street_address" type="text_general" indexed="true" stored="true"/>
-<field name="lat" type="location" indexed="true" stored="true"/>
-<field name="lng" type="location" indexed="true" stored="true"/>
+<field name="loc" type="location" indexed="true" stored="true"/>
 <field name="loc_type" type="text_general" indexed="true" stored="true"/>
 <field name="city" type="text_general" indexed="true" stored="true"/>
 <field name="country" type="text_general" indexed="true" stored="true"/>
