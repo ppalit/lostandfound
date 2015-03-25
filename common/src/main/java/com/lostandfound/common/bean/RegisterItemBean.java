@@ -1,23 +1,23 @@
 package com.lostandfound.common.bean;
 
 import java.io.Serializable;
-import java.util.Arrays;
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RegisterItemBean implements Serializable {
+public class RegisterItemBean implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 163350592495047077L;
-
 	private Long id;
 	private String itemColor;
 	private String publicDescription;
 	private String secretDescription;
 	private String foundDate;
-	private byte[] image;
+	private List<ImageBean> images;
 	private LocationBean location;
 	private ReporterBean reporter;
 	private String category;
@@ -97,22 +97,7 @@ public class RegisterItemBean implements Serializable {
 		this.foundDate = foundDate;
 	}
 
-	/**
-	 * @return the image
-	 */
-	public byte[] getImage() {
-		return image;
-	}
-
-	/**
-	 * @param image
-	 *            the image to set
-	 */
-	public void setImage(byte[] image) {
-		this.image = image;
-	}
-
-	
+		
 	/**
 	 * @return the location
 	 */
@@ -180,9 +165,14 @@ public class RegisterItemBean implements Serializable {
 		this.subCategory = subCategory;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+	public List<ImageBean> getImages() {
+		return images;
+	}
+
+	public void setImages(List<ImageBean> images) {
+		this.images = images;
+	}
+
 	@Override
 	public String toString() {
 		return "RegisterItemBean ["
@@ -193,18 +183,15 @@ public class RegisterItemBean implements Serializable {
 				+ (secretDescription != null ? "secretDescription="
 						+ secretDescription + ", " : "")
 				+ (foundDate != null ? "foundDate=" + foundDate + ", " : "")
-				+ (image != null ? "image=" + Arrays.toString(image) + ", "
-						: "")
+				+ (images != null ? "images=" + images + ", " : "")
 				+ (location != null ? "location=" + location + ", " : "")
 				+ (reporter != null ? "reporter=" + reporter + ", " : "")
 				+ (category != null ? "category=" + category + ", " : "")
 				+ (subCategory != null ? "subCategory=" + subCategory : "")
 				+ "]";
 	}
+	
+	
 
-	
-	
-	
-	
 
 }

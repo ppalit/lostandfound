@@ -42,7 +42,7 @@ public class ItemControllerV1 implements Serializable {
 			@RequestParam(value = "target", required = false, defaultValue = "DB") String target) throws CustomGenericException{
 		List<RegisterItemBean> resultList = new ArrayList<RegisterItemBean>();
 		try{
-			resultList = itemProcessor.fetchItems("blue");
+			resultList = itemProcessor.fetchItems();
 		}catch (Exception exp) {
 			if (exp.getCause() instanceof CustomGenericException){
 				System.out.println("Exception  = " + exp);
