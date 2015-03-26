@@ -10,9 +10,9 @@ public class ReporterBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String emailId;
 	private String phoneNo;
-	private String userId;
 	private String firstName;
 	private String lastName;
+	private String loginChanel;
 	
 	
 
@@ -48,29 +48,13 @@ public class ReporterBean implements Serializable{
 	}
 
 
-	/**
-	 * @return the userId
-	 */
-	public String getUserId() {
-		return userId;
-	}
-
-
-	/**
-	 * @param userId the userId to set
-	 */
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
-
 	public String getLastName() {
 		return lastName;
 	}
 
 
 	public void setLastName(String lastName) {
-		lastName = lastName;
+		this.lastName = lastName;
 	}
 
 	
@@ -91,22 +75,27 @@ public class ReporterBean implements Serializable{
 	}
 
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+	public String getLoginChanel() {
+		return loginChanel;
+	}
+
+
+	public void setLoginChanel(String loginChanel) {
+		this.loginChanel = loginChanel;
+	}
+
+
 	@Override
 	public String toString() {
 		return "ReporterBean ["
 				+ (emailId != null ? "emailId=" + emailId + ", " : "")
 				+ (phoneNo != null ? "phoneNo=" + phoneNo + ", " : "")
-				+ (userId != null ? "userId=" + userId + ", " : "")
 				+ (firstName != null ? "firstName=" + firstName + ", " : "")
-				+ (lastName != null ? "lastName=" + lastName : "") + "]";
+				+ (lastName != null ? "lastName=" + lastName + ", " : "")
+				+ (loginChanel != null ? "loginChanel=" + loginChanel : "")
+				+ "]";
 	}
-	
-	
-	
-	
+
 	
 
 }
