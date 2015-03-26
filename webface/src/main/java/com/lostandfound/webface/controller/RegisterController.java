@@ -31,6 +31,8 @@ public class RegisterController implements Serializable {
 	
 	private String userName;
 	
+	private String sectionName;
+	
 	private String uiLocation;
 	
 	private List<String> categories;
@@ -55,6 +57,10 @@ public class RegisterController implements Serializable {
 		System.out.println(response.toString());
 		
 	return null;
+	}
+	
+	private void updateSection(String section){
+	this.sectionName= section ; 
 	}
 
 
@@ -141,5 +147,19 @@ public class RegisterController implements Serializable {
 	 */
 	public void setCategories(List<String> categories) {
 		this.categories = categories;
+	}
+
+	/**
+	 * @return the sectionName
+	 */
+	public String getSectionName() {
+		return sectionName;
+	}
+
+	/**
+	 * @param sectionName the sectionName to set
+	 */
+	public void setSectionName(String sectionName) {
+		this.sectionName = sectionName;
 	}
 }
