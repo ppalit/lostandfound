@@ -196,7 +196,7 @@
 										action="#{registerController.updateSection}">
 									Previous <i class="glyphicon glyphicon-arrow-left"></i>
 										<f:param name="section" value="section1" />
-										<f:ajax execute="@form" render="psec1  psec2" onevent="handleAjax"  />
+										<f:ajax execute="@form" render="psec1  psec2"  />
 									</h:commandButton>
 								</div>
 								<div class="input-group-btn"
@@ -234,7 +234,7 @@
 										action="#{registerController.updateSection}">
 									Previous <i class="glyphicon glyphicon-arrow-left"></i>
 										<f:param name="section" value="section2" />
-										<f:ajax execute="@form" render="psec2 psec3" />
+										<f:ajax execute="@form" render="psec2 psec3"  onevent="handleAjax"  />
 									</h:commandButton>
 								</div>
 								<div class="input-group-btn"
