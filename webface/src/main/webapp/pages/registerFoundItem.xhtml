@@ -6,120 +6,173 @@
 	xmlns:jsf="http://xmlns.jcp.org/jsf"
 	xmlns:lk="http://lostkeeper.com/taglib">
 
-	<h:head></h:head>
-	<h:body id="regbdId" >	
-	
+	<h:head>
+		<style>
+@media ( min-width : 768px) {
+	.margin {
+		margin-left: 20%;
+	}
+}
+</style>
+	</h:head>
+	<h:body id="regbdId">
 
 		<!-- Page Content -->
-		<h:panelGroup layout="block" id="register" styleClass="register"  rendered="#{searchSessionBean.emailId != null}">
+		<h:panelGroup layout="block" id="register" styleClass="register"
+			rendered="#{searchSessionBean.emailId != null}">
+			<div class="container margin">
+				<div class="row">
+					<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 center">
+						<h3>Let’s get started.</h3>
+						<p>We will try to capture all the necessary details to locate the person this belongs</p>
+						<hr />
+					</div>
+					<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+						<form jsf:id="riForm">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="form-group ">
+									<label for="unId" class="label-custom"> Name</label> <input
+										jsf:id="unId" type="text"
+										class="form-control form-control-custom"
+										jsf:value="#{registerController.regItemBean.reporter.firstName}"
+										placeholder="Enter Your Name" />
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="form-group ">
+									<label for="itId" class=" label-custom"> Category</label> <input
+										jsf:id="itId" type="text"
+										class="form-control form-control-custom"
+										jsf:value="#{registerController.regItemBean.category}"
+										placeholder="Type of Item? Electronics, Pets, Keys" />
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="form-group ">
+									<label for="itId" class=" label-custom"> Sub Category</label> <input
+										jsf:id="scId" type="text"
+										class="form-control form-control-custom"
+										jsf:value="#{registerController.regItemBean.category}"
+										placeholder="Type of Item? Electronics, Pets, Keys" />
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="form-group ">
+									<label for="icId" class="label-custom"> Color</label> <input
+										jsf:id="icId" type="text"
+										class="form-control form-control-custom"
+										jsf:value="#{registerController.regItemBean.itemColor}"
+										placeholder="Color of the found item" />
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="form-group ">
+									<label for="fidId" class="label-custom">Date</label>
+									<lk:calendar id="fidId"
+										styleClass="form-control form-control-custom datePicker"
+										dateValue="#{registerController.regItemBean.foundDate}"
+										placeholder="click to show datepicker" />
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="form-group ">
+									<label for="descId" class="label-custom">Description</label>
+									<textarea jsf:id="descId"
+										class="form-control form-control-custom"
+										jsf:value="#{registerController.regItemBean.publicDescription}"
+										placeholder="Please describe the found item" />
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="form-group ">
+									<label for="sesu" class="label-custom">Secret Summary</label>
+									<textarea jsf:id="sesu"
+										class="form-control form-control-custom"
+										jsf:value="#{registerController.regItemBean.secretDescription}"
+										placeholder="Please describe the found item" />
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="form-group ">
+									<label for="flid" class="label-custom">Found Landmark</label> <input
+										jsf:id="flid" type="text"
+										class="form-control form-control-custom"
+										jsf:value="#{registerController.regItemBean.location.streetAddress}"
+										placeholder="Please select location" />
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="form-group ">
+									<label for="locId" class="label-custom">Location</label> <input
+										jsf:id="locId" type="text"
+										class="form-control form-control-custom"
+										jsf:value="#{registerController.uiLocation}"
+										placeholder="Please select location" />
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="form-group ">
+									<label for="emlId" class="label-custom">Email</label> <input
+										jsf:id="emlId" type="email"
+										class="form-control form-control-custom"
+										jsf:value="#{registerController.regItemBean.reporter.emailId}"
+										placeholder="Enter your email id" />
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="form-group ">
 
+									<label for="phnId" class="label-custom">Contact Number</label>
+									<input jsf:id="phnId" type="text"
+										class="form-control form-control-custom"
+										jsf:value="#{registerController.regItemBean.reporter.phoneNo}"
+										placeholder="Enter your email id" />
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">test2</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">test1</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">test2</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">test1</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="form-group ">
+									<div class="col-sm-offset-3 col-sm-9">
+										<h:commandButton styleClass="btn btn-success" type="button"
+											name="fiA" value="Find Location"
+											onclick="locateAddressonMap();">
+										</h:commandButton>
+										<h:commandButton styleClass="btn btn-success" type="button"
+											name="myL" value="My Location" onclick="locateMyLocation();">
+										</h:commandButton>
+										<h:commandButton styleClass="btn btn-success"
+											action="#{registerController.register}" name="Search"
+											value="Search">
+											<f:ajax execute="@form" render="rgu" />
+										</h:commandButton>
+									</div>
+								</div>
+
+								<input jsf:id="hidlat" type="hidden"
+									jsf:value="#{registerController.regItemBean.location.lat}" />
+								<input jsf:id="hidlng" type="hidden"
+									jsf:value="#{registerController.regItemBean.location.lng}" />
+								<input jsf:id="hidlct" type="hidden"
+									jsf:value="#{registerController.regItemBean.location.locType}" />
+								<input jsf:id="hidcty" type="hidden"
+									jsf:value="#{registerController.regItemBean.location.city}" />
+								<input jsf:id="hidcnt" type="hidden"
+									jsf:value="#{registerController.regItemBean.location.country}" />
+							</div>
+
+						</form>
+
+					</div>
+
+				</div>
+			</div>
 			<div class="container">
 				<div class="row">
 
-					<div class="col-lg-6 col-md-6 col-sm-12">
-						<form jsf:id="riForm" >
-							<div class="form-group ">
-								<label for="unId" class="control-label"> Name</label>
-										<input jsf:id="unId" type="text" class="form-control"
-											jsf:value="#{registerController.regItemBean.reporter.firstName}"
-											placeholder="Enter Your Name" /> 
-							</div>
-							<div class="form-group ">
-								<label for="itId" class=" control-label">
-									Category</label>
-										<input jsf:id="itId" type="text" class="form-control"
-											jsf:value="#{registerController.regItemBean.category}"
-											placeholder="Type of Item? Electronics, Pets, Keys" /> 
-							</div>
-							<div class="form-group ">
-								<label for="itId" class=" control-label">
-									Sub Category</label>
-										<input jsf:id="scId" type="text" class="form-control"
-											jsf:value="#{registerController.regItemBean.category}"
-											placeholder="Type of Item? Electronics, Pets, Keys" />
-							</div>
-							<div class="form-group ">
-								<label for="icId" class="control-label"> Color</label>
-										<input jsf:id="icId" type="text" class="form-control"
-											jsf:value="#{registerController.regItemBean.itemColor}"
-											placeholder="Color of the found item" />
-							</div>
-							<div class="form-group ">
-								<label for="fidId" class="control-label">Date</label>
-										<lk:calendar id="fidId" styleClass="form-control datePicker"
-											dateValue="#{registerController.regItemBean.foundDate}"
-											placeholder="click to show datepicker" />
-							</div>
-							<div class="form-group ">
-								<label for="descId" class="control-label">Description</label>
-										<textarea jsf:id="descId" class="form-control"
-											jsf:value="#{registerController.regItemBean.publicDescription}"
-											placeholder="Please describe the found item" />
-							</div>
-							<div class="form-group ">
-								<label for="sesu" class="control-label">Secret
-									Summary</label>
-										<textarea jsf:id="sesu" class="form-control"
-											jsf:value="#{registerController.regItemBean.secretDescription}"
-											placeholder="Please describe the found item" />
-							</div>
-							<div class="form-group ">
-								<label for="flid" class="control-label">Found
-									Landmark</label>
-										<input jsf:id="flid" type="text" class="form-control"
-											jsf:value="#{registerController.regItemBean.location.streetAddress}"
-											placeholder="Please select location" />
-							</div>
-							<div class="form-group ">
-								<label for="locId" class="control-label">Location</label>
-										<input jsf:id="locId" type="text" class="form-control"
-											jsf:value="#{registerController.uiLocation}"
-											placeholder="Please select location" /> 
-							</div>
-							<div class="form-group ">
-								<label for="emlId" class="control-label">Email</label>
-										<input jsf:id="emlId" type="email" class="form-control"
-											jsf:value="#{registerController.regItemBean.reporter.emailId}"
-											placeholder="Enter your email id" /> 
-							</div>
-							<div class="form-group ">
-
-								<label for="phnId" class="control-label">Contact
-									Number</label>
-										<input jsf:id="phnId" type="text" class="form-control"
-											jsf:value="#{registerController.regItemBean.reporter.phoneNo}"
-											placeholder="Enter your email id" /> 
-							</div>
-							<div class="form-group ">
-								<div class="col-sm-offset-3 col-sm-9">
-									<h:commandButton styleClass="btn btn-success" type="button"
-										name="fiA" value="Find Location"
-										onclick="locateAddressonMap();">
-									</h:commandButton>
-									<h:commandButton styleClass="btn btn-success" type="button"
-										name="myL" value="My Location" onclick="locateMyLocation();">
-									</h:commandButton>
-									<h:commandButton styleClass="btn btn-success"
-										action="#{registerController.register}" name="Search"
-										value="Search">
-										<f:ajax execute="@form" render="rgu" />
-									</h:commandButton>
-								</div>
-							</div>
-
-							<input jsf:id="hidlat" type="hidden"
-								jsf:value="#{registerController.regItemBean.location.lat}" /> <input
-								jsf:id="hidlng" type="hidden"
-								jsf:value="#{registerController.regItemBean.location.lng}" /> <input
-								jsf:id="hidlct" type="hidden"
-								jsf:value="#{registerController.regItemBean.location.locType}" />
-							<input jsf:id="hidcty" type="hidden"
-								jsf:value="#{registerController.regItemBean.location.city}" />
-							<input jsf:id="hidcnt" type="hidden"
-								jsf:value="#{registerController.regItemBean.location.country}" />
-						</form>
-					</div>
-					<div class="col-lg-6 col-md-6 col-sm-12">
+					<div class="col-lg-12 col-md-12 col-sm-12">
 
 						<h:panelGroup layout="block" id="map-canvas"
 							styleClass="google-map"></h:panelGroup>

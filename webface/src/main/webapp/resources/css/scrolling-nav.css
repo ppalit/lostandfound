@@ -25,9 +25,7 @@ of those sections to manage the look and feel of the site. */
 
 .register {
     height: 100%;
-    padding-top: 50px;
-    
-  background: rgba(255, 255, 255, 1); 
+    background: rgba(255, 255, 255, 1); 
 }
 
 .services-section {

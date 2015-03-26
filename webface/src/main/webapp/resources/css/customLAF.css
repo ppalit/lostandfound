@@ -94,6 +94,9 @@ color: #00CCFF;
 
 }
 
+.center {
+	text-align: center;
+}
 .serif {
 	font-family: "Times New Roman", Times, serif;
 }
@@ -219,25 +222,26 @@ ul.social-buttons li a:active {
 /* registration page */
 
 .form-control-custom{
+ 
   display: block;
   width: 100%;
-  height: 34px;
-  padding: 0px 0px;
-  font-size: 15px;
-  line-height: 1.42857143;
-  color: #555;
-  background-color: rgba(255, 255, 255, 0);
+  height: 40px;
+  padding: 9px 9px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #5f6a7d;
+  background-color: #fff;
   background-image: none;
-  border: 0px solid rgba(255, 255, 255, 0);
-  border-bottom: 1px solid black;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  border: 1px solid #c4c4c4;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, .075);
           
   box-shadow: inset 0 0px 0px rgba(0, 0, 0, .075);
   -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  border-bottom-style: dotted;
+          
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
 }
 .form-control-custom:focus {
    
@@ -246,10 +250,19 @@ ul.social-buttons li a:active {
           box-shadow: inset 0 0px 0px rgba(0, 0, 0, .075), 0 0 0px #67b168;
           
     background: rgba(255, 255, 255, 0); /* Old browsers */
-    border-bottom: 1px solid red;
-	border-style: dashed;
+    border: 1px solid #FED136;
 	
 }
 
-
-
+.label-custom{
+display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  display:block;
+  width:100%;
+  font-size:12px;
+  font-weight:500;
+  line-height:16px;
+  margin-bottom:5px;
+  color:#5f6a7d
+}
