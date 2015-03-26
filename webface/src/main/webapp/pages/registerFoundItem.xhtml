@@ -196,7 +196,7 @@
 										action="#{registerController.updateSection}">
 									Previous <i class="glyphicon glyphicon-arrow-left"></i>
 										<f:param name="section" value="section1" />
-										<f:ajax execute="@form" render="psec1  psec2" />
+										<f:ajax execute="@form" render="psec1  psec2" onevent="handleAjax"  />
 									</h:commandButton>
 								</div>
 								<div class="input-group-btn"
