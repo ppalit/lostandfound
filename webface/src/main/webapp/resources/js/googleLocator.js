@@ -16,8 +16,16 @@ function initialize() {
 	map = new google.maps.Map(document.getElementById('riForm:map-canvas'), mapOptions);
 
 }
-google.maps.event.addDomListener(window, 'load', initialize);
 
+
+//google.maps.event.addDomListener(window, 'load', initialize);
+
+$(document).ready(function() {
+	//document.getElementById('riForm:map-canvas').load(initialize);
+	});
+
+
+//$('#riForm:map-canvas').load(initialize)
 // call this method to find current location
 function locateMyLocation() {
 

@@ -3,11 +3,13 @@ package com.lostandfound.webface.controller;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,6 +46,7 @@ public class RegisterController implements Serializable {
 	@PostConstruct
 	public void init(){
 		regItemBean = new RegisterItemBean();
+		sectionName="section1";
 		if(searchSessionBean!=null && searchSessionBean.getEmailId()!=null){
 			regItemBean.getReporter().setEmailId(searchSessionBean.getEmailId());
 		}
@@ -59,8 +62,12 @@ public class RegisterController implements Serializable {
 	return null;
 	}
 	
-	private void updateSection(String section){
-	this.sectionName= section ; 
+	public String updateSection(){
+		FacesContext fc = FacesContext.getCurrentInstance();
+	      Map<String,String> params = 
+	      fc.getExternalContext().getRequestParameterMap();
+	      this.sectionName= params.get("section") ; 
+	      return null;
 	}
 
 
