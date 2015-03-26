@@ -77,6 +77,15 @@
 										placeholder="Please describe the found item" />
 								</div>
 							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="form-group ">
+									<label for="fidId" class="label-custom">Date</label>
+									<lk:calendar id="fidId"
+										styleClass="form-control form-control-custom datePicker"
+										dateValue="#{registerController.regItemBean.foundDate}"
+										placeholder="click to show datepicker" />
+								</div>
+							</div>
 						</div>
 						<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
 							<hr />
@@ -102,14 +111,51 @@
 							<hr />
 						</div>
 						<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-						
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="form-group ">
+									<label for="flid" class="label-custom">Found Landmark</label> <input
+										jsf:id="flid" type="text"
+										class="form-control form-control-custom"
+										jsf:value="#{registerController.regItemBean.location.streetAddress}"
+										placeholder="Please select location" />
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="form-group ">
+
+									<label for="locId" class="label-custom">Location</label>
+									<div class="input-group">
+										<input jsf:id="locId" type="text"
+											class="form-control form-control-custom"
+											jsf:value="#{registerController.uiLocation}"
+											placeholder="Please select location" />
+
+										<div class="input-group-btn">
+											<button type="button" jsf:id="fiai" class="btn btn-success"
+												name="fiA" value="Find Location"
+												onclick="locateAddressonMap();">
+												<i class="glyphicon glyphicon-map-marker"></i>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12">
+
+								<h:panelGroup layout="block" id="map-canvas"
+									styleClass="google-map"></h:panelGroup>
+								<h:outputText id="rgu"
+									value="#{registerController.regItemBean.beanString != null? registerController.regItemBean.beanString:'EMPTY'}" />
+
+
+							</div>
 						</div>
-						
-							<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+
+						<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
 							<hr />
 							<div class="input-group-btn"
 								style="padding-bottom: 15px; text-align: right">
-								<button type="submit" jsf:id="hsb" class="btn btn-default"
+								<button type="submit" jsf:id="psec2nxt" class="btn btn-default"
 									value="Continue">
 									Continue <i class="glyphicon glyphicon-arrow-right"></i>
 								</button>
@@ -117,26 +163,23 @@
 						</div>
 					</div>
 				</h:panelGroup>
-				
-				
-				<h:panelGroup layout="block" id="psec3"
+
+
+				<h:panelGroup layout="block" id="psec3" rendered="false"
 					styleClass="container margin">
 					<div class="row">
 						<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 center">
-							<h3>Let’s get started.</h3>
-							<p>We will try to capture all the necessary details to locate
-								the person this belongs</p>
+							<h3>Lets try to Locate!!!</h3>
+							<p>Location infomation always helps us to reach the owner</p>
 							<hr />
 						</div>
+						<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12"></div>
+
 						<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-						
-						</div>
-						
-							<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
 							<hr />
 							<div class="input-group-btn"
 								style="padding-bottom: 15px; text-align: right">
-								<button type="submit" jsf:id="hsb" class="btn btn-default"
+								<button type="submit" jsf:id="psec3nxt" class="btn btn-default"
 									value="Continue">
 									Continue <i class="glyphicon glyphicon-arrow-right"></i>
 								</button>
@@ -167,34 +210,10 @@
 							</div>
 
 
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<div class="form-group ">
-									<label for="fidId" class="label-custom">Date</label>
-									<lk:calendar id="fidId"
-										styleClass="form-control form-control-custom datePicker"
-										dateValue="#{registerController.regItemBean.foundDate}"
-										placeholder="click to show datepicker" />
-								</div>
-							</div>
 
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<div class="form-group ">
-									<label for="flid" class="label-custom">Found Landmark</label> <input
-										jsf:id="flid" type="text"
-										class="form-control form-control-custom"
-										jsf:value="#{registerController.regItemBean.location.streetAddress}"
-										placeholder="Please select location" />
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<div class="form-group ">
-									<label for="locId" class="label-custom">Location</label> <input
-										jsf:id="locId" type="text"
-										class="form-control form-control-custom"
-										jsf:value="#{registerController.uiLocation}"
-										placeholder="Please select location" />
-								</div>
-							</div>
+
+
+
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 								<div class="form-group ">
 									<label for="emlId" class="label-custom">Email</label> <input
@@ -253,18 +272,7 @@
 
 					</div>
 
-					<div class="row">
-
-						<div class="col-lg-12 col-md-12 col-sm-12">
-
-							<h:panelGroup layout="block" id="map-canvas"
-								styleClass="google-map"></h:panelGroup>
-							<h:outputText id="rgu"
-								value="#{registerController.regItemBean.beanString != null? registerController.regItemBean.beanString:'EMPTY'}" />
-
-
-						</div>
-					</div>
+					<div class="row"></div>
 				</h:panelGroup>
 
 			</form>

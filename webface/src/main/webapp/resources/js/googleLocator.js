@@ -13,7 +13,7 @@ function initialize() {
 		center : new google.maps.LatLng(-34.397, 150.644)
 	};
 	geocoder = new google.maps.Geocoder();
-	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+	map = new google.maps.Map(document.getElementById('riForm:map-canvas'), mapOptions);
 
 }
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -25,7 +25,7 @@ function locateMyLocation() {
 		zoom : 8,
 
 	};
-	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+	map = new google.maps.Map(document.getElementById('riForm:map-canvas'), mapOptions);
 	// Try HTML5 geolocation
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
@@ -101,7 +101,7 @@ function locateAddressonMap() {
 		zoom : 8,
 	};
 	geocoder = new google.maps.Geocoder();
-	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+	map = new google.maps.Map(document.getElementById('riForm:map-canvas'), mapOptions);
 
 	var address = document.getElementById('riForm:locId').value;
 	geocoder.geocode({
