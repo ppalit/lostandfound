@@ -15,7 +15,8 @@ public class ReporterMapper implements RowMapper<ReporterBean> {
 		reporter.setLastName(rs.getString("last_name"));
 		reporter.setPhoneNo(rs.getString("phone_no"));
 		reporter.setEmailId(rs.getString("email_id"));
-
+		reporter.setLoginChanel(rs.getString("login_channel"));
+		
 		return reporter;
 	}
 

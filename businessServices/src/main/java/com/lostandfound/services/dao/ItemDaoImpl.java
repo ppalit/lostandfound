@@ -73,23 +73,7 @@ public class ItemDaoImpl implements ItemDao {
 		namedParameters.put("state", registerItemBean.getLocation().getState());
 		
 		namedParameters.put("reporter_id", registerItemBean.getReporter().getEmailId());
-		if(insertReporter(registerItemBean.getReporter())){
-			namedParameterJdbcTemplate.update(query, namedParameters);
-		}
-		
 		return getItemId();
-	}
-
-	private boolean insertReporter(ReporterBean reporterBean) {
-		String query = "INSERT INTO reporter (first_name, last_name, email_id,phone_no) VALUES (:firstName,:lastName,:emailId,:phoneNo)";
-		Map<String, String> namedParameters = new HashMap<String, String>();
-		namedParameters.put("firstName", reporterBean.getFirstName());
-		namedParameters.put("lastName", reporterBean.getLastName());
-		namedParameters.put("emailId", reporterBean.getEmailId());
-		namedParameters.put("phoneNo", reporterBean.getPhoneNo());
-		namedParameterJdbcTemplate.update(query, namedParameters);
-		return true;
-
 	}
 
 	private int getItemId() {
@@ -101,16 +85,6 @@ public class ItemDaoImpl implements ItemDao {
 				namedParameters, Integer.class);
 	}
 
-	public ReporterBean getReporter(String emailId) {
-		String sql = "SELECT first_name,last_name,phone_no FROM reporter WHERE email_id= :emailId";
-		SqlParameterSource namedParameters = new MapSqlParameterSource(
-				"emailId", emailId);
-		ReporterBean reporterBean = (ReporterBean) namedParameterJdbcTemplate
-				.query(sql, namedParameters, new ReporterMapper());
-		return reporterBean;
-	}
-	
-	
 	public List<RegisterItemBean> getItems() {
 		String sql = "SELECT item_id ,category ,sub_category ,public_description,secret_description ,item_found_date ,"
 				+ "street_address,lat ,lng ,loc_type ,city ,country , state ,reporter_id , colour FROM item_primary";

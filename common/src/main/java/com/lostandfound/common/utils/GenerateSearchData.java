@@ -34,7 +34,6 @@ class GenerateSearchData{
 			reporter.setFirstName(faker.name().firstName());
 			reporter.setLastName(faker.name().lastName());
 			reporter.setPhoneNo(faker.phoneNumber().phoneNumber());
-			reporter.setUserId(""+System.currentTimeMillis());
 		item.setReporter(reporter);
 		
 		LocationBean location = new LocationBean();

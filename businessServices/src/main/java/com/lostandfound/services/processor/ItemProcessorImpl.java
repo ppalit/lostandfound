@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.lostandfound.common.bean.RegisterItemBean;
 import com.lostandfound.common.bean.ReporterBean;
 import com.lostandfound.services.dao.ItemDao;
+import com.lostandfound.services.dao.ReporterDao;
 
 @Component(value = "itemProcessorImpl")
 public class ItemProcessorImpl implements ItemProcessor{
@@ -20,6 +21,10 @@ public class ItemProcessorImpl implements ItemProcessor{
 	@Qualifier("itemDaoImpl")
 	ItemDao itemDao;
 	
+	@Autowired
+	@Qualifier("reporterDaoImpl")
+	ReporterDao reporterDao;
+	
 	public int getCount(String reporterId){
 		return itemDao.countRecords(reporterId);
 	}
@@ -27,15 +32,20 @@ public class ItemProcessorImpl implements ItemProcessor{
 	@Transactional(rollbackFor = Exception.class)
 	public long saveItem(RegisterItemBean registerItemBean) throws SolrServerException, IOException {
 		long itemId= 0;
-		if (registerItemBean != null && registerItemBean.getLocation() != null)
+		if (registerItemBean != null && registerItemBean.getLocation() != null && registerItemBean.getReporter() != null){
+			ReporterBean r1 = reporterDao.getReporter(registerItemBean.getReporter().getEmailId());
+			if(r1==null){
+				reporterDao.insertReporter(registerItemBean.getReporter());
+			}
+			else{
+				reporterDao.updateReporter(registerItemBean.getReporter());
+			}
 			itemId = itemDao.insertFoundItem(registerItemBean);
-		registerItemBean.setId(itemId);
-		itemDao.saveToSolr(registerItemBean);
+		
+			registerItemBean.setId(itemId);
+			itemDao.saveToSolr(registerItemBean);
+		}
 		return registerItemBean.getId();
-	}
-
-	public ReporterBean fetchReporter(String emailId) {
-		return itemDao.getReporter(emailId);
 	}
 
 	public RegisterItemBean fetchItem(int itemId) {
