@@ -71,15 +71,15 @@ h1 {
 	background-image: url("../img/bg-image.jpg");
 }
 .background-d{
-/* background-image:url("#{resource['img:bg-image.jpg']}"); */
+background-image:url("#{resource['img:bg-image.jpg']}");
 
-	background-image: url("http://images6.alphacoders.com/310/310417.jpg");
+/* 	background-image: url("http://images6.alphacoders.com/310/310417.jpg"); */
  background-repeat:no-repeat;
     /* custom background-position */
     background-position:50% 50%;
     /* ie8- graceful degradation */
     background-position:50% 50%9 !important;
-	background-size:contain; /* remove it */
+	/*background-size:contain;  remove it */
 }
 .main-content {
 	margin-top: 7%;
@@ -283,4 +283,9 @@ display: inline-block;
   line-height:16px;
   margin-bottom:5px;
   color:#5f6a7d
+}
+
+.btn-custom
+{
+	height:40px;
 }
