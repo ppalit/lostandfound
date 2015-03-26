@@ -254,6 +254,21 @@ ul.social-buttons li a:active {
 	
 }
 
+.form-control-custom::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+  font-size: 12px;
+}
+.form-control-custom:-ms-input-placeholder {
+  color: #999;
+  font-size: 12px;
+}
+.form-control-custom::-webkit-input-placeholder {
+  color: #999;
+  font-size: 12px;
+}
+
+
 .label-custom{
 display: inline-block;
   max-width: 100%;
