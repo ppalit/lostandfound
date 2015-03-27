@@ -10,6 +10,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,7 +38,9 @@ public class RegisterController implements Serializable {
 	
 	private String uiLocation;
 	
-	private List<String> categories;
+	private List<SelectItem> categories;
+	
+	private List<SelectItem> subCategories;
 	
 	@ManagedProperty("#{searchSessionBean}")
 	private SearchSessionBean searchSessionBean;
@@ -129,34 +132,6 @@ public class RegisterController implements Serializable {
 	}
 
 	/**
-	 * @return the categories
-	 */
-	public List<String> getCategories() {
-		if(categories==null || categories.size()==0){
-			categories= new ArrayList<String>();
-			categories.add("Animals & Pet Supplies");categories.add("Apparel & Accessories");
-			categories.add("Arts & Entertainment");categories.add("Business & Industrial");
-			categories.add("Cameras & Optics");categories.add("Electronics");
-			categories.add("");categories.add("");
-			categories.add("");categories.add("");
-			categories.add("");categories.add("");
-			categories.add("");categories.add("");
-			categories.add("");categories.add("");
-			categories.add("");categories.add("");
-			categories.add("");categories.add("");
-			
-		}
-		return categories;
-	}
-
-	/**
-	 * @param categories the categories to set
-	 */
-	public void setCategories(List<String> categories) {
-		this.categories = categories;
-	}
-
-	/**
 	 * @return the sectionName
 	 */
 	public String getSectionName() {
@@ -168,5 +143,56 @@ public class RegisterController implements Serializable {
 	 */
 	public void setSectionName(String sectionName) {
 		this.sectionName = sectionName;
+	}
+
+
+	
+	/**
+	 * @return the categories
+	 */
+	public List<SelectItem> getCategories() {
+		if(categories==null || categories.size()==0){
+			categories= new ArrayList<SelectItem>();
+			categories.add(new SelectItem("Animals & Pet Supplies"));
+			categories.add(new SelectItem("Apparel & Accessories"));
+			categories.add(new SelectItem("Arts & Entertainment"));
+			categories.add(new SelectItem("Business & Industrial"));
+			categories.add(new SelectItem("Cameras & Optics"));
+			categories.add(new SelectItem("Electronics"));
+		}
+		
+		return categories;
+	}
+
+	/**
+	 * @param categories the categories to set
+	 */
+	public void setCategories(List<SelectItem> categories) {
+		this.categories = categories;
+	}
+
+	/**
+	 * @return the subCategories
+	 */
+	public List<SelectItem> getSubCategories() {
+		
+		if(subCategories==null || subCategories.size()==0){
+			subCategories= new ArrayList<SelectItem>();
+			subCategories.add(new SelectItem("Animals & Pet Supplies Sub"));
+			subCategories.add(new SelectItem("Apparel & Accessories  Sub"));
+			subCategories.add(new SelectItem("Arts & Entertainment Sub"));
+			subCategories.add(new SelectItem("Business & Industrial Sub"));
+			subCategories.add(new SelectItem("Cameras & Optics Sub"));
+			subCategories.add(new SelectItem("Electronics Sub"));
+		}
+		
+		return subCategories;
+	}
+
+	/**
+	 * @param subCategories the subCategories to set
+	 */
+	public void setSubCategories(List<SelectItem> subCategories) {
+		this.subCategories = subCategories;
 	}
 }

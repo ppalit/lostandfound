@@ -289,3 +289,8 @@ display: inline-block;
 {
 	height:40px;
 }
+
+
+select[size] {
+  height: 40px;
+}
