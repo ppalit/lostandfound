@@ -43,6 +43,7 @@ function sizeContent() {
 	var newGoogleMapHeight = $("html").height() / 2 + "px"
 	$(".myCarousel").css("height", newHeight);
 	$(".google-map").css("height", newGoogleMapHeight);
+	$(".register").css("min-height", newHeight);
 }
 
 /**
