@@ -145,7 +145,7 @@
 			<id>ppwork</id>
 			<properties>
 				<db.path>C:/software/lostandfound_master</db.path>
-				<solr.ip>54.165.125.72</solr.ip>
+				<solr.ip>localhost</solr.ip>
 				<solr.port>8983</solr.port>
 			</properties>
 		</profile>

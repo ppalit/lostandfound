@@ -12,7 +12,6 @@ public class LocationBean implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Long id;
 	private String streetAddress;
 	private String lat;
 	private String lng;
@@ -23,19 +22,6 @@ public class LocationBean implements Serializable {
 	
 	public LocationBean() {
 		super();
-	}
-	
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(Long id) {
-		this.id = id;
 	}
 	
 	/**
@@ -121,7 +107,6 @@ public class LocationBean implements Serializable {
 	@Override
 	public String toString() {
 		return "LocationBean ["
-				+ (id != null ? "id=" + id + ", " : "")
 				+ (streetAddress != null ? "streetAddress=" + streetAddress
 						+ ", " : "") + (lat != null ? "lat=" + lat + ", " : "")
 				+ (lng != null ? "lng=" + lng + ", " : "")

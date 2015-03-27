@@ -73,6 +73,7 @@ public class ItemDaoImpl implements ItemDao {
 		namedParameters.put("state", registerItemBean.getLocation().getState());
 		
 		namedParameters.put("reporter_id", registerItemBean.getReporter().getEmailId());
+		namedParameterJdbcTemplate.update(query, namedParameters);
 		return getItemId();
 	}
 
@@ -81,8 +82,10 @@ public class ItemDaoImpl implements ItemDao {
 		String sql = "SELECT seq FROM sqlite_sequence WHERE name= :tableName";
 		SqlParameterSource namedParameters = new MapSqlParameterSource(
 				"tableName", tableName);
-		return this.namedParameterJdbcTemplate.queryForObject(sql,
+		int itemId= this.namedParameterJdbcTemplate.queryForObject(sql,
 				namedParameters, Integer.class);
+		System.out.println("XXX  itemId "+itemId);
+		return itemId;
 	}
 
 	public List<RegisterItemBean> getItems() {

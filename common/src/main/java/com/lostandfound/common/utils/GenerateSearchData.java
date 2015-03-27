@@ -1,11 +1,13 @@
 package com.lostandfound.common.utils;
 
-import java.awt.Color;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.fluttercode.datafactory.impl.DataFactory;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
 
 import com.github.javafaker.Faker;
 import com.lostandfound.common.bean.LocationBean;
@@ -15,11 +17,16 @@ import com.lostandfound.common.bean.ReporterBean;
 class GenerateSearchData{
 	public static void main(String[] args) {
 		System.out.println(getRegisterData());
-		/*DataFactory df = new DataFactory();
-		for (int i = 0; i < 100; i++) {
-			String name = df.getFirstName() + " "+ df.getLastName();
-			System.out.println(name);
-		}*/
+		 RestTemplate restTemplate = new RestTemplate();
+		 String url="http://54.165.125.72:8080/business-services/V1/item";
+		 for(int i=0 ; i<3000; i++){
+			 ResponseEntity<String> itemId = restTemplate.postForEntity(url, getRegisterData(), String.class);
+		     System.out.println("itemId  " + itemId);
+		 }
+	      //  ResponseEntity<String> itemId = restTemplate.postForEntity(url, getRegisterData(), String.class);
+	      //  System.out.println("itemId  " + itemId);
+	        
+		
 	}
 	
 	private static RegisterItemBean getRegisterData(){
@@ -34,6 +41,8 @@ class GenerateSearchData{
 			reporter.setFirstName(faker.name().firstName());
 			reporter.setLastName(faker.name().lastName());
 			reporter.setPhoneNo(faker.phoneNumber().phoneNumber());
+			String[] loginChannel= {"GOOGLE","FACEBOOK","EMAIL"};
+			reporter.setLoginChanel(faker.options().option(loginChannel));
 		item.setReporter(reporter);
 		
 		LocationBean location = new LocationBean();
@@ -50,8 +59,9 @@ class GenerateSearchData{
 		
 		Date minDate = df.getDate(2000, 1, 1);
 		Date maxDate = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-DD'T'hh:mm:ss'Z'");
 		
-		item.setFoundDate(df.getDateBetween(minDate, maxDate).toString());
+		item.setFoundDate(sdf.format(df.getDateBetween(minDate, maxDate)));
 		
 		List<String> colours = new ArrayList<String>();
 		colours.add("aqua");
@@ -96,6 +106,7 @@ class GenerateSearchData{
 		items.add(df.getRandomText(8));
 		
 		item.setCategory(df.getItem(items));
+		item.setSubCategory(df.getItem(items)+"-subCat");
 		item.setPublicDescription(faker.lorem().paragraph(df.getNumberBetween(1, 6)));
 		item.setSecretDescription(faker.lorem().sentence());
 		
