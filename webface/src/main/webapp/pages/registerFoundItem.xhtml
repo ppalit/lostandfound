@@ -16,31 +16,30 @@
 </style>
 	</h:head>
 	<h:body id="regbdId">
-	<script type="text/javascript">
-	function handleAjax(data) {
-	    var status = data.status;
-		//alert(status);
-	    switch(status) {
-	        case "begin":
-	            // This is invoked right before ajax request is sent.
-	            break;
+		<script type="text/javascript">
+			function handleAjax(data) {
+				var status = data.status;
+				//alert(status);
+				switch (status) {
+				case "begin":
+					// This is invoked right before ajax request is sent.
+					break;
 
-	        case "complete":
-	            // This is invoked right after ajax response is returned.
-	            break;
+				case "complete":
+					// This is invoked right after ajax response is returned.
+					break;
 
-	        case "success":
-	            // This is invoked right after successful processing of ajax response and update of HTML DOM.
-	            sizeContent();
-	            initializeGoogleLoc();
-	            break;
-	    }
-	}
-	</script>
+				case "success":
+					// This is invoked right after successful processing of ajax response and update of HTML DOM.
+					sizeContent();
+					initializeGoogleLoc();
+					break;
+				}
+			}
+		</script>
 
 		<!-- Page Content -->
-		<h:panelGroup layout="block" id="register"
-			styleClass="register"
+		<h:panelGroup layout="block" id="register" styleClass="register"
 			rendered="#{searchSessionBean.emailId != null}">
 			<form jsf:id="riForm">
 				<h:panelGroup layout="block" id="psec1">
@@ -56,21 +55,23 @@
 							<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 									<div class="form-group ">
-										<label for="itId" class=" label-custom"> Category</label> 
-										<input
-											jsf:id="itId" type="text"
-											class="form-control form-control-custom"
-											jsf:value="#{registerController.regItemBean.category}"
-											placeholder="Type of Item? Electronics, Pets, Keys" />
+										<label for="itId" class=" label-custom"> Category</label>
+										<h:selectOneMenu id="itId"
+											styleClass="form-control form-control-custom"
+											value="#{registerController.regItemBean.category}">
+											<f:selectItems value="#{registerController.categories}"></f:selectItems>
+										</h:selectOneMenu>
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 									<div class="form-group ">
 										<label for="itId" class=" label-custom"> Sub Category</label>
-										<input jsf:id="scId" type="text"
-											class="form-control form-control-custom"
-											jsf:value="#{registerController.regItemBean.category}"
-											placeholder="Type of Item? Electronics, Pets, Keys" />
+										<h:selectOneMenu id="scId"
+											styleClass="form-control form-control-custom"
+											value="#{registerController.regItemBean.subCategory}">
+											<f:selectItems value="#{registerController.subCategories}"></f:selectItems>
+										</h:selectOneMenu>
+
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -115,10 +116,11 @@
 								<div class="input-group-btn"
 									style="padding-bottom: 15px; text-align: right">
 									<h:commandButton type="submit" id="hsb" class="btn btn-default"
-										value="Continue" action="#{registerController.updateSection}" >
+										value="Continue" action="#{registerController.updateSection}">
 									Continue <i class="glyphicon glyphicon-arrow-right"></i>
 										<f:param name="section" value="section2" />
-										<f:ajax execute="@form" render="psec1 psec2" onevent="handleAjax" />
+										<f:ajax execute="@form" render="psec1 psec2"
+											onevent="handleAjax" />
 									</h:commandButton>
 
 								</div>
@@ -127,8 +129,7 @@
 					</h:panelGroup>
 				</h:panelGroup>
 				<h:panelGroup layout="block" id="psec2">
-					<h:panelGroup layout="block" 
-						styleClass="container margin"
+					<h:panelGroup layout="block" styleClass="container margin"
 						rendered="#{registerController.sectionName == 'section2'}">
 						<div class="row">
 							<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 center">
@@ -168,10 +169,10 @@
 								</div>
 								<div class="col-lg-12 col-md-12 col-sm-12">
 
-									<h:panelGroup layout="block" id="map-canvas" 
-										styleClass="google-map" 
+									<h:panelGroup layout="block" id="map-canvas"
+										styleClass="google-map"
 										style="border:solid 1px rgb(196, 196, 196)"></h:panelGroup>
-									
+
 									<!-- <h:outputText id="rgu"
 										value="#{registerController.regItemBean.beanString != null? registerController.regItemBean.beanString:'EMPTY'}" />
 	 -->
@@ -197,7 +198,7 @@
 										action="#{registerController.updateSection}">
 									Previous <i class="glyphicon glyphicon-arrow-left"></i>
 										<f:param name="section" value="section1" />
-										<f:ajax execute="@form" render="psec1  psec2"  />
+										<f:ajax execute="@form" render="psec1  psec2" />
 									</h:commandButton>
 								</div>
 								<div class="input-group-btn"
@@ -213,10 +214,11 @@
 							</div>
 						</div>
 					</h:panelGroup>
-					</h:panelGroup>
+				</h:panelGroup>
 
-					<h:panelGroup layout="block" id="psec3">
-					<h:panelGroup layout="block" rendered="#{registerController.sectionName == 'section3'}"
+				<h:panelGroup layout="block" id="psec3">
+					<h:panelGroup layout="block"
+						rendered="#{registerController.sectionName == 'section3'}"
 						styleClass="container margin">
 						<div class="row">
 							<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 center">
@@ -275,7 +277,8 @@
 										action="#{registerController.updateSection}">
 									Previous <i class="glyphicon glyphicon-arrow-left"></i>
 										<f:param name="section" value="section2" />
-										<f:ajax execute="@form" render="psec2 psec3"  onevent="handleAjax"  />
+										<f:ajax execute="@form" render="psec2 psec3"
+											onevent="handleAjax" />
 									</h:commandButton>
 								</div>
 								<div class="input-group-btn"
@@ -291,58 +294,58 @@
 							</div>
 						</div>
 					</h:panelGroup>
-					</h:panelGroup>
+				</h:panelGroup>
 
-					<h:panelGroup layout="block" id="psec4"
-						styleClass="container margin" rendered="false">
-						<div class="row">
-							<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 center">
-								<h3>Let’s get started.</h3>
-								<p>We will try to capture all the necessary details to
-									locate the person this belongs</p>
-								<hr />
-							</div>
-							<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-								
-
+				<h:panelGroup layout="block" id="psec4"
+					styleClass="container margin" rendered="false">
+					<div class="row">
+						<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 center">
+							<h3>Let’s get started.</h3>
+							<p>We will try to capture all the necessary details to locate
+								the person this belongs</p>
+							<hr />
+						</div>
+						<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
 
 
 
 
 
-								
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">test2</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">test1</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">test2</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">test1</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<div class="form-group ">
-										<div class="col-sm-offset-3 col-sm-9">
-											<h:commandButton styleClass="btn btn-success" type="button"
-												name="fiA" value="Find Location"
-												onclick="locateAddressonMap();">
-											</h:commandButton>
-											<h:commandButton styleClass="btn btn-success" type="button"
-												name="myL" value="My Location" onclick="locateMyLocation();">
-											</h:commandButton>
-											<h:commandButton styleClass="btn btn-success"
-												action="#{registerController.register}" name="Search"
-												value="Search">
-												<f:ajax execute="@form" render="rgu" />
-											</h:commandButton>
-										</div>
+
+
+
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">test2</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">test1</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">test2</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">test1</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="form-group ">
+									<div class="col-sm-offset-3 col-sm-9">
+										<h:commandButton styleClass="btn btn-success" type="button"
+											name="fiA" value="Find Location"
+											onclick="locateAddressonMap();">
+										</h:commandButton>
+										<h:commandButton styleClass="btn btn-success" type="button"
+											name="myL" value="My Location" onclick="locateMyLocation();">
+										</h:commandButton>
+										<h:commandButton styleClass="btn btn-success"
+											action="#{registerController.register}" name="Search"
+											value="Search">
+											<f:ajax execute="@form" render="rgu" />
+										</h:commandButton>
 									</div>
-
-
 								</div>
 
 
 							</div>
 
+
 						</div>
 
-						<div class="row"></div>
-					</h:panelGroup>
+					</div>
+
+					<div class="row"></div>
+				</h:panelGroup>
 			</form>
 		</h:panelGroup>
 	</h:body>
