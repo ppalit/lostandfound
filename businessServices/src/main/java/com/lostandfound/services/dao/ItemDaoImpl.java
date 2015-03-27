@@ -116,6 +116,7 @@ public class ItemDaoImpl implements ItemDao {
 		document.addField("public_description", registerItemBean.getPublicDescription());
 		document.addField("secret_description", registerItemBean.getSecretDescription());
 		document.addField("item_found_date", registerItemBean.getFoundDate());
+		document.addField("colour", registerItemBean.getItemColor());
 		document.addField("street_address", registerItemBean.getLocation().getStreetAddress());
 		document.addField("loc_type", registerItemBean.getLocation().getLocType());
 		document.addField("city", registerItemBean.getLocation().getCity());
