@@ -57,9 +57,10 @@
 										styleClass="form-control" onfocus="geolocate()" />
 								</div>
 								<div class="col-lg-6 col-md-6  col-sm-5 col-xs-12 padding-right-zero padding-left-zero padding-bottom ">
-									<h:inputText id='search'
-										value="#{searchSessionBean.searchQuery}"
-										styleClass="form-control" />
+									<input jsf:id="search" type="text"
+											class="form-control"
+											jsf:value="#{searchSessionBean.searchQuery}"
+											placeholder="what are you looking for?" />
 								</div>
 								<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 padding-left-zero align-left padding-bottom">
 								<h:panelGroup layout="block" styleClass="input-group-btn">
