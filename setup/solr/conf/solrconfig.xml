@@ -816,7 +816,7 @@
        <str name="facet.mincount">1</str>
        <str name="facet.query">item_found_date:[NOW/DAY-2DAY TO NOW]</str>
        <str name="facet.query">item_found_date:[NOW/DAY-5DAY TO NOW]</str>
-       <str name="facet.field">city</str>
+       <str name="facet.field">full_city</str>
        <str name="facet.field">colour</str>
        <str name="facet.field">item_category</str>
        <str name="facet.limit">5</str>

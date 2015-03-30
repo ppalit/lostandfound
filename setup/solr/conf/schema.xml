@@ -145,6 +145,8 @@
 <copyField source="city" dest="text"/>
 <copyField source="country" dest="text"/>
 <copyField source="state" dest="text"/>
+<copyField source="city" dest="full_city"/>
+
    <!-- Common metadata fields, named specifically to match up with
      SolrCell metadata when parsing rich documents such as Word, PDF.
      Some fields are multiValued only because Tika currently may return
@@ -176,6 +178,7 @@
    <!-- catchall field, containing all other searchable text fields (implemented
         via copyField further on in this schema  -->
    <field name="text" type="text_general" indexed="true" stored="false" multiValued="true"/>
+   <field name="full_city" type="simple_text" indexed="true" stored="false" multiValued="true"/>
 
    <!-- catchall text field that indexes tokens both normally and in reverse for efficient
         leading wildcard queries. -->
@@ -463,6 +466,7 @@
         <filter class="solr.LowerCaseFilterFactory"/>
       </analyzer>
     </fieldType>
+    <fieldType name="simple_text" class="solr.TextField" positionIncrementGap="100"/>
 
     <!-- A text field with defaults appropriate for English: it
          tokenizes with StandardTokenizer, removes English stop words
