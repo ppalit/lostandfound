@@ -7,6 +7,7 @@ var map;
 var geocoder;
 var marker;
 function initializeGoogleLoc() {
+	if(document.getElementById('riForm:map-canvas')!=null){
 	var mapOptions = {
 		zoom : 8,
 		// pass this data to load a page with default cordinates
@@ -14,7 +15,7 @@ function initializeGoogleLoc() {
 	};
 	geocoder = new google.maps.Geocoder();
 	map = new google.maps.Map(document.getElementById('riForm:map-canvas'), mapOptions);
-
+	}
 }
 //google.maps.event.addDomListener(window, 'load', initialize);
 
