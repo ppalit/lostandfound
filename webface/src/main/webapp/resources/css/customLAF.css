@@ -286,7 +286,10 @@ display: inline-block;
 }
 
 .err-field{
-	border-color:red
+	border-color:red;
+}
+.valid-field{
+	border-color:green;
 }
 .btn-custom
 {
@@ -295,6 +298,10 @@ display: inline-block;
 
 .err-label{
 	color:red;
+}
+
+.valid-label{
+	color:green;
 }
 
 select[size] {

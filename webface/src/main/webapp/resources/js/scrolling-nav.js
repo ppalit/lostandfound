@@ -48,7 +48,7 @@ function sizeContent() {
 
 
 function initTooltip(){
-//	$("[data-toggle ='tooltip']").tooltip({container:'body', trigger:'click'});
+	//$("[data-toggle ='tooltip']").tooltip({container:'body', trigger:'click'});
 }
 
 /**
