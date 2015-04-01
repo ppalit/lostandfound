@@ -46,6 +46,11 @@ function sizeContent() {
 	$(".register").css("min-height", newHeight);
 }
 
+
+function initTooltip(){
+//	$("[data-toggle ='tooltip']").tooltip({container:'body', trigger:'click'});
+}
+
 /**
  * Response callback for when the API client receives a response.
  *
