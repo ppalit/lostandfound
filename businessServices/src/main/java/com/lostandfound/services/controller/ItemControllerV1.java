@@ -8,7 +8,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.aspectj.weaver.ast.Instanceof;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -32,6 +33,7 @@ public class ItemControllerV1 implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	Logger logger = LoggerFactory.getLogger(ItemControllerV1.class);
 
 	@Autowired
 	@Qualifier("itemProcessorImpl")
@@ -45,10 +47,10 @@ public class ItemControllerV1 implements Serializable {
 			resultList = itemProcessor.fetchItems();
 		}catch (Exception exp) {
 			if (exp.getCause() instanceof CustomGenericException){
-				System.out.println("Exception  = " + exp);
+				logger.error("Exception  = " + exp);
 				throw (CustomGenericException)exp.getCause();
 			}
-			System.out.println("Exception  = " + exp);
+			logger.error("Exception  = " + exp);
 			throw new CustomGenericException("BUSINESS-SERVICES-ERR3", "Error in Controller interaction.. check logs for more details");
 		}
 		return resultList;
@@ -63,10 +65,10 @@ public class ItemControllerV1 implements Serializable {
 			item = itemProcessor.fetchItem(Integer.parseInt(itemId));
 		}catch (Exception exp) {
 			if (exp.getCause() instanceof CustomGenericException){
-				System.out.println("Exception  = " + exp);
+				logger.error("Exception  = " + exp);
 				throw (CustomGenericException)exp.getCause();
 			}
-			System.out.println("Exception  = " + exp);
+			logger.error("Exception  = " + exp);
 			throw new CustomGenericException("BUSINESS-SERVICES-ERR3", "Error in Controller interaction.. check logs for more details");
 		}
 		return item;
@@ -77,21 +79,23 @@ public class ItemControllerV1 implements Serializable {
 			@RequestParam(value = "target", required = false, defaultValue = "DB") String target,
 			@RequestBody RegisterItemBean registerItemBean,
 			HttpServletResponse response) throws CustomGenericException {
-		System.out.println("in POST method" + registerItemBean);
+		if(logger.isDebugEnabled()){
+			logger.debug("in POST method" + registerItemBean);
+		}
 		String itemId = "";
 		try {
 			if (target.equalsIgnoreCase("DB")) {
 				itemId = "Item Saved with Item Id = "
 						+ itemProcessor.saveItem(registerItemBean);
-				System.out.println(itemId);
+				logger.info("Created item with ITEM_ID="+itemId);
 			}
 		}
 		catch (Exception exp) {
 			if (exp.getCause() instanceof CustomGenericException){
-				System.out.println("Exception  = " + exp);
+				logger.error("Exception  = " + exp);
 				throw (CustomGenericException)exp.getCause();
 			}
-			System.out.println("Exception  = " + exp);
+			logger.error("Exception  = " + exp);
 			throw new CustomGenericException("BUSINESS-SERVICES-ERR3", "Error in Controller interaction.. check logs for more details");
 		}
 		return itemId;
@@ -100,7 +104,7 @@ public class ItemControllerV1 implements Serializable {
 	@ExceptionHandler(CustomGenericException.class)
 	public Map<String, String> handleCustomException(CustomGenericException ex,
 			HttpServletResponse response) {
-		System.out.println("In exception Handler!!");
+		logger.error("In exception Handler!!");
 		Map<String, String> errorMap = new HashMap<String, String>();
 		errorMap.put("errCode", ex.getErrCode());
 		errorMap.put("errMsg", ex.getErrMsg());
