@@ -8,6 +8,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -30,6 +32,8 @@ public class ReporterControllerV1 implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	Logger logger = LoggerFactory.getLogger(ReporterControllerV1.class);
 
 	@Autowired
 	@Qualifier("reporterProcessorImpl")
@@ -43,10 +47,10 @@ public class ReporterControllerV1 implements Serializable {
 			reporterList = reporterProcessor.fetchAllReporters();
 		}catch (Exception exp) {
 			if (exp.getCause() instanceof CustomGenericException){
-				System.out.println("Exception  = " + exp);
+				logger.error("Exception  = " + exp);
 				throw (CustomGenericException)exp.getCause();
 			}
-			System.out.println("Exception  = " + exp);
+			logger.error("Exception  = " + exp);
 			throw new CustomGenericException("BUSINESS-SERVICES-ERR3", "Error in Controller interaction.. check logs for more details");
 		}
 		return reporterList;
@@ -61,10 +65,10 @@ public class ReporterControllerV1 implements Serializable {
 			reporter = reporterProcessor.fetchReporter(reporterId);
 		}catch (Exception exp) {
 			if (exp.getCause() instanceof CustomGenericException){
-				System.out.println("Exception  = " + exp);
+				logger.error("Exception  = " + exp);
 				throw (CustomGenericException)exp.getCause();
 			}
-			System.out.println("Exception  = " + exp);
+			logger.error("Exception  = " + exp);
 			throw new CustomGenericException("BUSINESS-SERVICES-ERR3", "Error in Controller interaction.. check logs for more details");
 		}
 		return reporter;
@@ -74,7 +78,7 @@ public class ReporterControllerV1 implements Serializable {
 	@ExceptionHandler(CustomGenericException.class)
 	public Map<String, String> handleCustomException(CustomGenericException ex,
 			HttpServletResponse response) {
-		System.out.println("In exception Handler!!");
+		logger.error("In exception Handler!!");
 		Map<String, String> errorMap = new HashMap<String, String>();
 		errorMap.put("errCode", ex.getErrCode());
 		errorMap.put("errMsg", ex.getErrMsg());

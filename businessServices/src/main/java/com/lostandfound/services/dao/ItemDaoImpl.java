@@ -12,6 +12,8 @@ import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.UpdateResponse;
 import org.apache.solr.common.SolrInputDocument;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -20,13 +22,14 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import com.lostandfound.common.bean.RegisterItemBean;
-import com.lostandfound.common.bean.ReporterBean;
 import com.lostandfound.services.utils.SolrUtils;
 
 @Repository(value = "itemDaoImpl")
 public class ItemDaoImpl implements ItemDao {
 
 	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+	
+	Logger logger = LoggerFactory.getLogger(ItemDaoImpl.class);
 	
 	@Autowired
 	@Qualifier("solrUtils")
@@ -84,7 +87,7 @@ public class ItemDaoImpl implements ItemDao {
 				"tableName", tableName);
 		int itemId= this.namedParameterJdbcTemplate.queryForObject(sql,
 				namedParameters, Integer.class);
-		System.out.println("XXX  itemId "+itemId);
+		logger.info("XXX  itemId "+itemId);
 		return itemId;
 	}
 
