@@ -285,11 +285,17 @@ display: inline-block;
   color:#5f6a7d
 }
 
+.err-field{
+	border-color:red
+}
 .btn-custom
 {
 	height:40px;
 }
 
+.err-label{
+	color:red;
+}
 
 select[size] {
   height: 40px;

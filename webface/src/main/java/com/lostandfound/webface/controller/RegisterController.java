@@ -12,6 +12,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
@@ -49,7 +50,9 @@ public class RegisterController implements Serializable {
 	@PostConstruct
 	public void init(){
 		regItemBean = new RegisterItemBean();
-		sectionName="section1";
+		if(StringUtils.isBlank(sectionName)){
+			sectionName="section1";
+		}
 		if(searchSessionBean!=null && searchSessionBean.getEmailId()!=null){
 			regItemBean.getReporter().setEmailId(searchSessionBean.getEmailId());
 		}
