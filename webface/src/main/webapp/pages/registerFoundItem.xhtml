@@ -77,7 +77,9 @@
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<div class="form-group has-feedback ">
+								<lk:inputField  id="icId" label="Color" fieldvalue="#{registerController.regItemBean.itemColor}"
+								placeholder="Color of the found item" required="true" requiredMessage="Please enter Color"></lk:inputField>
+									<!-- <div class="form-group has-feedback ">
 										<label for="icId" jsf:id="icidlbl"
 											jsf:styleClass="label-custom #{icId.valid ? (registerController.regItemBean.itemColor !=null ?'valid-label' :''): 'err-label'}">
 											Color</label> <input jsf:id="icId" type="text"
@@ -91,7 +93,7 @@
 											<f:ajax execute="@this" render="icidlbl icId chiconid"></f:ajax>
 											</input>
 											<h:panelGroup id="chiconid" styleClass="glyphicon #{icId.valid ? (registerController.regItemBean.itemColor !=null ?'glyphicon glyphicon-ok form-control-feedback valid-label' :''): 'glyphicon glyphicon-remove form-control-feedback err-label'}" aria-hidden="true"></h:panelGroup>
-									</div>
+									</div> -->
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 									<div class="form-group ">
