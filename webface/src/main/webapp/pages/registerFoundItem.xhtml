@@ -89,13 +89,18 @@
 										requiredMessage="Please give a short desciption of the item you found." />
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<div class="form-group ">
+								<lk:inputArea id="sesu" label="Secret Summary"
+										fieldvalue="#{registerController.regItemBean.secretDescription}"
+										placeholder="User wont be able to see this summary but user will be able to serach using this keywords like name on an engraved ring." 
+										required="false"
+										requiredMessage="Please give a short desciption of the item you found." />
+									<!-- <div class="form-group ">
 										<label for="sesu" class="label-custom">Secret Summary</label>
 										<textarea jsf:id="sesu"
 											class="form-control form-control-custom"
 											jsf:value="#{registerController.regItemBean.secretDescription}"
 											placeholder="Please describe the found item" />
-									</div>
+									</div> -->
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 									<div class="form-group ">

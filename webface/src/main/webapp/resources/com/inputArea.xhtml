@@ -21,14 +21,14 @@
 			<label for="input" jsf:id="inputlbl"
 				jsf:styleClass="label-custom #{cc.findComponent('input').valid ?
 		 (cc.attributes.fieldvalue !=null ?'valid-label' :''): 'err-label'}">
-				#{cc.attributes.label}</label> <input jsf:id="input" type="text"
+				#{cc.attributes.label}</label> <textarea jsf:id="input" rows="5"
 				jsf:value="#{cc.attributes.fieldvalue}"
 				placeholder="#{cc.attributes.placeholder}" required="#{cc.attributes.required}"
 				jsf:styleClass="form-control form-control-custom #{cc.findComponent('input').valid? 
 				(cc.attributes.fieldvalue !=null ?'valid-field' :''):'err-field'}"
 				jsf:requiredMessage="#{cc.attributes.requiredMessage}">
 			<f:ajax event="blur"  execute="@this" render="inputlbl input chiconid errmsglbl"></f:ajax>
-			</input>
+			</textarea>
 			<h:panelGroup id="chiconid"
 				styleClass="glyphicon #{cc.findComponent('input').valid ? (cc.attributes.fieldvalue !=null ?'glyphicon glyphicon-ok form-control-feedback valid-label' :''): 'glyphicon glyphicon-remove form-control-feedback err-label'}"
 				aria-hidden="true"></h:panelGroup>
