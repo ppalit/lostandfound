@@ -77,49 +77,29 @@
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<div class="form-group ">
-										<label for="icId" jsf:id="icidlbl"
-											jsf:styleClass="label-custom #{icId.valid ? '': 'err-label'}">
-											Color</label> <input jsf:id="icId" type="text"
-											jsf:value="#{registerController.regItemBean.itemColor}"
-											placeholder="Color of the found item" required="true"
-											jsf:binding="#{icId}"
-											jsf:styleClass="form-control form-control-custom #{icId.valid ? '':'err-field'}"
-											jsf:requiredMessage="Please enter Color"
-											data-toggle="tooltip" data-placement="bottom"
-											title="Tooltip on bottom" />
-
-									</div>
+									<lk:inputField id="icId" label="Color" fieldId="icIdf"
+										fieldvalue="#{registerController.regItemBean.itemColor}"
+										placeholder="Color of the found item" required="true"
+										requiredMessage="Please enter color(s) of the item you found." />
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<div class="form-group ">
-										<label for="descId"
-											jsf:styleClass="label-custom #{descId.valid ? '': 'err-label'}">Description</label>
-										<textarea jsf:id="descId" rows="4"
-											jsf:value="#{registerController.regItemBean.publicDescription}"
-											placeholder="Please describe the found item" required="true"
-											jsf:binding="#{descId}"
-											jsf:styleClass="form-control form-control-custom #{descId.valid ? '':'err-field'}"
-											jsf:requiredMessage="Please enter Color" />
-									</div>
+									<lk:inputArea id="descId" label="Description"
+										fieldvalue="#{registerController.regItemBean.publicDescription}"
+										placeholder="Please describe the found item" required="true"
+										requiredMessage="Please give a short desciption of the item you found." />
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<div class="form-group ">
-										<label for="sesu" class="label-custom">Secret Summary</label>
-										<textarea jsf:id="sesu"
-											class="form-control form-control-custom"
-											jsf:value="#{registerController.regItemBean.secretDescription}"
-											placeholder="Please describe the found item" />
-									</div>
+								<lk:inputArea id="sesu" label="Secret Summary"
+										fieldvalue="#{registerController.regItemBean.secretDescription}"
+										placeholder="User won't be able to see this summary but user will be able to serach using this keywords like name on an engraved ring." 
+										required="false"
+										requiredMessage="Please give a short desciption of the item you found." />
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<div class="form-group ">
-										<label for="fidId" class="label-custom">Date</label>
-										<lk:calendar id="fidId"
+										<lk:calendar id="fidId" label="Date"
 											dateValue="#{registerController.regItemBean.foundDate}"
 											placeholder="click to show datepicker" required="true"
-											styleClass="form-control form-control-custom" />
-									</div>
+											requiredMessage="Please select the item found date"  />
 								</div>
 							</div>
 							<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
@@ -130,7 +110,8 @@
 										value="Continue" action="#{registerController.updateSection}">
 									Continue <i class="glyphicon glyphicon-arrow-right"></i>
 										<f:param name="section" value="section2" />
-										<f:ajax execute="@form" render="psec1  psec2" onevent="handleAjax" />
+										<f:ajax execute="@form" render="psec1  psec2"
+											onevent="handleAjax" />
 									</h:commandButton>
 
 								</div>
@@ -254,11 +235,11 @@
 								</div>
 								<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
 									<div class="form-group ">
-										<label for="lnaId" jsf:styleClass="label-custom #{lnaId.valid ? '': 'err-label'}">Surname</label> <input
-											jsf:id="lnaId" type="text"
+										<label for="lnaId"
+											jsf:styleClass="label-custom #{lnaId.valid ? '': 'err-label'}">Surname</label>
+										<input jsf:id="lnaId" type="text"
 											jsf:value="#{registerController.regItemBean.reporter.lastName}"
-											placeholder="Family name please" 
-											required="true"
+											placeholder="Family name please" required="true"
 											jsf:binding="#{lnaId}"
 											jsf:styleClass="form-control form-control-custom #{lnaId.valid ? '':'err-field'}"
 											jsf:requiredMessage="Please enter Color" />
@@ -266,16 +247,15 @@
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 									<div class="form-group ">
-										<label for="emlId" jsf:styleClass="label-custom #{emlId.valid ? '': 'err-label'}">Email</label> <input
-											jsf:id="emlId" type="email"
+										<label for="emlId"
+											jsf:styleClass="label-custom #{emlId.valid ? '': 'err-label'}">Email</label>
+										<input jsf:id="emlId" type="email"
 											class="form-control form-control-custom"
 											jsf:value="#{registerController.regItemBean.reporter.emailId}"
-											placeholder="Your email id" 
-											required="true"
+											placeholder="Your email id" required="true"
 											jsf:binding="#{emlId}"
 											jsf:styleClass="form-control form-control-custom #{emlId.valid ? '':'err-field'}"
-											jsf:requiredMessage="Please enter Color"
-											/>
+											jsf:requiredMessage="Please enter Color" />
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

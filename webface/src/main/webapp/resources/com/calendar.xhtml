@@ -11,13 +11,32 @@
 		<cc:attribute name="styleClass" />
 		<cc:attribute name="dateValue" />
 		<cc:attribute name="placeholder" />
+		<cc:attribute name="label" />
+		<cc:attribute name="required" default="false" />
+		<cc:attribute name="requiredMessage" />
+		
 	</cc:interface>
 	<cc:implementation>
 	
-	
-		<input jsf:id="date" type="text" class="#{cc.attributes.styleClass}"  
-			jsf:value="#{cc.attributes.dateValue}" placeholder="#{cc.attributes.placeholder}" />
+		<div class="form-group has-feedback ">
+			<label for="date" jsf:id="datelbl"
+				jsf:styleClass="label-custom #{cc.findComponent('date').valid?
+		 (cc.attributes.fieldvalue !=null ?'valid-label' :''): 'err-label'}">
+				#{cc.attributes.label}</label> 
+		<input jsf:id="date" type="text"
+				jsf:value="#{cc.attributes.dateValue}"
+				placeholder="#{cc.attributes.placeholder}" required="#{cc.attributes.required}"
+				jsf:styleClass="form-control form-control-custom #{component.valid ? 
+				(cc.attributes.dateValue !=null ?'valid-field' :''):'err-field'}"
+				jsf:requiredMessage="#{cc.attributes.requiredMessage}">
+			<f:ajax event="blur"  execute="@this" render="datelbl date chiconid errmsglbl" />
+			</input>
+			<h:panelGroup id="chiconid"
+				styleClass="glyphicon #{cc.findComponent('date').valid ? (cc.attributes.dateValue !=null ?'glyphicon glyphicon-ok form-control-feedback valid-label' :''): 'glyphicon glyphicon-remove form-control-feedback err-label'}"
+				aria-hidden="true"></h:panelGroup>
+			<h:message id="errmsglbl" for="date" styleClass="label-custom err-msg"></h:message>
 			
+		</div>
 			
 	<script type="text/javascript">
 		// convert to bacsic tag id

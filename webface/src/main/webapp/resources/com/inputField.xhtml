@@ -1,0 +1,43 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:cc="http://xmlns.jcp.org/jsf/composite">
+
+	<cc:interface>
+		<cc:attribute name="id" />
+		<cc:attribute name="styleClass" />
+		<cc:attribute name="label" />
+		<cc:attribute name="fieldvalue" />
+		<cc:attribute name="placeholder" />
+		<cc:attribute name="required" default="false" />
+		<cc:attribute name="requiredMessage" />
+	</cc:interface>
+	<cc:implementation>
+
+		<div class="form-group has-feedback ">
+			<label for="input" jsf:id="inputlbl"
+				jsf:styleClass="label-custom #{cc.findComponent('input').valid?
+		 (cc.attributes.fieldvalue !=null ?'valid-label' :''): 'err-label'}">
+				#{cc.attributes.label}</label> 
+				<input jsf:id="input" type="text"
+				jsf:value="#{cc.attributes.fieldvalue}"
+				placeholder="#{cc.attributes.placeholder}" required="#{cc.attributes.required}"
+				jsf:styleClass="form-control form-control-custom #{component.valid ? 
+				(cc.attributes.fieldvalue !=null ?'valid-field' :''):'err-field'}"
+				jsf:requiredMessage="#{cc.attributes.requiredMessage}">
+			<f:ajax event="blur"  execute="@this" render="inputlbl input chiconid errmsglbl" />
+			</input>
+			<h:panelGroup id="chiconid"
+				styleClass="glyphicon #{cc.findComponent('input').valid ? (cc.attributes.fieldvalue !=null ?'glyphicon glyphicon-ok form-control-feedback valid-label' :''): 'glyphicon glyphicon-remove form-control-feedback err-label'}"
+				aria-hidden="true"></h:panelGroup>
+			<h:message id="errmsglbl" for="input" styleClass="label-custom err-msg"></h:message>
+		</div>
+		<script type="text/javascript">
+			
+		</script>
+	</cc:implementation>
+
+</ui:composition>

@@ -19,4 +19,20 @@
       </resource-id>
     </component>
   </tag>
+  <tag>
+    <tag-name>inputField</tag-name>
+    <component>
+      <resource-id>
+        com/inputField.xhtml
+      </resource-id>
+    </component>
+  </tag>
+  <tag>
+    <tag-name>inputArea</tag-name>
+    <component>
+      <resource-id>
+        com/inputArea.xhtml
+      </resource-id>
+    </component>
+  </tag>
 </facelet-taglib>
