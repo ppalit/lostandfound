@@ -14,7 +14,7 @@ public class ConfigMapper implements RowMapper<ConfigBean> {
 		ConfigBean configBean = new ConfigBean();
 		configBean.setConfig_id(rs.getInt("config_id"));
 		configBean.setConfig_key(rs.getString("config_key"));
-		configBean.setConfig_parent(rs.getInt("config_id"));
+		configBean.setConfig_parent(rs.getInt("config_parent"));
 		configBean.setConfig_type(rs.getString("config_type"));
 		configBean.setConfig_value(rs.getString("config_value"));
 			
