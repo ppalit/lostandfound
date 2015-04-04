@@ -15,6 +15,7 @@
 		<cc:attribute name="placeholder" />
 		<cc:attribute name="required" default="false" />
 		<cc:attribute name="requiredMessage" />
+		<cc:attribute name="defaultlabel" />
 	</cc:interface>
 	<cc:implementation>
 
@@ -25,7 +26,7 @@
 			<h:selectOneMenu id="input" styleClass="form-control form-control-custom"  
 			value="#{cc.attributes.fieldvalue}" required="#{cc.attributes.required}"
 			requiredMessage="#{cc.attributes.requiredMessage}"  >
-					<f:selectItem itemLabel="Select a Server..." />
+					<f:selectItem itemLabel="#{cc.attributes.defaultlabel}" />
 					<f:selectItems value="#{cc.attributes.optionlist}"></f:selectItems>
 					<f:ajax event="blur"  execute="@this" render="inputlbl input errmsglbl" />
 			</h:selectOneMenu>

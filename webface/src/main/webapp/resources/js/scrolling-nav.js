@@ -58,7 +58,8 @@ function initTooltip(){
  */
 function handleEmailResponse(resp) {
   var primaryEmail;
-
+  
+  if(resp.emails !=null){
   for(var i = 0 ; i < resp.emails.length; i++){
   	if(resp.emails[i].type == "account"){
   		if(document.getElementById('riForm:emlId')!= null){
@@ -66,6 +67,7 @@ function handleEmailResponse(resp) {
   		}
   	}
   }
+}
   
   if(resp.displayName!=null){
 	  if(document.getElementById('riForm:unId')!= null){
