@@ -73,13 +73,13 @@ h1 {
 .background-d{
 /* 	background-image:url("#{resource['img:bg-image.jpg']}"); */
 
-	background-image: url("http://www.wallpaperfullhd1080p.com/Wallpaper4/images/Hot%20Girl%20in%20Rain%20HD%20Wallpaper.jpg"); 
+	background-image: url("http://www.gloria-agostina.com/wordpress/wp-content/uploads/2012/06/Beach-Girl-Wallpaper_V3.jpg"); 
  background-repeat:no-repeat;
     /* custom background-position */
     background-position:50% 50%;
     /* ie8- graceful degradation */
     background-position:50% 50%9 !important;
-	background-size:contain; /* remove it */
+	background-size:cover; /* remove it */
 }
 .main-content {
 	margin-top: 7%;

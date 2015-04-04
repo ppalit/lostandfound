@@ -35,4 +35,12 @@
       </resource-id>
     </component>
   </tag>
+  <tag>
+    <tag-name>inputDropDown</tag-name>
+    <component>
+      <resource-id>
+        com/inputDropDown.xhtml
+      </resource-id>
+    </component>
+  </tag>
 </facelet-taglib>
