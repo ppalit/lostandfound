@@ -47,74 +47,71 @@
 						<div class="row">
 							<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
 							<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-							
-							
-							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 center">
-								<h3>Let’s get started.</h3>
-								<p>We will try to capture all the necessary details to
-									locate the person this belongs</p>
-								<hr />
-							</div>
-							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 center">
+									<h3>Let’s get started.</h3>
+									<p>We will try to capture all the necessary details to
+										locate the person this belongs</p>
+									<hr />
+								</div>
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 										<lk:inputDropDown id="caid" label="Category"
 											fieldvalue="#{registerController.regItemBean.category}"
 											optionlist="#{registerController.categories}" required="true"
-											requiredMessage="Please select a category" 
+											requiredMessage="Please select a category"
 											defaultlabel="Select a category" />
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 										<lk:inputDropDown id="scId" label="Sub Category"
 											fieldvalue="#{registerController.regItemBean.subCategory}"
-											optionlist="#{registerController.subCategories}" required="true"
+											optionlist="#{registerController.subCategories}"
+											required="true"
 											requiredMessage="Please select a sub category"
 											defaultlabel="Select a sub category" />
 									</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<lk:inputField id="icId" label="Color" fieldId="icIdf"
-										fieldvalue="#{registerController.regItemBean.itemColor}"
-										placeholder="Color of the found item" required="true"
-										requiredMessage="Please enter color(s) of the item you found." />
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										<lk:inputField id="icId" label="Color" fieldId="icIdf"
+											fieldvalue="#{registerController.regItemBean.itemColor}"
+											placeholder="Color of the found item" required="true"
+											requiredMessage="Please enter color(s) of the item you found." />
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										<lk:inputArea id="descId" label="Description"
+											fieldvalue="#{registerController.regItemBean.publicDescription}"
+											placeholder="Please describe the found item" required="true"
+											requiredMessage="Please give a short desciption of the item you found." />
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										<lk:inputArea id="sesu" label="Secret Summary"
+											fieldvalue="#{registerController.regItemBean.secretDescription}"
+											placeholder="User won't be able to see this summary but user will be able to serach using this keywords like name on an engraved ring."
+											required="false"
+											requiredMessage="Please give a short desciption of the item you found." />
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										<lk:calendar id="fidId" label="Date"
+											dateValue="#{registerController.regItemBean.foundDate}"
+											placeholder="click to show datepicker" required="true"
+											requiredMessage="Please select the item found date" />
+									</div>
 								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<lk:inputArea id="descId" label="Description"
-										fieldvalue="#{registerController.regItemBean.publicDescription}"
-										placeholder="Please describe the found item" required="true"
-										requiredMessage="Please give a short desciption of the item you found." />
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<lk:inputArea id="sesu" label="Secret Summary"
-										fieldvalue="#{registerController.regItemBean.secretDescription}"
-										placeholder="User won't be able to see this summary but user will be able to serach using this keywords like name on an engraved ring."
-										required="false"
-										requiredMessage="Please give a short desciption of the item you found." />
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<lk:calendar id="fidId" label="Date"
-										dateValue="#{registerController.regItemBean.foundDate}"
-										placeholder="click to show datepicker" required="true"
-										requiredMessage="Please select the item found date" />
-								</div>
-							</div>
-							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-								<hr />
-								<div class="input-group-btn"
-									style="padding-bottom: 15px; text-align: right">
-									<h:commandButton type="submit" id="hsb" class="btn btn-default"
-										value="Continue" action="#{registerController.updateSection}">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									<hr />
+									<div class="input-group-btn"
+										style="padding-bottom: 15px; text-align: right">
+										<h:commandButton type="submit" id="hsb"
+											class="btn btn-default" value="Continue"
+											action="#{registerController.updateSection}">
 									Continue <i class="glyphicon glyphicon-arrow-right"></i>
-										<f:param name="section" value="section2" />
-										<f:ajax execute="@form" render="psec1  psec2"
-											onevent="handleAjax" />
-									</h:commandButton>
+											<f:param name="section" value="section2" />
+											<f:ajax execute="@form" render="psec1  psec2"
+												onevent="handleAjax" />
+										</h:commandButton>
 
+									</div>
 								</div>
-							</div>
-							
-							
-							
-							
-							
 							</div>
 							<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
 
@@ -128,89 +125,95 @@
 					<h:panelGroup layout="block" styleClass="container margin"
 						rendered="#{registerController.sectionName == 'section2'}">
 						<div class="row">
-							<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 center">
-								<h3>Let's Locate</h3>
-								<p>Location infomation always helps us to reach to the owner</p>
-								<hr />
-							</div>
-							<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<div class="form-group ">
-										<label for="flid" class="label-custom">Found Landmark</label>
-										<input jsf:id="flid" type="text"
-											class="form-control form-control-custom"
-											jsf:value="#{registerController.regItemBean.location.streetAddress}"
-											placeholder="Near bus stop, cinema or garden?" />
+
+							<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" />
+							<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 center">
+										<h3>Let's Locate</h3>
+										<p>Location infomation always helps us to reach to the
+											owner</p>
+										<hr />
 									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<div class="form-group ">
-
-										<label for="locId"
-											jsf:styleClass="label-custom #{locId.valid ? '': 'err-label'}">Location</label>
-										<div class="input-group">
-											<input jsf:id="locId" type="text"
-												jsf:value="#{registerController.uiLocation}"
-												placeholder="Enther the place name and locate"
-												required="true" jsf:binding="#{locId}"
-												jsf:styleClass="form-control form-control-custom #{locId.valid ? '':'err-field'}"
-												jsf:requiredMessage="Please enter Color" />
-
-											<div class="input-group-btn">
-												<button type="button" jsf:id="fiai"
-													class="btn btn-success btn-custom" name="fiA"
-													value="Find Location" onclick="locateAddressonMap();">
-													<i class="glyphicon glyphicon-map-marker"></i>
-												</button>
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+											<div class="form-group ">
+												<label for="flid" class="label-custom">Found
+													Landmark</label> <input jsf:id="flid" type="text"
+													class="form-control form-control-custom"
+													jsf:value="#{registerController.regItemBean.location.streetAddress}"
+													placeholder="Near bus stop, cinema or garden?" />
 											</div>
 										</div>
-									</div>
-								</div>
-								<div class="col-lg-12 col-md-12 col-sm-12">
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+											<div class="form-group ">
+												<label for="locId"
+													jsf:styleClass="label-custom #{locId.valid ? '': 'err-label'}">Location</label>
+												<div class="input-group">
+													<input jsf:id="locId" type="text"
+														jsf:value="#{registerController.uiLocation}"
+														placeholder="Enther the place name and locate"
+														required="true" jsf:binding="#{locId}"
+														jsf:styleClass="form-control form-control-custom #{locId.valid ? '':'err-field'}"
+														jsf:requiredMessage="Please enter Color" />
 
-									<h:panelGroup layout="block" id="map-canvas"
-										styleClass="google-map"
-										style="border:solid 1px rgb(196, 196, 196)"></h:panelGroup>
+													<div class="input-group-btn">
+														<button type="button" jsf:id="fiai"
+															class="btn btn-success btn-custom" name="fiA"
+															value="Find Location" onclick="locateAddressonMap();">
+															<i class="glyphicon glyphicon-map-marker"></i>
+														</button>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+											<h:panelGroup layout="block" id="map-canvas"
+												styleClass="google-map"
+												style="border:solid 1px rgb(196, 196, 196)"></h:panelGroup>
 
-									<!-- <h:outputText id="rgu"
+											<!-- <h:outputText id="rgu"
 										value="#{registerController.regItemBean.beanString != null? registerController.regItemBean.beanString:'EMPTY'}" />
 	 -->
-									<input jsf:id="hidlat" type="hidden"
-										jsf:value="#{registerController.regItemBean.location.lat}" />
-									<input jsf:id="hidlng" type="hidden"
-										jsf:value="#{registerController.regItemBean.location.lng}" />
-									<input jsf:id="hidlct" type="hidden"
-										jsf:value="#{registerController.regItemBean.location.locType}" />
-									<input jsf:id="hidcty" type="hidden"
-										jsf:value="#{registerController.regItemBean.location.city}" />
-									<input jsf:id="hidcnt" type="hidden"
-										jsf:value="#{registerController.regItemBean.location.country}" />
-								</div>
-							</div>
+											<input jsf:id="hidlat" type="hidden"
+												jsf:value="#{registerController.regItemBean.location.lat}" />
+											<input jsf:id="hidlng" type="hidden"
+												jsf:value="#{registerController.regItemBean.location.lng}" />
+											<input jsf:id="hidlct" type="hidden"
+												jsf:value="#{registerController.regItemBean.location.locType}" />
+											<input jsf:id="hidcty" type="hidden"
+												jsf:value="#{registerController.regItemBean.location.city}" />
+											<input jsf:id="hidcnt" type="hidden"
+												jsf:value="#{registerController.regItemBean.location.country}" />
+										</div>
+									</div>
 
-							<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-								<hr />
-								<div class="input-group-btn"
-									style="padding-bottom: 15px; text-align: left">
-									<h:commandButton type="submit" id="psec2prev"
-										class="btn btn-default" value="Previous" immediate="true"
-										action="#{registerController.updateSection}">
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<hr />
+										<div class="input-group-btn"
+											style="padding-bottom: 15px; text-align: left">
+											<h:commandButton type="submit" id="psec2prev"
+												class="btn btn-default" value="Previous" immediate="true"
+												action="#{registerController.updateSection}">
 									Previous <i class="glyphicon glyphicon-arrow-left"></i>
-										<f:param name="section" value="section1" />
-										<f:ajax execute="@form" render="psec1  psec2" />
-									</h:commandButton>
-								</div>
-								<div class="input-group-btn"
-									style="padding-bottom: 15px; text-align: right">
-									<h:commandButton type="submit" id="psec2nxt"
-										class="btn btn-default" value="Continue"
-										action="#{registerController.updateSection}">
+												<f:param name="section" value="section1" />
+												<f:ajax execute="@form" render="psec1  psec2" />
+											</h:commandButton>
+										</div>
+										<div class="input-group-btn"
+											style="padding-bottom: 15px; text-align: right">
+											<h:commandButton type="submit" id="psec2nxt"
+												class="btn btn-default" value="Continue"
+												action="#{registerController.updateSection}">
 									Continue <i class="glyphicon glyphicon-arrow-right"></i>
-										<f:param name="section" value="section3" />
-										<f:ajax execute="@form" render="psec2  psec3" />
-									</h:commandButton>
-								</div>
+												<f:param name="section" value="section3" />
+												<f:ajax execute="@form" render="psec2  psec3" />
+											</h:commandButton>
+										</div>
+									</div>
 							</div>
+							<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" />
+
+
 						</div>
 					</h:panelGroup>
 				</h:panelGroup>
