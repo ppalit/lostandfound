@@ -1,4 +1,4 @@
-
+#!/bin/sh
 sudo su - root
 cd /opt
 mkdir apps
